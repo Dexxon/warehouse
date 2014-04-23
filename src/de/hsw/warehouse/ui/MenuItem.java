@@ -1,32 +1,33 @@
 package de.hsw.warehouse.ui;
 
-public class MenuItem implements Runnable{
+public class MenuItem implements Runnable
+{
 
 	private String title;
 	private Runnable action;
-	
+
 	protected MenuItem(String title)
 	{
 		this.title = title;
 	}
-	
+
 	public MenuItem(String title, Runnable action)
 	{
 		this.title = title;
 		this.action = action;
 	}
-	
-	public String getTitle() 
+
+	public String getTitle()
 	{
 		return title;
 	}
 
-	public Runnable getAction() 
+	public Runnable getAction()
 	{
 		return action;
 	}
 
-	public void setAction(Runnable action) 
+	public void setAction(Runnable action)
 	{
 		this.action = action;
 	}
@@ -35,20 +36,16 @@ public class MenuItem implements Runnable{
 	{
 		return action != null;
 	}
-	
+
 	@Override
-	public void run() 
+	public void run()
 	{
-		try
-		{
+		try {
 			action.run();
-		}
-		catch(Throwable t)
-		{
+		} catch (Throwable t) {
 			t.printStackTrace(System.err);
 		}
-		
+
 	}
-	
 
 }

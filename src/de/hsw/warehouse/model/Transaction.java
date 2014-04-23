@@ -2,11 +2,12 @@ package de.hsw.warehouse.model;
 
 import java.util.GregorianCalendar;
 
-public class Transaction {
+public class Transaction
+{
 
 	private GregorianCalendar date;
 	private int articleID, quantity;
-	
+
 	public Transaction(int artikelID, int quantity, GregorianCalendar date)
 	{
 		this.articleID = artikelID;
@@ -14,24 +15,22 @@ public class Transaction {
 		this.date = date;
 	}
 
-
 	public int getVolume()
 	{
 		return Article.volumeArray[articleID] * quantity;
 	}
-	
-	public int getArticleID() 
+
+	public int getArticleID()
 	{
 		return articleID;
 	}
 
-
-	public int getQuantity() 
+	public int getQuantity()
 	{
 		return quantity;
 	}
 
-	public GregorianCalendar getDate() 
+	public GregorianCalendar getDate()
 	{
 		return date;
 	}
