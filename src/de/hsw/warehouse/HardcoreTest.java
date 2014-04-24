@@ -1,5 +1,6 @@
 package de.hsw.warehouse;
 
+import java.io.FileNotFoundException;
 import java.util.GregorianCalendar;
 
 import de.hsw.warehouse.model.Article;
@@ -13,6 +14,19 @@ public class HardcoreTest
 
 	public static void main(String[] args)
 	{
+		try {
+			Article.initialiseArticlePool("C:\\articlePool.csv");
+		} catch (FileNotFoundException e) {
+			System.out
+					.println("Datei wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie den korrekten Pfad angegeben haben.");
+			Runtime.getRuntime().exit(1);
+		} catch (NumberFormatException ex) {
+			System.out
+					.println("Beim Einlesen der Datei ist ein Fehler aufgetreten. Da Programm beendet sich jetzt.");
+			Runtime.getRuntime().exit(2);
+		}
+
+		System.out.println(Article.articlePool.length);
 		GregorianCalendar startDate = new GregorianCalendar(2013,
 				GregorianCalendar.AUGUST, 4);
 		GregorianCalendar endDate = new GregorianCalendar(2014,
@@ -34,7 +48,7 @@ public class HardcoreTest
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 			for (int transactions = transactionsPerDay; transactions > 0; transactions--) {
 				articleID = (int) Math.round(Math.random()
-						* (Article.nameArray.length - 1));
+						* (Article.namePool.length - 1));
 				quantity = (int) Math.round(Math.random() * 5);
 				switch ((int) Math.round(Math.random())) {
 					case 1:

@@ -69,7 +69,7 @@ public class Warehouse
 
 		for (Location location : locations) {
 			for (int i = 0; i < location.getArticle().size() && quantity > 0; i++) {
-				if (location.getArticle().get(i).getArticleNumber() == articleID) {
+				if (location.getArticle().get(i).getArticleID() == articleID) {
 					map.put(location.getArticle().get(i), location);
 					quantity--;
 				}
@@ -84,7 +84,7 @@ public class Warehouse
 
 		for (Location location : locations) {
 			for (Article artikel : location.getArticle()) {
-				if (artikel.getArticleNumber() == articleID) {
+				if (artikel.getArticleID() == articleID) {
 					map.put(artikel, location);
 				}
 			}
@@ -96,7 +96,7 @@ public class Warehouse
 	{
 		int tempQuantity = quantity;
 		for (Location location : locations) {
-			if (location.getFreeSpace() >= Article.volumeArray[articleId])
+			if (location.getFreeSpace() >= Article.volumePool[articleId])
 				tempQuantity--;
 		}
 		return tempQuantity <= 0;

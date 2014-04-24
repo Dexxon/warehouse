@@ -17,7 +17,7 @@ public class Transaction
 
 	public int getVolume()
 	{
-		return Article.volumeArray[articleID] * quantity;
+		return Article.volumePool[articleID] * quantity;
 	}
 
 	public int getArticleID()
