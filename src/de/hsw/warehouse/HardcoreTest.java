@@ -29,7 +29,6 @@ public class HardcoreTest
 		int days = (int) ((endDate.getTimeInMillis() - startDate
 				.getTimeInMillis()) / (1000 * 60 * 60 * 24));
 		transactionsPerDay = (int) amountOfTransactions / days;
-		System.out.println(days);
 
 		for (int day = 0; day < days; day++) {
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
@@ -37,7 +36,6 @@ public class HardcoreTest
 				articleID = (int) Math.round(Math.random()
 						* (Article.nameArray.length - 1));
 				quantity = (int) Math.round(Math.random() * 5);
-				System.out.println(currentDate.getTime());
 				switch ((int) Math.round(Math.random())) {
 					case 1:
 						if (warehouse.enoughFreeSpace(articleID, quantity))
@@ -52,13 +50,13 @@ public class HardcoreTest
 			}
 		}
 
-		System.out.println(warehouse.transactions.size());
 		System.out.println("Artikelnummer\tAnzahl\tDatum");
 		for (Transaction transaction : warehouse.transactions) {
 			System.out.println(transaction.getArticleID() + "\t"
 					+ transaction.getQuantity() + "\t"
 					+ transaction.getDate().getTime());
 		}
+		System.out.println(warehouse.transactions.size());
 
 	}
 
