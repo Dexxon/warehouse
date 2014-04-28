@@ -2,14 +2,12 @@ package de.hsw.warehouse.model;
 
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map.Entry;
 
 public class Warehouse
 {
 
 	Location[] locations;
-	public LinkedList<Transaction> transactions = new LinkedList<Transaction>();
 
 	public Warehouse(int size, int volume)
 	{
@@ -19,7 +17,8 @@ public class Warehouse
 		}
 	}
 
-	public void store(int articleID, int quantity, GregorianCalendar date)
+	public Transaction store(int articleID, int quantity, GregorianCalendar date)
+			throws WarehouseFullException
 	{
 		if (enoughFreeSpace(articleID, quantity)) {
 			Article artikel;
@@ -32,35 +31,30 @@ public class Warehouse
 						locations[j].addArticle(artikel);
 						artilcleToLocation.put(new Article(articleID),
 								locations[j]);
-						// System.out.println("Article eingelagert: " +
-						// artikel.getArtikelNummer() + " in " + j +
-						// " Freier Platz: " + locations[j].getFreierPlatz());
 						break;
 					}
 				}
 			}
-			transactions.add(new Transaction(articleID, quantity, date));
-		} else
-			System.out.println("Warehouse voll!");
+			return new Transaction(articleID, quantity, date);
+		} else {
+			throw new WarehouseFullException("Lager voll");
+		}
+
 	}
 
-	public void age(int articleID, int quantity, GregorianCalendar date)
+	public Transaction age(int articleID, int quantity, GregorianCalendar date)
+			throws NotEnoughArticelException
 	{
 		HashMap<Article, Location> articleToLocation = findArticlel(articleID,
 				quantity);
 		if (articleToLocation.size() >= quantity) {
-			// System.out.println("Anzahl Article: " +
-			// zuordnungArtikelZuLagerplatz.size() + ". Zu löschen: " + anzahl);
 			for (Entry<Article, Location> map : articleToLocation.entrySet()) {
 				map.getValue().removeArticlel(map.getKey());
 			}
-			transactions.add(new Transaction(articleID, -quantity, date));
+			return new Transaction(articleID, -quantity, date);
 		} else {
-			System.out.println("Konnte nicht auslagern!");
+			throw new NotEnoughArticelException("Konnte nicht auslagern");
 		}
-
-		// System.out.println("Anzahl Article nach Auslagerung: " +
-		// findeArtikel(artikelnummer).size());
 	}
 
 	public HashMap<Article, Location> findArticlel(int articleID, int quantity)
