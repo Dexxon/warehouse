@@ -7,7 +7,7 @@ import de.hsw.warehouse.model.Article;
 import de.hsw.warehouse.model.NotEnoughArticelException;
 import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.model.Warehouse;
-import de.hsw.warehouse.model.WarehouseFullException;
+import de.hsw.warehouse.model.NotEnoughSpaceException;
 
 public class Testdata
 {
@@ -71,7 +71,7 @@ public class Testdata
 										.store(articleID, quantity,
 												(GregorianCalendar) currentDate
 														.clone()));
-							} catch (WarehouseFullException e) {
+							} catch (NotEnoughSpaceException e) {
 								System.out.println(e.getMessage());
 							}
 						break;

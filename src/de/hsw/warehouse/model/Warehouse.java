@@ -18,7 +18,7 @@ public class Warehouse
 	}
 
 	public Transaction store(int articleID, int quantity, GregorianCalendar date)
-			throws WarehouseFullException
+			throws NotEnoughSpaceException
 	{
 		if (enoughFreeSpace(articleID, quantity)) {
 			Article artikel;
@@ -37,7 +37,7 @@ public class Warehouse
 			}
 			return new Transaction(articleID, quantity, date);
 		} else {
-			throw new WarehouseFullException("Lager voll");
+			throw new NotEnoughSpaceException("Lager voll");
 		}
 
 	}
