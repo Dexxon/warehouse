@@ -76,7 +76,7 @@ public class Testdata
 							}
 						break;
 					default:
-						if (warehouse.findArticlel(articleID, quantity).size() == quantity)
+						if (warehouse.findArticle(articleID, quantity).size() == quantity)
 							try {
 								this.transactions.add(warehouse
 										.age(articleID, quantity,

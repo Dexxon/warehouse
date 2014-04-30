@@ -45,11 +45,11 @@ public class Warehouse
 	public Transaction age(int articleID, int quantity, GregorianCalendar date)
 			throws NotEnoughArticelException
 	{
-		HashMap<Article, Location> articleToLocation = findArticlel(articleID,
+		HashMap<Article, Location> articleToLocation = findArticle(articleID,
 				quantity);
 		if (articleToLocation.size() >= quantity) {
 			for (Entry<Article, Location> map : articleToLocation.entrySet()) {
-				map.getValue().removeArticlel(map.getKey());
+				map.getValue().removeArticle(map.getKey());
 			}
 			return new Transaction(articleID, -quantity, date);
 		} else {
@@ -57,7 +57,7 @@ public class Warehouse
 		}
 	}
 
-	public HashMap<Article, Location> findArticlel(int articleID, int quantity)
+	public HashMap<Article, Location> findArticle(int articleID, int quantity)
 	{
 		HashMap<Article, Location> map = new HashMap<Article, Location>();
 
@@ -88,11 +88,10 @@ public class Warehouse
 
 	public boolean enoughFreeSpace(int articleId, int quantity)
 	{
-		int tempQuantity = quantity;
 		for (Location location : locations) {
 			if (location.getFreeSpace() >= Article.volumePool[articleId])
-				tempQuantity--;
+				quantity--;
 		}
-		return tempQuantity <= 0;
+		return quantity <= 0;
 	}
 }

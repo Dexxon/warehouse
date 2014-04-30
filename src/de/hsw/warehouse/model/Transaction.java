@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
 
 public class Transaction
 {
-
+	
 	private GregorianCalendar date;
 	private int articleID, quantity;
 

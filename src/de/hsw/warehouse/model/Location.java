@@ -45,7 +45,7 @@ public class Location
 		this.load += article.getVolume();
 	}
 
-	public void removeArticlel(Article article)
+	public void removeArticle(Article article)
 	{
 		if (this.article.contains(article)) {
 			this.article.remove(this.article.indexOf(article));
