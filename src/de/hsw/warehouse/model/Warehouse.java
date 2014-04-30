@@ -21,15 +21,15 @@ public class Warehouse
 			throws NotEnoughSpaceException
 	{
 		if (enoughFreeSpace(articleID, quantity)) {
-			Article artikel;
-			HashMap<Article, Location> artilcleToLocation = new HashMap<Article, Location>();
+			Article article;
+			HashMap<Article, Location> articleToLocation = new HashMap<Article, Location>();
 
 			for (int i = 0; i < quantity; i++) {
-				artikel = new Article(articleID);
+				article = new Article(articleID);
 				for (int j = 0; j < locations.length; j++) {
-					if (locations[j].getFreeSpace() > artikel.getVolume()) {
-						locations[j].addArticle(artikel);
-						artilcleToLocation.put(new Article(articleID),
+					if (locations[j].getFreeSpace() > article.getVolume()) {
+						locations[j].addArticle(article);
+						articleToLocation.put(new Article(articleID),
 								locations[j]);
 						break;
 					}
