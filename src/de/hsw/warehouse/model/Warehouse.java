@@ -43,7 +43,7 @@ public class Warehouse
 	}
 
 	public Transaction age(int articleID, int quantity, GregorianCalendar date)
-			throws NotEnoughArticelException
+			throws NotEnoughArticleException
 	{
 		HashMap<Article, Location> articleToLocation = findArticle(articleID,
 				quantity);
@@ -53,7 +53,7 @@ public class Warehouse
 			}
 			return new Transaction(articleID, -quantity, date);
 		} else {
-			throw new NotEnoughArticelException("Konnte nicht auslagern");
+			throw new NotEnoughArticleException("Konnte nicht auslagern");
 		}
 	}
 

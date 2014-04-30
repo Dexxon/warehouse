@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 import de.hsw.warehouse.model.Article;
-import de.hsw.warehouse.model.NotEnoughArticelException;
+import de.hsw.warehouse.model.NotEnoughArticleException;
 import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.model.Warehouse;
 import de.hsw.warehouse.model.NotEnoughSpaceException;
@@ -82,7 +82,7 @@ public class Testdata
 										.age(articleID, quantity,
 												(GregorianCalendar) currentDate
 														.clone()));
-							} catch (NotEnoughArticelException e) {
+							} catch (NotEnoughArticleException e) {
 								System.out.println(e.getMessage());
 							}
 				}
