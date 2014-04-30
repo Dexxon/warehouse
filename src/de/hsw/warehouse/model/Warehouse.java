@@ -21,17 +21,14 @@ public class Warehouse
 			throws NotEnoughSpaceException
 	{
 		if (enoughFreeSpace(articleID, quantity)) {
-			Article article;
-			HashMap<Article, Location> articleToLocation = new HashMap<Article, Location>();
-
-			for (int i = 0; i < quantity; i++) {
-				article = new Article(articleID);
-				for (int j = 0; j < locations.length; j++) {
-					if (locations[j].getFreeSpace() > article.getVolume()) {
-						locations[j].addArticle(article);
-						articleToLocation.put(new Article(articleID),
-								locations[j]);
-						break;
+			int tempQuantity = quantity;
+			
+			while(tempQuantity > 0){
+				for (int j = 0; j < locations.length && tempQuantity > 0; j++) {
+					while(locations[j].getFreeSpace() > Article.volumePool[articleID] && tempQuantity > 0){
+						locations[j].addArticle(new Article(articleID));
+						tempQuantity--;
+						System.out.println("Eingelagert: " + articleID + " in " + j);
 					}
 				}
 			}
@@ -86,11 +83,19 @@ public class Warehouse
 		return map;
 	}
 
-	public boolean enoughFreeSpace(int articleId, int quantity)
+	public boolean enoughFreeSpace(int articleID, int quantity)
 	{
+		int quantityPerLocation;
 		for (Location location : locations) {
-			if (location.getFreeSpace() >= Article.volumePool[articleId])
-				quantity--;
+			quantityPerLocation = 1;
+			while(true){
+				if (location.getFreeSpace() >= Article.volumePool[articleID] * quantityPerLocation){
+					quantity--;
+					quantityPerLocation++;
+				} else {
+					break;
+				}
+			}		
 		}
 		return quantity <= 0;
 	}
