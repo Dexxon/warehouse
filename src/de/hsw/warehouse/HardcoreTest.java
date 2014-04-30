@@ -10,7 +10,7 @@ import de.hsw.warehouse.model.Warehouse;
 
 public class HardcoreTest
 {
-
+// hallo
 	public static Warehouse warehouse = new Warehouse(2000, 20);
 	public static GregorianCalendar startDate = new GregorianCalendar(2012,
 			GregorianCalendar.AUGUST, 16);
