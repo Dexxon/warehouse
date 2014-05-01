@@ -20,7 +20,7 @@ public class HardcoreTest
 	public static void main(String[] args)
 	{
 		try {
-			Article.initialiseArticlePool("C:\\Users\\Constantin\\Google Drive\\Studium\\4. Semester\\Programmierung\\Objektorientierte Programmierung\\Hausarbeit\\Grobkonzept\\ArtikelPool.csv");
+			Article.initialiseArticlePool("C:\\ArtikelPool.csv");
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
