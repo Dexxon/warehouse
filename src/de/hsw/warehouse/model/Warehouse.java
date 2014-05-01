@@ -28,13 +28,13 @@ public class Warehouse
 					while(locations[j].getFreeSpace() > Article.volumePool[articleID] && tempQuantity > 0){
 						locations[j].addArticle(new Article(articleID));
 						tempQuantity--;
-						System.out.println("Eingelagert: " + articleID + " in " + j);
+						//System.out.println("Eingelagert: " + articleID + " in " + j);
 					}
 				}
 			}
 			return new Transaction(articleID, quantity, date);
 		} else {
-			throw new NotEnoughSpaceException("Lager voll");
+			throw new NotEnoughSpaceException("+");
 		}
 
 	}
@@ -50,7 +50,7 @@ public class Warehouse
 			}
 			return new Transaction(articleID, -quantity, date);
 		} else {
-			throw new NotEnoughArticleException("Konnte nicht auslagern");
+			throw new NotEnoughArticleException("-");
 		}
 	}
 

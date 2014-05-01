@@ -15,15 +15,14 @@ public class Testdata
 	private LinkedList<Transaction> transactions;
 	private GregorianCalendar startDate, endDate;
 
-	public Testdata(Warehouse warehouse, int maximumCountOfTransactions,
-			GregorianCalendar startDate, GregorianCalendar endDate)
+	public Testdata(Warehouse warehouse, GregorianCalendar startDate,
+			GregorianCalendar endDate)
 	{
 		this.warehouse = warehouse;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.transactions = new LinkedList<Transaction>();
-		generateTestData(warehouse, maximumCountOfTransactions, startDate,
-				endDate);
+		generateTestData(warehouse, startDate, endDate);
 	}
 
 	public Warehouse getWarehouse()
@@ -47,46 +46,51 @@ public class Testdata
 	}
 
 	private void generateTestData(Warehouse warehouse,
-			int maximumCountOfTransactions, GregorianCalendar startDate,
-			GregorianCalendar endDate)
+			GregorianCalendar startDate, GregorianCalendar endDate)
 	{
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
 
-		int articleID, quantity, transactionsPerDay;
-		int days = (int) ((endDate.getTimeInMillis() - startDate
-				.getTimeInMillis()) / (1000 * 60 * 60 * 24));
-		transactionsPerDay = (int) maximumCountOfTransactions / days;
+		int articleID, quantity, transactionsPerDay, hour, minute;
 
-		for (int day = 0; day < days; day++) {
+		while (currentDate.before(endDate)) {
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
-			for (int transactions = transactionsPerDay; transactions > 0; transactions--) {
+
+			if (currentDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY) {
+				currentDate.add(GregorianCalendar.DAY_OF_YEAR, 2);
+			}
+
+			transactionsPerDay = (int) Math.round(Math.random() * 20);
+			hour = 7 + (int) (Math.round(Math.random()) * 8)
+					/ (transactionsPerDay + 1);
+			currentDate.set(GregorianCalendar.HOUR, hour);
+			minute = (int) Math.round(Math.random() * 60);
+			currentDate.set(GregorianCalendar.MINUTE, minute);
+
+			while (transactionsPerDay > 0) {
+				quantity = (int) Math.round(Math.random() * 19) + 1;
 				articleID = (int) Math.round(Math.random()
 						* (Article.namePool.length - 1));
-				quantity = (int) Math.round(Math.random() * 5);
-				switch ((int) Math.round(Math.random())) {
-					case 1:
-						if (warehouse.enoughFreeSpace(articleID, quantity))
-							try {
-								this.transactions.add(warehouse
-										.store(articleID, quantity,
-												(GregorianCalendar) currentDate
-														.clone()));
-							} catch (NotEnoughSpaceException e) {
-								System.out.println(e.getMessage());
-							}
-						break;
-					default:
-						if (warehouse.findArticle(articleID, quantity).size() == quantity)
-							try {
-								this.transactions.add(warehouse
-										.age(articleID, quantity,
-												(GregorianCalendar) currentDate
-														.clone()));
-							} catch (NotEnoughArticleException e) {
-								System.out.println(e.getMessage());
-							}
+
+				if ((int) Math.round(Math.random()) == 1) {
+					try {
+						this.transactions.add(warehouse.store(articleID,
+								quantity,
+								(GregorianCalendar) currentDate.clone()));
+					} catch (NotEnoughSpaceException e) {
+						System.out.print(e.getMessage());
+					}
+				} else {
+					try {
+						this.transactions.add(warehouse.age(articleID,
+								quantity,
+								(GregorianCalendar) currentDate.clone()));
+					} catch (NotEnoughArticleException e) {
+						System.out.print(e.getMessage());
+					}
 				}
+				transactionsPerDay--;
 			}
 		}
+		System.out.println("");
 	}
 }

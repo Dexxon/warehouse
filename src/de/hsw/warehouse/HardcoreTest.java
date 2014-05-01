@@ -26,7 +26,7 @@ public class HardcoreTest
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		Testdata testData = new Testdata(warehouse, 2000, startDate, endDate);
+		Testdata testData = new Testdata(warehouse, startDate, endDate);
 		System.out.println("Artikelnummer\tAnzahl\tDatum");
 		for (Transaction transaction : testData.getTransactions()) {
 			System.out.println(transaction.getArticleID() + "\t"
