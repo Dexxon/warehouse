@@ -8,7 +8,7 @@ import de.hsw.warehouse.model.Article;
 import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.model.Warehouse;
 
-public class HardcoreTest
+public class Test
 {
 
 	public static Warehouse warehouse = new Warehouse(2000, 20);
