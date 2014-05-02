@@ -37,9 +37,10 @@ public class Test
 		System.out.println(testData.getTransactions().size());
 		
 		for (Transaction transaction : testData.getTransactionsInPeriod(new GregorianCalendar(2012,GregorianCalendar.SEPTEMBER,3), new GregorianCalendar(2012,GregorianCalendar.OCTOBER,3))){
-			System.out.println(transaction.getArticleID() + "\t"
+			/*System.out.println(transaction.getArticleID() + "\t"
 					+ transaction.getQuantity() + "\t"
-					+ transaction.getDate().getTime());
+					+ transaction.getDate().getTime());*/
+			System.out.println(transaction);
 		}
 	}
 
