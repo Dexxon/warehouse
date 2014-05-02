@@ -40,7 +40,6 @@ public class Testdata
 	{
 		int startIndex = 0;
 		int endIndex = 0;
-		startOfPeriod.add(GregorianCalendar.DAY_OF_YEAR, -1);
 		endOfPeriod.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		for(int i = 0;i < this.transactions.size(); i++){
 			if(this.transactions.get(i).getDate().after(startOfPeriod) && startIndex == 0){
