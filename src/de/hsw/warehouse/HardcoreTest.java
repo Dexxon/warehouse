@@ -27,6 +27,7 @@ public class HardcoreTest
 			e.printStackTrace();
 		}
 		Testdata testData = new Testdata(warehouse, startDate, endDate);
+		
 		System.out.println("Artikelnummer\tAnzahl\tDatum");
 		for (Transaction transaction : testData.getTransactions()) {
 			System.out.println(transaction.getArticleID() + "\t"
@@ -34,7 +35,12 @@ public class HardcoreTest
 					+ transaction.getDate().getTime());
 		}
 		System.out.println(testData.getTransactions().size());
-
+		
+		for (Transaction transaction : testData.getTransactionsInPeriod(new GregorianCalendar(2012,GregorianCalendar.SEPTEMBER,3), new GregorianCalendar(2012,GregorianCalendar.OCTOBER,3))){
+			System.out.println(transaction.getArticleID() + "\t"
+					+ transaction.getQuantity() + "\t"
+					+ transaction.getDate().getTime());
+		}
 	}
 
 }

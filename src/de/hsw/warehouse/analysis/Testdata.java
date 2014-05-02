@@ -2,12 +2,13 @@ package de.hsw.warehouse.analysis;
 
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
+import java.util.List;
 
 import de.hsw.warehouse.model.Article;
 import de.hsw.warehouse.model.NotEnoughArticleException;
+import de.hsw.warehouse.model.NotEnoughSpaceException;
 import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.model.Warehouse;
-import de.hsw.warehouse.model.NotEnoughSpaceException;
 
 public class Testdata
 {
@@ -34,6 +35,24 @@ public class Testdata
 	{
 		return transactions;
 	}
+	
+	public List<Transaction> getTransactionsInPeriod(GregorianCalendar startOfPeriod, GregorianCalendar endOfPeriod)
+	{
+		int startIndex = 0;
+		int endIndex = 0;
+		startOfPeriod.add(GregorianCalendar.DAY_OF_YEAR, -1);
+		endOfPeriod.add(GregorianCalendar.DAY_OF_YEAR, 1);
+		for(int i = 0;i < this.transactions.size(); i++){
+			if(this.transactions.get(i).getDate().after(startOfPeriod) && startIndex == 0){
+				startIndex = i;
+			}
+			if(this.transactions.get(i).getDate().after(endOfPeriod) && endIndex == 0){
+				endIndex = i;
+				break;
+			}
+		}
+		return this.transactions.subList(startIndex, endIndex);
+	}
 
 	public GregorianCalendar getStartDate()
 	{
@@ -49,8 +68,8 @@ public class Testdata
 			GregorianCalendar startDate, GregorianCalendar endDate)
 	{
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
-
-		int articleID, quantity, transactionsPerDay, hour, minute;
+		currentDate.add(GregorianCalendar.DAY_OF_YEAR, -1);
+		int articleID, quantity, transactionsPerDay;
 
 		while (currentDate.before(endDate)) {
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
@@ -59,14 +78,12 @@ public class Testdata
 				currentDate.add(GregorianCalendar.DAY_OF_YEAR, 2);
 			}
 
-			transactionsPerDay = (int) Math.round(Math.random() * 20);
-			hour = 7 + (int) (Math.round(Math.random()) * 8)
-					/ (transactionsPerDay + 1);
-			currentDate.set(GregorianCalendar.HOUR, hour);
-			minute = (int) Math.round(Math.random() * 60);
-			currentDate.set(GregorianCalendar.MINUTE, minute);
+			currentDate.set(GregorianCalendar.HOUR_OF_DAY, 7);
+			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1;
+			int tempTransactionsPerDay = transactionsPerDay;
 
 			while (transactionsPerDay > 0) {
+				currentDate.add(GregorianCalendar.MINUTE, 480 / tempTransactionsPerDay );;
 				quantity = (int) Math.round(Math.random() * 19) + 1;
 				articleID = (int) Math.round(Math.random()
 						* (Article.namePool.length - 1));
