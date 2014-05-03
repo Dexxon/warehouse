@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
-
+/**
+ * Diese Klasse beschreibt einen einzigen Artikel sowie den statisch definierten Artikelpool.
+ * @author Constantin Grote
+ *
+ */
 public class Article
 {
 
@@ -13,6 +17,12 @@ public class Article
 	public static String[] commodityGroupPool;
 	public static int[] volumePool;
 
+	/**
+	 * Initialisiert den Artikelpool. Dabei werden die statischen Arrays articlePool, namePool, commodityGroupPool und volumePool mit Werten gefüllt.
+	 * @param pathToArticleList Pfad zu der .csv Datei, welche die Auflistung aller Artikel und deren Eigenschaften enthält.
+	 * @throws FileNotFoundException Wird geworfen, wenn die Datei nicht an dem angegebenen Pfad gefunden wird.
+	 * @throws NumberFormatException Wird geworfen, wenn bei der Umwandlung eines Strings in einen Integer einFehler auftritt.
+	 */
 	public static void initialiseArticlePool(String pathToArticleList)
 			throws FileNotFoundException, NumberFormatException
 	{
@@ -42,6 +52,10 @@ public class Article
 	private String commodityGroup;
 	private int volume;
 
+	/**
+	 * Konstruktor der Klasse Article. Die Attribute des Artikels werden anhand der Artikelnummer bestimmt.
+	 * @param articleID Die Artikelnummer des zu erzeugenden Artikels.
+	 */
 	public Article(int articleID)
 	{
 		this.articleID = articleID;
@@ -51,21 +65,33 @@ public class Article
 
 	}
 
+	/**
+	 * @return Artikelnummer des Artikels.
+	 */
 	public int getArticleID()
 	{
 		return articleID;
 	}
 
+	/**
+	 * @return Name des Artikels
+	 */
 	public String getName()
 	{
 		return articleName;
 	}
 
+	/**
+	 * @return Warengruppe des Artikels
+	 */
 	public String getCommodityGroup()
 	{
 		return commodityGroup;
 	}
 
+	/**
+	 * @return Volumen des Artikels
+	 */
 	public int getVolume()
 	{
 		return volume;
