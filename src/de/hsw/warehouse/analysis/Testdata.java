@@ -71,7 +71,7 @@ public class Testdata
 			GregorianCalendar startDate, GregorianCalendar endDate)
 	{
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
-		currentDate.add(GregorianCalendar.DAY_OF_YEAR, -1);
+		endDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		int articleID, quantity, transactionsPerDay;
 		FileWriter dataWriter = null;
 		
@@ -84,7 +84,6 @@ public class Testdata
 		}
 		
 		while (currentDate.before(endDate)) {
-			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 
 			if (currentDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY) {
 				currentDate.add(GregorianCalendar.DAY_OF_YEAR, 2);
@@ -131,6 +130,7 @@ public class Testdata
 				}
 				transactionsPerDay--;
 			}
+			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		}
 		
 		//FileWriter schlieﬂen.
