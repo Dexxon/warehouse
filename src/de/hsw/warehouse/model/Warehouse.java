@@ -8,13 +8,26 @@ public class Warehouse
 {
 
 	Location[] locations;
+	private int size, volumePerLocation;
 
-	public Warehouse(int size, int volume)
+	public Warehouse(int size, int volumePerLocation)
 	{
+		this.size = size;
+		this.volumePerLocation = volumePerLocation;
 		locations = new Location[size];
 		for (int i = 0; i < size; i++) {
-			locations[i] = new Location(volume);
+			locations[i] = new Location(volumePerLocation);
 		}
+	}
+
+	public int getSize()
+	{
+		return size;
+	}
+
+	public int getVolumePerLocation()
+	{
+		return volumePerLocation;
 	}
 
 	public Transaction store(int articleID, int quantity, GregorianCalendar date)
