@@ -35,6 +35,10 @@ public class Util
 			try {
 			result.add(new GregorianCalendar());
 			result.get(i).setTime(sdf.parse(input[i]));
+			if(i != 0){
+				result.get(i).add(GregorianCalendar.DAY_OF_YEAR, 1);
+				result.get(i).add(GregorianCalendar.SECOND, -1);
+			}
 			} catch (ParseException e) {
 			sdf.applyPattern("MM.yyy");
 			try {
