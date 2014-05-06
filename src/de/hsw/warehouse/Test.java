@@ -36,7 +36,7 @@ public class Test
 		}
 		System.out.println(testData.getTransactions().size());
 		
-		for (Transaction transaction : testData.getTransactionsInPeriod(new GregorianCalendar(2012,GregorianCalendar.SEPTEMBER,3), new GregorianCalendar(2012,GregorianCalendar.OCTOBER,3))){
+		for (Transaction transaction : testData.getTransactionsInPeriod(startDate,endDate)){
 			System.out.println(transaction);
 		}
 	}

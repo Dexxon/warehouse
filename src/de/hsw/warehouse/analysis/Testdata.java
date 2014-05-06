@@ -38,19 +38,19 @@ public class Testdata
 	
 	public List<Transaction> getTransactionsInPeriod(GregorianCalendar startOfPeriod, GregorianCalendar endOfPeriod)
 	{
-		int startIndex = 0;
-		int endIndex = 0;
+		int fromIndex = 0;
+		int toIndex = this.transactions.size();
 		endOfPeriod.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		for(int i = 0;i < this.transactions.size(); i++){
-			if(this.transactions.get(i).getDate().after(startOfPeriod) && startIndex == 0){
-				startIndex = i;
+			if(this.transactions.get(i).getDate().after(startOfPeriod) && fromIndex == 0){
+				fromIndex = i;
 			}
-			if(this.transactions.get(i).getDate().after(endOfPeriod) && endIndex == 0){
-				endIndex = i;
+			if(this.transactions.get(i).getDate().after(endOfPeriod) && toIndex == this.transactions.size()){
+				toIndex = i;
 				break;
 			}
 		}
-		return this.transactions.subList(startIndex, endIndex);
+		return this.transactions.subList(fromIndex, toIndex);
 	}
 
 	public GregorianCalendar getStartDate()
