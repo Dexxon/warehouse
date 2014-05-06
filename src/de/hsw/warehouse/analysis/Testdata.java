@@ -1,9 +1,5 @@
 package de.hsw.warehouse.analysis;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,7 +15,7 @@ public class Testdata
 	private Warehouse warehouse;
 	private LinkedList<Transaction> transactions;
 	private GregorianCalendar startDate, endDate;
-	
+
 	public Testdata(Warehouse warehouse, GregorianCalendar startDate,
 			GregorianCalendar endDate)
 	{
@@ -73,22 +69,13 @@ public class Testdata
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
 		endDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		int articleID, quantity, transactionsPerDay;
-		FileWriter dataWriter = null;
-		
-		//Deklaration und Initialisierung des FileWriters.
-		try {
-			dataWriter = new FileWriter("C:\\Test\\Testdata");
-			
-		} catch (IOException e1) {
-			System.out.println("Fehler beim erstellen der Testdata File!\n"+e1);
-		}
-		
+
 		while (currentDate.before(endDate)) {
 
 			if (currentDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY) {
 				currentDate.add(GregorianCalendar.DAY_OF_YEAR, 2);
 			}
-			
+
 			currentDate.set(GregorianCalendar.HOUR_OF_DAY, 7);
 			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1;
 			int tempTransactionsPerDay = transactionsPerDay;
@@ -104,12 +91,6 @@ public class Testdata
 						this.transactions.add(warehouse.store(articleID,
 								quantity,
 								(GregorianCalendar) currentDate.clone()));
-						//Transaction in File schreiben.
-						try {
-							dataWriter.write(articleID+";"+quantity+";"+((GregorianCalendar) currentDate.clone()).getTime()+";\r\n");
-						} catch (IOException e) {
-							System.out.println("Fehler beim Schreiben in die Testdata File!");
-						}
 					} catch (NotEnoughSpaceException e) {
 						System.out.print(e.getMessage());
 					}
@@ -118,12 +99,6 @@ public class Testdata
 						this.transactions.add(warehouse.age(articleID,
 								quantity,
 								(GregorianCalendar) currentDate.clone()));
-						//Transaction in File schreiben.
-						try {
-							dataWriter.write(articleID+";"+quantity+";"+((GregorianCalendar) currentDate.clone()).getTime()+";\r\n");
-						} catch (IOException e) {
-							System.out.println("Fehler beim Schreiben in die Testdata File!");
-						}
 					} catch (NotEnoughArticleException e) {
 						System.out.print(e.getMessage());
 					}
@@ -132,14 +107,6 @@ public class Testdata
 			}
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		}
-		
-		//FileWriter schlieﬂen.
-		try {
-			dataWriter.close();
-		} catch (IOException e) {
-			System.out.println("Fehler beim Schlieﬂen der Datei.");
-		}
 		System.out.println("");
 	}
-	
 }
