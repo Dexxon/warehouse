@@ -1,5 +1,7 @@
 package de.hsw.warehouse.analysis;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,6 +11,7 @@ import de.hsw.warehouse.model.NotEnoughArticleException;
 import de.hsw.warehouse.model.NotEnoughSpaceException;
 import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.model.Warehouse;
+import de.hsw.warehouse.util.Util;
 
 public class Testdata
 {
@@ -108,5 +111,22 @@ public class Testdata
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		}
 		System.out.println("");
+	}
+	
+	public void writeToDisk(String path)
+	{
+		String[] lines = new String[this.getTransactions().size() + 1];
+		lines[0] = this.warehouse.getSize() + ";"+ this.warehouse.getVolumePerLocation();
+		int index = 1;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
+		for(Transaction transaction : this.transactions){
+			lines[index] = transaction.getArticleID() + ";" + sdf.format(transaction.getDate().getTime()) + ";" + transaction.getQuantity();
+			index++;
+		}
+		try {
+			Util.writeToDisk(lines, path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

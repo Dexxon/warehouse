@@ -39,6 +39,7 @@ public class Test
 		for (Transaction transaction : testData.getTransactionsInPeriod(startDate,endDate)){
 			System.out.println(transaction);
 		}
+		testData.writeToDisk("C:\\Testdata\\testData.csv");
 	}
 
 }
