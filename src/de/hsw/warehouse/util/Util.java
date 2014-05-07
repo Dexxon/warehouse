@@ -68,6 +68,7 @@ public class Util
 		FileWriter fileWriter = new FileWriter(path);
 		for(int i = 0; i < lines.length; i++){
 			fileWriter.write(lines[i]);
+			fileWriter.write(System.lineSeparator());
 		}
 		fileWriter.close();
 	}
