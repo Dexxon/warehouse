@@ -1,6 +1,7 @@
 package de.hsw.warehouse.util;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
@@ -60,5 +61,14 @@ public class Util
 			}
 		}
 		return result;
+	}
+	
+	public static void writeToDisk(String[] lines, String path) throws IOException
+	{
+		FileWriter fileWriter = new FileWriter(path);
+		for(int i = 0; i < lines.length; i++){
+			fileWriter.write(lines[i]);
+		}
+		fileWriter.close();
 	}
 }
