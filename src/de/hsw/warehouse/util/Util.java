@@ -1,6 +1,8 @@
 package de.hsw.warehouse.util;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 public class Util
 {
@@ -71,5 +74,16 @@ public class Util
 			fileWriter.write(System.lineSeparator());
 		}
 		fileWriter.close();
+	}
+	
+	public static String[] readFromDisk(String path) throws FileNotFoundException
+	{
+		Scanner input = new Scanner(new File(path));
+		ArrayList<String> lines = new ArrayList<String>();
+		while(input.hasNext()){
+			lines.add(input.nextLine() + System.lineSeparator());
+		}
+		input.close();
+		return lines.toArray(new String[lines.size()]);
 	}
 }
