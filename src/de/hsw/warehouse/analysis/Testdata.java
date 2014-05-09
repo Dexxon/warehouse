@@ -1,6 +1,8 @@
 package de.hsw.warehouse.analysis;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
@@ -29,6 +31,13 @@ public class Testdata
 		generateTestData(warehouse, startDate, endDate);
 	}
 
+	public Testdata(String path)
+	{
+		this.transactions = this.readFromDisk(path);
+		this.startDate = this.transactions.getFirst().getDate();
+		this.endDate = this.transactions.getLast().getDate();
+	}
+	
 	public Warehouse getWarehouse()
 	{
 		return warehouse;
@@ -120,7 +129,7 @@ public class Testdata
 		int index = 1;
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
 		for(Transaction transaction : this.transactions){
-			lines[index] = transaction.getArticleID() + ";" + sdf.format(transaction.getDate().getTime()) + ";" + transaction.getQuantity();
+			lines[index] = transaction.getArticleID() + ";" + sdf.format(transaction.getDate().getTime()) + ";" + transaction.getQuantity() + ";";
 			index++;
 		}
 		try {
@@ -128,5 +137,30 @@ public class Testdata
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public LinkedList<Transaction> readFromDisk(String path)
+	{
+		String[] lines = null;
+		int quantity, articleID;
+		GregorianCalendar date = new GregorianCalendar();
+		LinkedList<Transaction> transactions = new LinkedList<Transaction>();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
+		try {
+			lines = Util.readFromDisk(path);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		for(int i = 0; i < lines.length; i++) {
+			articleID = Integer.parseInt(lines[i].split(";")[0]);
+			try {
+				date.setTime(sdf.parse(lines[i].split(";")[1]));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			quantity = Integer.parseInt(lines[i].split(";")[2]);
+			transactions.add(new Transaction(articleID, quantity, (GregorianCalendar) date.clone()));
+		}
+		return transactions;
 	}
 }
