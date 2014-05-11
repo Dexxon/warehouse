@@ -18,7 +18,7 @@ public class Analysis {
 
 	public static void main(String[] args) {
 		try {
-			Article.initialiseArticlePool("C:\\Users\\Rodenwaldt\\Downloads\\ArtikelPool.csv");
+			Article.initialiseArticlePool("C:\\ArtikelPool.csv");
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
@@ -31,12 +31,13 @@ public class Analysis {
 		GregorianCalendar pointOfInventoryEnd = new GregorianCalendar(2012,
 				GregorianCalendar.SEPTEMBER, 12);
 
-		 quantityPerDay(pointOfInventoryStart, data);
-		 System.out.println("\n\n\n");
-		 quantityOfPeriod(pointOfInventoryStart, pointOfInventoryEnd, data);
+		//quantityPerDay(pointOfInventoryStart, data);
+		//System.out.println("\n\n\n");
+		//quantityOfPeriod(pointOfInventoryStart, pointOfInventoryEnd, data);
 		// quantityPerDay(pointOfInventoryEnd, data);
+		//stockCourseOfPeriod(30,pointOfInventoryStart,pointOfInventoryEnd, data);
+		//differenceCalculatorOfPeriod(pointOfInventoryStart,pointOfInventoryEnd, data);
 
-		
 	}
 
 	/*
@@ -67,13 +68,11 @@ public class Analysis {
 
 		int average = 0;
 		int subtotal = 0;
-		
+
 		GregorianCalendar tempDate = new GregorianCalendar();
 		tempDate.setTimeInMillis(startDate.getTimeInMillis());
-		
-		long timeToWorkWith = endDate.getTimeInMillis()
-				- startDate.getTimeInMillis();
-		int daysToWorkWith = (int) ((timeToWorkWith / (1000 * 60 * 60 * 24)) + 1);
+
+		int daysToWorkWith = dayCalculator(startDate, endDate);
 		int[] quantityOnDays = new int[daysToWorkWith];
 
 		for (int i = 0; i < daysToWorkWith; i++) {
@@ -87,7 +86,7 @@ public class Analysis {
 
 		average = subtotal / daysToWorkWith;
 		return average;
-	
+
 	}
 
 	public static void quantityPerDay(GregorianCalendar date, Testdata data) {
@@ -134,6 +133,69 @@ public class Analysis {
 					+ averageQuantity);
 			counter++;
 		}
+	}
+
+	public static void stockCourseOfPeriod(int articleID,
+			GregorianCalendar startDate, GregorianCalendar endDate,
+			Testdata data) {
+		
+		GregorianCalendar tempDate = new GregorianCalendar();
+		tempDate.setTimeInMillis(startDate.getTimeInMillis());
+
+		int daysToWorkWith = dayCalculator(startDate, endDate);
+		int quantity = 0;
+		
+		System.out.println("\n");
+		System.out.println("Bestand vom " + startDate.getTime() + " bis zum "
+				+ endDate.getTime() +  " für den Artikel '" + Article.namePool[articleID].intern() + "' : ");
+		System.out.println("\n");
+		System.out
+				.println("Datum \t Artikelnummer \t Artikelname \t Bestand");
+
+		for (int i = 0; i < daysToWorkWith; i++) {
+			quantity = quantityCalculator(articleID, tempDate, data);
+			System.out.println(tempDate.getTime() + "\t" + articleID + "\t" +
+			Article.namePool[articleID].intern() + "\t" + quantity);
+			tempDate.add(5,1);
+		}
+		
+		
+	}
+	
+	public static void differenceCalculatorOfPeriod(GregorianCalendar startDate, 
+			GregorianCalendar endDate, Testdata data) {
+		
+		int quantityStart = 0;
+		int quantityEnd = 0;
+		int difference = 0;
+		int counter = 0;
+		
+		System.out.println("\n");
+		System.out.println("Differenzmengen vom " + startDate.getTime() + " bis zum "
+				+ endDate.getTime() +  " : ");
+		System.out.println("\n");
+		System.out
+				.println("Artikelnummer \t Artikelname \t Differenzmenge");
+		
+		while (counter < 60) {
+			quantityStart = quantityCalculator(counter, startDate, data);
+			quantityEnd = quantityCalculator(counter, endDate, data);
+			difference = quantityEnd - quantityStart;
+			System.out.println(counter + "\t"+ Article.namePool[counter].intern() +
+					"\t" + difference);
+			counter++;
+		}
+		
+	}
+
+	public static int dayCalculator(GregorianCalendar startDate,
+			GregorianCalendar endDate) {
+
+		long timeToWorkWith = endDate.getTimeInMillis()
+				- startDate.getTimeInMillis();
+		int daysToWorkWith = (int) ((timeToWorkWith / (1000 * 60 * 60 * 24)) + 1);
+
+		return daysToWorkWith;
 	}
 
 }
