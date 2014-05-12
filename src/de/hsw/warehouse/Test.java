@@ -1,10 +1,8 @@
 package de.hsw.warehouse;
 
-import java.io.FileNotFoundException;
 import java.util.GregorianCalendar;
 
 import de.hsw.warehouse.analysis.Testdata;
-import de.hsw.warehouse.model.Article;
 import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.model.Warehouse;
 
@@ -19,13 +17,13 @@ public class Test
 
 	public static void main(String[] args)
 	{
-		try {
+		/*try {
 			Article.initialiseArticlePool("C:\\ArtikelPool.csv");
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}
+		}*/
 		Testdata testData = new Testdata(warehouse, startDate, endDate);
 		
 		System.out.println("Artikelnummer\tAnzahl\tDatum");

@@ -1,10 +1,8 @@
 package de.hsw.warehouse.analysis;
 
-import java.io.FileNotFoundException;
 import java.util.GregorianCalendar;
 
-import de.hsw.warehouse.analysis.Testdata;
-import de.hsw.warehouse.model.Article;
+import de.hsw.warehouse.model.Assortment;
 import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.model.Warehouse;
 
@@ -17,14 +15,6 @@ public class Analysis {
 			GregorianCalendar.AUGUST, 16);
 
 	public static void main(String[] args) {
-		try {
-			Article.initialiseArticlePool("C:\\ArtikelPool.csv");
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-
 		Testdata data = new Testdata(warehouse, startDate, endDate);
 		GregorianCalendar pointOfInventoryStart = new GregorianCalendar(2012,
 				GregorianCalendar.AUGUST, 30);
@@ -100,7 +90,7 @@ public class Analysis {
 		System.out.println("Artikelnummer \t Artikelname \t Anzahl");
 
 		while (counter < 60) {
-			String articleName = Article.namePool[counter].intern();
+			String articleName = Assortment.getName(counter);
 			quantity = quantityCalculator(counter, date, data);
 			System.out.println(counter + "\t" + articleName + "\t" + quantity);
 			counter++;
@@ -124,7 +114,7 @@ public class Analysis {
 				.println("Artikelnummer \t Artikelname \t Anfangsbestand \t Endbestand \t Durchschnittsbestand");
 
 		while (counter < 60) {
-			String articleName = Article.namePool[counter].intern();
+			String articleName = Assortment.getName(counter);
 			quantityBegin = quantityCalculator(counter, startDate, data);
 			quantityEnd = quantityCalculator(counter, endDate, data);
 			averageQuantity = quantityAverage(counter, startDate, endDate, data);
@@ -147,7 +137,7 @@ public class Analysis {
 		
 		System.out.println("\n");
 		System.out.println("Bestand vom " + startDate.getTime() + " bis zum "
-				+ endDate.getTime() +  " für den Artikel '" + Article.namePool[articleID].intern() + "' : ");
+				+ endDate.getTime() +  " für den Artikel '" + Assortment.getName(articleID) + "' : ");
 		System.out.println("\n");
 		System.out
 				.println("Datum \t Artikelnummer \t Artikelname \t Bestand");
@@ -155,7 +145,7 @@ public class Analysis {
 		for (int i = 0; i < daysToWorkWith; i++) {
 			quantity = quantityCalculator(articleID, tempDate, data);
 			System.out.println(tempDate.getTime() + "\t" + articleID + "\t" +
-			Article.namePool[articleID].intern() + "\t" + quantity);
+			Assortment.getName(articleID) + "\t" + quantity);
 			tempDate.add(5,1);
 		}
 		
@@ -181,7 +171,7 @@ public class Analysis {
 			quantityStart = quantityCalculator(counter, startDate, data);
 			quantityEnd = quantityCalculator(counter, endDate, data);
 			difference = quantityEnd - quantityStart;
-			System.out.println(counter + "\t"+ Article.namePool[counter].intern() +
+			System.out.println(counter + "\t"+ Assortment.getName(counter) +
 					"\t" + difference);
 			counter++;
 		}

@@ -7,18 +7,19 @@ public class Transaction
 {
 
 	private GregorianCalendar date;
-	private int articleID, quantity;
+	private int articleID, quantity, volume;
 
 	public Transaction(int artikelID, int quantity, GregorianCalendar date)
 	{
 		this.articleID = artikelID;
 		this.quantity = quantity;
 		this.date = date;
+		this.volume = Assortment.getVolume(articleID);
 	}
 
 	public int getVolume()
 	{
-		return Article.volumePool[articleID] * quantity;
+		return volume;
 	}
 
 	public int getArticleID()

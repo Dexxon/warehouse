@@ -38,7 +38,7 @@ public class Warehouse
 			
 			while(tempQuantity > 0){
 				for (int j = 0; j < locations.length && tempQuantity > 0; j++) {
-					while(locations[j].getFreeSpace() > Article.volumePool[articleID] && tempQuantity > 0){
+					while(locations[j].getFreeSpace() > Assortment.getVolume(articleID) && tempQuantity > 0){
 						locations[j].addArticle(new Article(articleID));
 						tempQuantity--;
 						//System.out.println("Eingelagert: " + articleID + " in " + j);
@@ -102,7 +102,7 @@ public class Warehouse
 		for (Location location : locations) {
 			quantityPerLocation = 1;
 			while(true){
-				if (location.getFreeSpace() >= Article.volumePool[articleID] * quantityPerLocation){
+				if (location.getFreeSpace() >= Assortment.getVolume(articleID) * quantityPerLocation){
 					quantity--;
 					quantityPerLocation++;
 				} else {

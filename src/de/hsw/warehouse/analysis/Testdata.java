@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.hsw.warehouse.model.Article;
+import de.hsw.warehouse.model.Assortment;
 import de.hsw.warehouse.model.NotEnoughArticleException;
 import de.hsw.warehouse.model.NotEnoughSpaceException;
 import de.hsw.warehouse.model.Transaction;
@@ -96,7 +96,7 @@ public class Testdata
 				currentDate.add(GregorianCalendar.MINUTE, 480 / tempTransactionsPerDay );;
 				quantity = (int) Math.round(Math.random() * 19) + 1;
 				articleID = (int) Math.round(Math.random()
-						* (Article.namePool.length - 1));
+						* (Assortment.getSize() - 1));
 
 				if ((int) Math.round(Math.random()) == 1) {
 					try {
