@@ -3,15 +3,15 @@ package de.hsw.warehouse.ui;
 public class MenuStructure
 {
 
-	private static Menu testData = new Menu("Testdaten", true, false);
-	private static Menu analysis = new Menu("Auswertungen", true, false);
-	private static Menu mainMenu = new Menu("Hauptmenü", false, true, testData,
-			analysis);
+	private static Menu testDataMenu = new Menu("Testdaten", true, false);
+	private static Menu analysisMenu = new Menu("Auswertungen", true, false);
+	private static Menu mainMenu = new Menu("Hauptmenü", false, true, testDataMenu,
+			analysisMenu);
 
 	public static void main(String[] args)
 	{
 
-		testData.add(new MenuItem("Testdaten erzeugen", new Runnable()
+		testDataMenu.add(new MenuItem("Testdaten erzeugen", new Runnable()
 		{
 
 			@Override
@@ -22,7 +22,7 @@ public class MenuStructure
 			}
 		}));
 
-		testData.add(new MenuItem("Testdaten einlesen", new Runnable()
+		testDataMenu.add(new MenuItem("Testdaten einlesen", new Runnable()
 		{
 
 			@Override
@@ -33,7 +33,7 @@ public class MenuStructure
 			}
 		}));
 
-		testData.add(new MenuItem("Testdaten löschen", new Runnable()
+		testDataMenu.add(new MenuItem("Testdaten löschen", new Runnable()
 		{
 
 			@Override
@@ -44,7 +44,7 @@ public class MenuStructure
 			}
 		}));
 
-		analysis.add(new MenuItem("Artikelbestand", new Runnable()
+		analysisMenu.add(new MenuItem("Artikelbestand", new Runnable()
 		{
 
 			@Override
@@ -55,7 +55,7 @@ public class MenuStructure
 			}
 		}));
 
-		analysis.add(new MenuItem("Differenzmenge", new Runnable()
+		analysisMenu.add(new MenuItem("Differenzmenge", new Runnable()
 		{
 
 			@Override
@@ -66,7 +66,7 @@ public class MenuStructure
 			}
 		}));
 
-		analysis.add(new MenuItem("Umschlagshäufigkeit", new Runnable()
+		analysisMenu.add(new MenuItem("Umschlagshäufigkeit", new Runnable()
 		{
 
 			@Override
@@ -77,7 +77,7 @@ public class MenuStructure
 			}
 		}));
 
-		analysis.add(new MenuItem("Bestandsverlauf", new Runnable()
+		analysisMenu.add(new MenuItem("Bestandsverlauf", new Runnable()
 		{
 
 			@Override
@@ -88,7 +88,7 @@ public class MenuStructure
 			}
 		}));
 
-		analysis.add(new MenuItem("Auslastung", new Runnable()
+		analysisMenu.add(new MenuItem("Auslastung", new Runnable()
 		{
 
 			@Override
