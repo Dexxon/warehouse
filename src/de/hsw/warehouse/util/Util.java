@@ -88,7 +88,7 @@ public class Util
 	}
 	
 	public static String parseDate(GregorianCalendar gc){
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YY HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YY");
 		return sdf.format(gc.getTime());
 	}
 }
