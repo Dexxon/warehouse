@@ -17,14 +17,14 @@ import de.hsw.warehouse.util.Util;
 
 public class Testdata
 {
-	private Warehouse warehouse;
 	private LinkedList<Transaction> transactions;
 	private GregorianCalendar startDate, endDate;
+	private int sizeOfWarehouse;
 
 	public Testdata(Warehouse warehouse, GregorianCalendar startDate,
 			GregorianCalendar endDate)
 	{
-		this.warehouse = warehouse;
+		this.sizeOfWarehouse = warehouse.getSize();
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.transactions = new LinkedList<Transaction>();
@@ -38,9 +38,9 @@ public class Testdata
 		this.endDate = this.transactions.getLast().getDate();
 	}
 	
-	public Warehouse getWarehouse()
+	public int getSizeOfWarehouse()
 	{
-		return warehouse;
+		return this.sizeOfWarehouse;
 	}
 
 	public LinkedList<Transaction> getTransactions()
@@ -125,7 +125,7 @@ public class Testdata
 	public void writeToDisk(String path)
 	{
 		String[] lines = new String[this.getTransactions().size() + 1];
-		lines[0] = this.warehouse.getSize() + ";"+ this.warehouse.getVolumePerLocation();
+		lines[0] = String.valueOf(this.getSizeOfWarehouse());
 		int index = 1;
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
 		for(Transaction transaction : this.transactions){
@@ -151,7 +151,7 @@ public class Testdata
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		for(int i = 0; i < lines.length; i++) {
+		for(int i = 1; i < lines.length; i++) {
 			articleID = Integer.parseInt(lines[i].split(";")[0]);
 			try {
 				date.setTime(sdf.parse(lines[i].split(";")[1]));
