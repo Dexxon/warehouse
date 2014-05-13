@@ -169,7 +169,7 @@ public class Analysis {
 		for (Transaction transaction : data.getTransactions()) {
 			utilization += transaction.getVolume() * transaction.getQuantity();
 		}
-		System.out.println("Am " + Util.parseDate(date) + " beträgt die Auslastung des Lagers " + utilization/data.getSizeOfWarehouse() + "%");
+		System.out.println("Am " + Util.parseDate(date) + " beträgt die Auslastung des Lagers " + ((double) utilization) / data.getSizeOfWarehouse()*100 + "%");
 
 	}
 
