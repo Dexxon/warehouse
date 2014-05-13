@@ -1,9 +1,5 @@
 package de.hsw.warehouse.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
-import java.util.Scanner;
 /**
  * Diese Klasse beschreibt einen einzigen Artikel sowie den statisch definierten Artikelpool.
  * @author Constantin Grote
