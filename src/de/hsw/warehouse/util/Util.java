@@ -86,4 +86,9 @@ public class Util
 		input.close();
 		return lines.toArray(new String[lines.size()]);
 	}
+	
+	public static String parseDate(GregorianCalendar gc){
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YY HH:mm");
+		return sdf.format(gc.getTime());
+	}
 }
