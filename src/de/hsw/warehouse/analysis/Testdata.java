@@ -24,7 +24,7 @@ public class Testdata
 	public Testdata(Warehouse warehouse, GregorianCalendar startDate,
 			GregorianCalendar endDate)
 	{
-		this.sizeOfWarehouse = warehouse.getSize();
+		this.sizeOfWarehouse = warehouse.getSize() * warehouse.getVolumePerLocation();
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.transactions = new LinkedList<Transaction>();
