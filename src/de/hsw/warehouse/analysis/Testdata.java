@@ -52,16 +52,18 @@ public class Testdata
 	{
 		int fromIndex = 0;
 		int toIndex = this.transactions.size();
-		endOfPeriod.add(GregorianCalendar.DAY_OF_YEAR, 1);
-		for(int i = 0;i < this.transactions.size(); i++){
-			if(this.transactions.get(i).getDate().after(startOfPeriod) && fromIndex == 0){
-				fromIndex = i;
+		int index = 0;
+		for(Transaction transaction : this.transactions){
+			if(transaction.getDate().after(startOfPeriod) && fromIndex == 0){
+				fromIndex = index;
 			}
-			if(this.transactions.get(i).getDate().after(endOfPeriod) && toIndex == this.transactions.size()){
-				toIndex = i;
+			if(transaction.getDate().after(endOfPeriod) && toIndex == this.transactions.size()){
+				toIndex = index;
 				break;
 			}
+			index++;
 		}
+		
 		return this.transactions.subList(fromIndex, toIndex);
 	}
 
@@ -79,15 +81,9 @@ public class Testdata
 			GregorianCalendar startDate, GregorianCalendar endDate)
 	{
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
-		endDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		int articleID, quantity, transactionsPerDay;
 
 		while (currentDate.before(endDate)) {
-
-			if (currentDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY) {
-				currentDate.add(GregorianCalendar.DAY_OF_YEAR, 2);
-			}
-
 			currentDate.set(GregorianCalendar.HOUR_OF_DAY, 7);
 			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1;
 			int tempTransactionsPerDay = transactionsPerDay;
@@ -104,7 +100,6 @@ public class Testdata
 								quantity,
 								(GregorianCalendar) currentDate.clone()));
 					} catch (NotEnoughSpaceException e) {
-						System.out.print(e.getMessage());
 					}
 				} else {
 					try {
@@ -112,14 +107,17 @@ public class Testdata
 								quantity,
 								(GregorianCalendar) currentDate.clone()));
 					} catch (NotEnoughArticleException e) {
-						System.out.print(e.getMessage());
 					}
 				}
 				transactionsPerDay--;
 			}
+			
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
+			if (currentDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY) {
+				currentDate.add(GregorianCalendar.DAY_OF_YEAR, 2);
+			}
 		}
-		System.out.println("");
+		System.out.println("Es wurden " + this.transactions.size() + " Testdatensätze erstellt.");
 	}
 	
 	public void writeToDisk(String path)
