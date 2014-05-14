@@ -47,7 +47,7 @@ public class Warehouse
 			}
 			return new Transaction(articleID, quantity, date);
 		} else {
-			throw new NotEnoughSpaceException("+");
+			throw new NotEnoughSpaceException();
 		}
 
 	}
@@ -63,7 +63,7 @@ public class Warehouse
 			}
 			return new Transaction(articleID, -quantity, date);
 		} else {
-			throw new NotEnoughArticleException("-");
+			throw new NotEnoughArticleException();
 		}
 	}
 
