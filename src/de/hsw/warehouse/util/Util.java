@@ -92,7 +92,7 @@ public class Util
 		return sdf.format(gc.getTime());
 	}
 	
-	public static ArrayList<GregorianCalendar> inputPrompt(){
+	public static ArrayList<GregorianCalendar> inputPeriod(){
 		System.out.println("Geben Sie einen Zeitpunkt oder Zeitraum an: ");
 		Scanner inputTime = new Scanner(System.in);
 		String time = inputTime.nextLine();
@@ -107,7 +107,7 @@ public class Util
 	public static int inputArticleID(){
 		int id;
 		do {
-			System.out.println("Geben Sie die ID des gewünschten Artikels ein :");
+			System.out.print("Geben Sie die ID des gewünschten Artikels ein :");
 			Scanner inputArticle = new Scanner(System.in);
 			id = inputArticle.nextInt();
 			//inputArticle.close();
