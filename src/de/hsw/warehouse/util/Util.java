@@ -91,4 +91,27 @@ public class Util
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YY");
 		return sdf.format(gc.getTime());
 	}
+	
+	public static ArrayList<GregorianCalendar> inputPeriod(){
+		System.out.println("Geben Sie einen Zeitpunkt oder Zeitraum an: ");
+		Scanner inputTime = new Scanner(System.in);
+		String time = inputTime.nextLine();
+		//inputTime.close();
+		System.out.println("Zeit eingegeben: " + time);
+		time = time.trim();//entfernt LEER am anfang und Ende
+		String[] longDate = time.split(" ");
+		return parseInputToGregorianCalendar(longDate, new GregorianCalendar());
+		//return inputDateOrPeriod(time, new GregorianCalendar());
+	}
+	
+	public static int inputArticleID(){
+		int id;
+		do {
+			System.out.print("Geben Sie die ID des gewünschten Artikels ein :");
+			Scanner inputArticle = new Scanner(System.in);
+			id = inputArticle.nextInt();
+			//inputArticle.close();
+		} while (id < 0 || id > 60);
+		return id;
+	}
 }
