@@ -104,11 +104,11 @@ public class MenuStructure
 			{
 				System.out.println("Auslastung.");
 				int articleID = Util.inputArticleID();
-				ArrayList<GregorianCalendar> periodOfTime = Util.inputPrompt();
+				GregorianCalendar[] periodOfTime = Util.inputDateOrPeriod("Geben Sie einen Zeitraum oder einen Zeitpunkt ein: ", new GregorianCalendar());
 				Testdata data = new Testdata(meinTest.warehouse, meinTest.startDate, meinTest.endDate);
-				System.out.println(Util.parseDate(periodOfTime.get(0)));
-				System.out.println(Util.parseDate(periodOfTime.get(1)));
-				Analysis.stockUtilizationInPeriod(periodOfTime.get(0), periodOfTime.get(1), data);
+				System.out.println(Util.parseDate(periodOfTime[0]));
+				System.out.println(Util.parseDate(periodOfTime[1]));
+				Analysis.stockUtilizationInPeriod(periodOfTime[0], periodOfTime[1], data);
 
 			}
 		}));
