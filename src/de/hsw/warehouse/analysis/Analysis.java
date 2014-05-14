@@ -1,5 +1,8 @@
 package de.hsw.warehouse.analysis;
 
+import java.io.ObjectInputStream.GetField;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import de.hsw.warehouse.model.Assortment;
@@ -166,10 +169,68 @@ public class Analysis {
 	//Gibt die Lagerauslastung an einem bestimmten Datum aus
 	public static void stockUtilization(GregorianCalendar date, Testdata data) {
 		int utilization = 0;
-		for (Transaction transaction : data.getTransactions()) {
+		for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), date)) {
 			utilization += transaction.getVolume() * transaction.getQuantity();
 		}
-		System.out.println("Am " + Util.parseDate(date) + " beträgt die Auslastung des Lagers " + ((double) utilization) / data.getSizeOfWarehouse()*100 + "%");
+		System.out.println("Am " + Util.parseDate(date) + " beträgt die Auslastung des Lagers " + ((double) utilization) / data.getSizeOfWarehouse() * 100 + "%");
+
+	}
+
+	public static void stockUtilizationInPeriod(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
+		int utilization = 0;
+		System.out.println("START: erste Transaction am " + Util.parseDate(data.getTransactions().getFirst().getDate()));
+		System.out.println("Übergebenses Startdatum: " + Util.parseDate(startDate));
+		if(data.getTransactions().getFirst().getDate().before(startDate)){
+			System.out.println("Vorherige Transactionen nachvollziehen...");
+			for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), startDate)) {
+				utilization += transaction.getVolume() * transaction.getQuantity();
+			}
+		}		
+		Integer dayBefore = 0, day = 0;
+		int subtotalUtilization = utilization;
+		System.out.println("Start Auslastung: " + subtotalUtilization);
+		ArrayList<Integer> listOfUtilizations = new ArrayList<Integer>();
+		ArrayList<Transaction> allTransactions = new ArrayList<Transaction>();
+		allTransactions.addAll(data.getTransactionsInPeriod(startDate, endDate));
+		dayBefore = allTransactions.get(0).getDate().get(Calendar.DAY_OF_YEAR);
+		System.out.println("Tag: "+ dayBefore);
+		for (Transaction transaction : allTransactions) {
+			day = transaction.getDate().get(Calendar.DAY_OF_YEAR);
+			if (dayBefore.equals(day)) {//hier Tag - Vortag und dann Differenz malnehmen
+				subtotalUtilization += transaction.getVolume() * transaction.getQuantity();
+				System.out.println("Transaktion ist am selben Tag, der Platzbedarf ist: " + transaction.getVolume() * transaction.getQuantity());
+			} else {
+				
+				int missingDays = day - dayBefore-1;
+				if (missingDays > 0){
+					System.out.println(missingDays + " Tage ohne Transactionen werden nachgeholt");
+					for (int i = 0; i<missingDays; i++){
+						listOfUtilizations.add(subtotalUtilization);
+					}
+				}
+				listOfUtilizations.add(subtotalUtilization);
+				System.out.println("Tag fertig, Platzbedarf ist: " + subtotalUtilization);
+				System.out.println("Tag geschrieben");
+				System.out.println("Tag: "+ day);
+				subtotalUtilization += transaction.getVolume() * transaction.getQuantity();
+				dayBefore = day;
+				
+				
+			}
+		}
+		System.out.println();
+		int counter = 0;
+		int sum = 0;
+		for (Integer integer : listOfUtilizations){
+			System.out.println("Auslastung an Tag " + counter + ":" + integer);
+			sum+= integer;
+			counter++;
+		}
+		System.out.println("Durchschnittsauslastung: "+ (double)sum/counter);
+		System.out.println("Durchschnittsauslastung in %: "+ (double)sum/counter/data.getSizeOfWarehouse()*100 + "%");
+		
+
+		//System.out.println("Am " + Util.parseDate(date) + " beträgt die Auslastung des Lagers " + ((double) utilization) / data.getSizeOfWarehouse() * 100 + "%");
 
 	}
 
