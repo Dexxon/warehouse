@@ -103,4 +103,14 @@ public class Util
 		//parseInputToGregorianCalendar(longDate, defaultDate)
 		return inputDateOrPeriod(time, new GregorianCalendar());
 	}
+	
+	public static int inputArticleID(){
+		int id;
+		do {
+			System.out.println("Geben Sie die ID des gewünschten Artikels ein :");
+			Scanner inputArticle = new Scanner(System.in);
+			id = inputArticle.nextInt();
+		} while (id < 0 || id > 60);
+		return id;
+	}
 }
