@@ -1,5 +1,12 @@
 package de.hsw.warehouse.ui;
 
+import java.util.GregorianCalendar;
+
+import de.hsw.warehouse.meinTest;
+import de.hsw.warehouse.analysis.Analysis;
+import de.hsw.warehouse.analysis.Testdata;
+import de.hsw.warehouse.util.Util;
+
 public class MenuStructure
 {
 
@@ -95,6 +102,10 @@ public class MenuStructure
 			public void run()
 			{
 				System.out.println("Auslastung.");
+				int articleID = Util.inputArticleID();
+				GregorianCalendar[] periodOfTime = Util.inputPrompt();
+				Testdata data = new Testdata(meinTest.warehouse, meinTest.startDate, meinTest.endDate);
+				Analysis.stockUtilizationInPeriod(periodOfTime[0], periodOfTime[1], data);
 
 			}
 		}));
