@@ -69,9 +69,9 @@ public class Util
 		return result;
 	}
 	
-	public static void writeToDisk(String[] lines, String path) throws IOException
+	public static void writeToDisk(String[] lines, Path path) throws IOException
 	{
-		FileWriter fileWriter = new FileWriter(path);
+		FileWriter fileWriter = new FileWriter(path.toFile());
 		for(int i = 0; i < lines.length; i++){
 			fileWriter.write(lines[i]);
 			fileWriter.write(System.lineSeparator());
