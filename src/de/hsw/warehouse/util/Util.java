@@ -111,7 +111,6 @@ public class Util
 		int id;
 		do {
 			System.out.print("Geben Sie die ID des gewünschten Artikels ein :");
-			System.out.print("Geben Sie die ID des gewünschten Artikels ein :");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			String input = "";
 			try {
