@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,7 +25,7 @@ public class Util
 		try {
 			input = br.readLine();
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Fehler bei der Eingabe.");
 		}
 		String[] inputArray = input.split("-");
 		ArrayList<GregorianCalendar> result = parseInputToGregorianCalendar(inputArray, defaultDate);
@@ -66,9 +69,9 @@ public class Util
 		return result;
 	}
 	
-	public static void writeToDisk(String[] lines, String path) throws IOException
+	public static void writeToDisk(String[] lines, Path path) throws IOException
 	{
-		FileWriter fileWriter = new FileWriter(path);
+		FileWriter fileWriter = new FileWriter(path.toFile());
 		for(int i = 0; i < lines.length; i++){
 			fileWriter.write(lines[i]);
 			fileWriter.write(System.lineSeparator());
@@ -76,9 +79,9 @@ public class Util
 		fileWriter.close();
 	}
 	
-	public static String[] readFromDisk(String path) throws FileNotFoundException
+	public static String[] readFromDisk(Path path) throws FileNotFoundException
 	{
-		Scanner input = new Scanner(new File(path));
+		Scanner input = new Scanner(path.toFile());
 		ArrayList<String> lines = new ArrayList<String>();
 		while(input.hasNext()){
 			lines.add(input.nextLine() + System.lineSeparator());
@@ -113,5 +116,18 @@ public class Util
 			//inputArticle.close();
 		} while (id < 0 || id > 60);
 		return id;
+	}
+	
+	public static Path inputPath()
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String input = "";
+		try {
+			input = br.readLine();
+		} catch (IOException e) {
+			System.out.println("Fehler bei der Eingabe");
+		}
+		return Paths.get(input);
+		
 	}
 }
