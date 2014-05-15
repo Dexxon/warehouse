@@ -2,6 +2,7 @@ package de.hsw.warehouse.analysis;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
@@ -31,7 +32,7 @@ public class Testdata
 		generateTestData(warehouse, startDate, endDate);
 	}
 
-	public Testdata(String path)
+	public Testdata(Path path)
 	{
 		this.transactions = this.readFromDisk(path);
 		this.startDate = this.transactions.getFirst().getDate();
@@ -120,7 +121,7 @@ public class Testdata
 		System.out.println("Es wurden " + this.transactions.size() + " Testdatensätze erstellt.");
 	}
 	
-	public void writeToDisk(String path)
+	public void writeToDisk(Path path)
 	{
 		String[] lines = new String[this.getTransactions().size() + 1];
 		lines[0] = String.valueOf(this.getSizeOfWarehouse());
@@ -137,7 +138,7 @@ public class Testdata
 		}
 	}
 	
-	public LinkedList<Transaction> readFromDisk(String path)
+	public LinkedList<Transaction> readFromDisk(Path path)
 	{
 		String[] lines = null;
 		int quantity, articleID;
@@ -147,7 +148,7 @@ public class Testdata
 		try {
 			lines = Util.readFromDisk(path);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Fehler beim Einlesen der Testdaten. Stellen Sie sicher, dass Sie den richtigen Pfad angegeben haben.");
 		}
 		for(int i = 1; i < lines.length; i++) {
 			articleID = Integer.parseInt(lines[i].split(";")[0]);
