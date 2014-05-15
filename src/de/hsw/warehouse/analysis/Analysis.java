@@ -1,6 +1,5 @@
 package de.hsw.warehouse.analysis;
 
-import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
