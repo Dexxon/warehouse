@@ -1,5 +1,6 @@
 package de.hsw.warehouse;
 
+import java.nio.file.Paths;
 import java.util.GregorianCalendar;
 
 import de.hsw.warehouse.analysis.Testdata;
@@ -37,7 +38,7 @@ public class Test
 		for (Transaction transaction : testData.getTransactionsInPeriod(startDate,endDate)){
 			System.out.println(transaction);
 		}
-		testData.writeToDisk("C:\\Testdata\\testData.csv");
+		testData.writeToDisk(Paths.get("C:\\Testdata\\testData.csv"));
 	}
 
 }
