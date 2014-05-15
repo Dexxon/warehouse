@@ -69,9 +69,9 @@ public class Util
 		return result;
 	}
 	
-	public static void writeToDisk(String[] lines, Path path) throws IOException
+	public static void writeToDisk(String[] lines, String path) throws IOException
 	{
-		FileWriter fileWriter = new FileWriter(path.toFile());
+		FileWriter fileWriter = new FileWriter(path);
 		for(int i = 0; i < lines.length; i++){
 			fileWriter.write(lines[i]);
 			fileWriter.write(System.lineSeparator());
@@ -111,9 +111,15 @@ public class Util
 		int id;
 		do {
 			System.out.print("Geben Sie die ID des gewünschten Artikels ein :");
-			Scanner inputArticle = new Scanner(System.in);
-			id = inputArticle.nextInt();
-			//inputArticle.close();
+			System.out.print("Geben Sie die ID des gewünschten Artikels ein :");
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			String input = "";
+			try {
+				input = br.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			id = Integer.parseInt(input);
 		} while (id < 0 || id > 60);
 		return id;
 	}
