@@ -5,15 +5,30 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * In dieser Klasse wird das Sortiment statisch definiert.
+ * @author Constantin
+ * @version
+ */
 public class Assortment
 {
-	
+	/**
+	 * Diese anonyme Klasse wird für den Aufbau des Sortiments benötigt. Sie entspricht weitestgehend der Klasse "Article. Diese kann hier jedoch nicht verwendet werden (siehe Dokumentation).
+	 * @author Constantin
+	 * @version 
+	 */
 	static class SingleArticle
 	{
 		private String name;
 		private String commodityGroup;
 		private int volume;
-		
+
+		/**
+		 * 
+		 * @param name Der Name des Artikels.
+		 * @param commodityGroup Die Warengruppe des Artikels.
+		 * @param volume Das Volumen des Artikels.
+		 */
 		public SingleArticle(String name, String commodityGroup, int volume)
 		{
 			this.name = name;
@@ -24,6 +39,11 @@ public class Assortment
 	
 	static SingleArticle[] articlePool = initialiseArticlePool("C:\\Artikelpool.csv");
 	
+	/**
+	 * Liest den Artikelpool aus einer .csv-Datei von der Festplatte ein.
+	 * @param path Der Pfad zu dem Artikelpool.
+	 * @return
+	 */
 	private static SingleArticle[] initialiseArticlePool(String path) 
 	{	
 		LinkedList<SingleArticle> articlePool = new LinkedList<SingleArticle>();
@@ -44,21 +64,36 @@ public class Assortment
 		return articlePool.toArray(new SingleArticle[articlePool.size()]);
 	}
 	
+	/**
+	 * @param articleID Artikelnummer des gewünschten Artikels.
+	 * @return Name des der Artikelnummer entsprechenden Artikels.
+	 */
 	public static String getName(int articleID)
 	{
 		return articlePool[articleID].name;
 	}
 	
+	/**
+	 * @param ArticleID Artikelnummer des gewünschten Artikels.
+	 * @return Warengruppe des der Artikelnummer entsprechenden Artikels.
+	 */
 	public static String getCommodityGroup(int ArticleID)
 	{
 		return articlePool[ArticleID].commodityGroup;
 	}
 	
+	/**
+	 * @param articleID Artikelnummer des gewünschten Artikels.
+	 * @return Volumen des der Artikelnummer entsprechenden Artikels.
+	 */
 	public static int getVolume(int articleID)
 	{
 		return articlePool[articleID].volume;
 	}
 	
+	/**
+	 * @return Die Anzahl der im Sortiment vorhandenen Artikel.
+	 */
 	public static int getSize()
 	{
 		return articlePool.length;
