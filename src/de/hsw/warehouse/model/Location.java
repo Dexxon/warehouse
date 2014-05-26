@@ -30,11 +30,6 @@ public class Location
 		return load;
 	}
 
-	public void setLoad(int load)
-	{
-		this.load = load;
-	}
-
 	/**
 	 * @return Die Gesamtkapazität des Lagerplatzes.
 	 */
