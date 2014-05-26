@@ -4,6 +4,8 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import de.hsw.warehouse.analysis.Transaction;
+
 public class Warehouse
 {
 

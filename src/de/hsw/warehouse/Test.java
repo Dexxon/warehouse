@@ -4,7 +4,7 @@ import java.nio.file.Paths;
 import java.util.GregorianCalendar;
 
 import de.hsw.warehouse.analysis.Testdata;
-import de.hsw.warehouse.model.Transaction;
+import de.hsw.warehouse.analysis.Transaction;
 import de.hsw.warehouse.model.Warehouse;
 
 public class Test

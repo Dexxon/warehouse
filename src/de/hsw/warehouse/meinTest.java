@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 
 import de.hsw.warehouse.analysis.Analysis;
 import de.hsw.warehouse.analysis.Testdata;
-import de.hsw.warehouse.model.Transaction;
+import de.hsw.warehouse.analysis.Transaction;
 import de.hsw.warehouse.model.Warehouse;
 import de.hsw.warehouse.util.Util;
 

@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import de.hsw.warehouse.model.Assortment;
-import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.util.Util;
 
 public class Analysis {

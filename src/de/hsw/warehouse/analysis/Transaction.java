@@ -1,7 +1,9 @@
-package de.hsw.warehouse.model;
+package de.hsw.warehouse.analysis;
 
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
+
+import de.hsw.warehouse.model.Assortment;
 
 public class Transaction
 {

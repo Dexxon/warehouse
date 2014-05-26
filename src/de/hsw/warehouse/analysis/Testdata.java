@@ -12,7 +12,6 @@ import java.util.List;
 import de.hsw.warehouse.model.Assortment;
 import de.hsw.warehouse.model.NotEnoughArticleException;
 import de.hsw.warehouse.model.NotEnoughSpaceException;
-import de.hsw.warehouse.model.Transaction;
 import de.hsw.warehouse.model.Warehouse;
 import de.hsw.warehouse.util.Util;
 
