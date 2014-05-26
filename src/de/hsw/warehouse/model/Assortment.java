@@ -68,7 +68,7 @@ public class Assortment
 	 * @param articleID Artikelnummer des gewünschten Artikels.
 	 * @return Name des der Artikelnummer entsprechenden Artikels.
 	 */
-	public static String getName(int articleID)
+	public static String getArticleName(int articleID)
 	{
 		return articlePool[articleID].name;
 	}
@@ -77,7 +77,7 @@ public class Assortment
 	 * @param ArticleID Artikelnummer des gewünschten Artikels.
 	 * @return Warengruppe des der Artikelnummer entsprechenden Artikels.
 	 */
-	public static String getCommodityGroup(int ArticleID)
+	public static String getArticleCommodityGroup(int ArticleID)
 	{
 		return articlePool[ArticleID].commodityGroup;
 	}
@@ -86,7 +86,7 @@ public class Assortment
 	 * @param articleID Artikelnummer des gewünschten Artikels.
 	 * @return Volumen des der Artikelnummer entsprechenden Artikels.
 	 */
-	public static int getVolume(int articleID)
+	public static int getArticleVolume(int articleID)
 	{
 		return articlePool[articleID].volume;
 	}

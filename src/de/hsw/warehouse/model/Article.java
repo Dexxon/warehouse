@@ -19,9 +19,9 @@ public class Article
 	public Article(int articleID)
 	{
 		this.articleID = articleID;
-		this.articleName = Assortment.getName(articleID);
-		this.commodityGroup = Assortment.getCommodityGroup(articleID);
-		this.volume = Assortment.getVolume(articleID);
+		this.articleName = Assortment.getArticleName(articleID);
+		this.commodityGroup = Assortment.getArticleCommodityGroup(articleID);
+		this.volume = Assortment.getArticleVolume(articleID);
 
 	}
 

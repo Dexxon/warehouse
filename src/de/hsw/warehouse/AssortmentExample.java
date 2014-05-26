@@ -11,13 +11,13 @@ public class AssortmentExample
 		System.out.println("Größe des Artikelpools: " + Assortment.getSize());
 		
 		//Name eines Artikels
-		System.out.println("Artikel mit Nummer 3: " + Assortment.getName(3));
+		System.out.println("Artikel mit Nummer 3: " + Assortment.getArticleName(3));
 		
 		//Warengruppe eines Artikels:
-		System.out.println("Warengruppe: " + Assortment.getCommodityGroup(3));
+		System.out.println("Warengruppe: " + Assortment.getArticleCommodityGroup(3));
 		
 		//Volumen eines Artikels:
-		System.out.println("Volumen: " + Assortment.getVolume(3));
+		System.out.println("Volumen: " + Assortment.getArticleVolume(3));
 	}
 
 }

@@ -84,7 +84,7 @@ public class Analysis {
 		
 
 		for(int articleID = 0; articleID < Assortment.getSize();articleID++) {
-			System.out.println(articleID + "\t" + Assortment.getName(articleID) + "\t" + quantity[articleID]);
+			System.out.println(articleID + "\t" + Assortment.getArticleName(articleID) + "\t" + quantity[articleID]);
 		}
 	}
 
@@ -99,7 +99,7 @@ public class Analysis {
 		System.out.printf("%-13s %-60s %-15s %-12s %s\n","Artikelnummer" , "Artikelname", "Anfangsbestand", "Endbestand", "Durchschnittsbestand");
 		
 		for(int articleID = 0; articleID < Assortment.getSize(); articleID++) {
-			System.out.printf("%-13d %-60s %-15d %-12d %d\n" ,articleID, Assortment.getName(articleID), quantityBegin[articleID], quantityEnd[articleID], averageQuantity[articleID]);
+			System.out.printf("%-13d %-60s %-15d %-12d %d\n" ,articleID, Assortment.getArticleName(articleID), quantityBegin[articleID], quantityEnd[articleID], averageQuantity[articleID]);
 		}
 	}
 
@@ -107,12 +107,12 @@ public class Analysis {
 
 		GregorianCalendar tempDate = (GregorianCalendar) startDate.clone();
 		System.out.println("\n");
-		System.out.println("Bestand vom " + Util.parseDate(startDate) + " bis zum " + Util.parseDate(endDate) + " für den Artikel '" + Assortment.getName(articleID) + "':\n");
+		System.out.println("Bestand vom " + Util.parseDate(startDate) + " bis zum " + Util.parseDate(endDate) + " für den Artikel '" + Assortment.getArticleName(articleID) + "':\n");
 		System.out.printf("%-13s %-13s %-60s %-15s\n","Datum" , "Artikelnummer", "Artikelname", "Bestand");
 		
 		int days = calculateDays(startDate, endDate);
 		for(int i = 0; i < days; i ++) {
-			System.out.printf("%-13s %-13d %-60s %-15d\n",Util.parseDate(tempDate), articleID, Assortment.getName(articleID), calculateQuantityPerDay(tempDate, data)[articleID]);
+			System.out.printf("%-13s %-13d %-60s %-15d\n",Util.parseDate(tempDate), articleID, Assortment.getArticleName(articleID), calculateQuantityPerDay(tempDate, data)[articleID]);
 			tempDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
 		}
 		
@@ -127,7 +127,7 @@ public class Analysis {
 		System.out.printf("%-13s %-60s %-15s\n", "Artikelnummer", "Artikelname", "Differenzmenge");
 
 		for (int articleID = 0; articleID < Assortment.getSize(); articleID++) {
-			System.out.printf("%-13d %-60s %-15d\n", articleID, Assortment.getName(articleID), (quantityEnd[articleID] - quantityStart[articleID]));
+			System.out.printf("%-13d %-60s %-15d\n", articleID, Assortment.getArticleName(articleID), (quantityEnd[articleID] - quantityStart[articleID]));
 			/*System.out.println(articleID + 
 					"\t" + Assortment.getName(articleID) + 
 					"\t" + (quantityEnd[articleID] - quantityStart[articleID]));*/
