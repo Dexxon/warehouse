@@ -1,9 +1,9 @@
 package de.hsw.warehouse.model;
 
 /**
- * Diese Klasse beschreibt einen einzigen Artikel sowie den statisch definierten Artikelpool.
+ * Instanzen dieser Klasse stellen einen Artikel dar. Dieser besteht aus einer Artikelnummer, einem Namen, einer Warengruppe und einem Volumen.
  * @author Constantin Grote
- *
+ * @version 
  */
 public class Article
 {
@@ -26,7 +26,7 @@ public class Article
 	}
 
 	/**
-	 * @return Artikelnummer des Artikels.
+	 * @return Die Artikelnummer des Artikels.
 	 */
 	public int getArticleID()
 	{
@@ -34,7 +34,7 @@ public class Article
 	}
 
 	/**
-	 * @return Name des Artikels
+	 * @return Der Name des Artikels.
 	 */
 	public String getName()
 	{
@@ -42,7 +42,7 @@ public class Article
 	}
 
 	/**
-	 * @return Warengruppe des Artikels
+	 * @return Die Warengruppe des Artikels.
 	 */
 	public String getCommodityGroup()
 	{
@@ -50,7 +50,7 @@ public class Article
 	}
 
 	/**
-	 * @return Volumen des Artikels
+	 * @return Das Volumen des Artikels.
 	 */
 	public int getVolume()
 	{
