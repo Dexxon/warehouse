@@ -15,8 +15,4 @@ public class NotEnoughArticleException extends Exception
 	public NotEnoughArticleException(){
 		super();
 	}
-	
-	public NotEnoughArticleException(String message){
-		super(message);
-	}
 }
