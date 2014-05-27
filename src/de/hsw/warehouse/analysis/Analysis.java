@@ -171,13 +171,14 @@ public class Analysis {
 				
 				int missingDays = day - dayBefore-1;
 				if (missingDays > 0){
-					System.out.println(missingDays + " Tage ohne Transaktionen werden nachgeholt");
+					System.out.println(missingDays + " Tage ohne Transactionen werden nachgeholt");
 					for (int i = 0; i<missingDays; i++){
 						listOfUtilizations.add(subtotalUtilization);
 					}
 				}
 				listOfUtilizations.add(subtotalUtilization);
 				System.out.println("Tag fertig, Platzbedarf ist: " + subtotalUtilization);
+				System.out.println("Tag geschrieben");
 				System.out.println("Tag: "+ day);
 				subtotalUtilization += transaction.getVolume() * transaction.getQuantity();
 				dayBefore = day;
