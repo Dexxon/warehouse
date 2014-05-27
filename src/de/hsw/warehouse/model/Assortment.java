@@ -42,7 +42,7 @@ public class Assortment
 	/**
 	 * Liest den Artikelpool aus einer .csv-Datei von der Festplatte ein.
 	 * @param path Der Pfad zu dem Artikelpool.
-	 * @return
+	 * @return Ein Array, welches alle Artikel des Sortiments enthält.
 	 */
 	private static SingleArticle[] initialiseArticlePool(String path) 
 	{	

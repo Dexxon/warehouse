@@ -28,7 +28,7 @@ public class Util {
 	 * 
 	 * @param message Die Eingabeaufforderung
 	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
-	 * @return
+	 * @return Ein Array, welches den eingegebenen Zeitraum darstellt. Das erste Element ist der Startzeitpunkt, das zweite der Endzeitpunkt.
 	 */
 	public static GregorianCalendar[] inputDateOrPeriod(String message, GregorianCalendar defaultDate) {
 		System.out.print(message);
@@ -47,18 +47,18 @@ public class Util {
 	/**
 	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um.
 	 * 
-	 * Beispiel:
-	 * 		Eingabe: 16.07.2013
-	 * 		Rückgabe: 16.07.2013 00:00; 16.07.2013 23:59
+	 * Beispiel:<br>
+	 * 		&emsp;Eingabe: 16.07.2013<br>
+	 * 		&emsp;Rückgabe: 16.07.2013 00:00; 16.07.2013 23:59<br><br>
 	 * 
-	 * 		Eingabe: 07.2013
-	 * 		Rückgabe: 01.07.2013 00:00;31.07.2013 23:59
+	 * 		&emsp;Eingabe: 07.2013<br>
+	 * 		&emsp;Rückgabe: 01.07.2013 00:00;31.07.2013 23:59<br><br>
 	 * 
-	 * 		Eingabe: 16.07.2013-18.07.2013
-	 * 		Rückgabe: 16.07.2013 00:00;18.07.2013 23:59
+	 * 		&emsp;Eingabe: 16.07.2013-18.07.2013<br>
+	 * 		&emsp;Rückgabe: 16.07.2013 00:00;18.07.2013 23:59
 	 * @param input Die Eingabe. Ein Element entspricht dabei einem Datums-String.
 	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemact wurde.
-	 * @return
+	 * @return Eine {@link java.util.ArrayList ArrayList}, welche den angegebenen Zeitraum darstellt.
 	 */
 	private static ArrayList<GregorianCalendar> parseInputToGregorianCalendar(String input[], GregorianCalendar defaultDate) {
 		ArrayList<GregorianCalendar> result = new ArrayList<GregorianCalendar>();
