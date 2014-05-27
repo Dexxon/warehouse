@@ -6,12 +6,22 @@ import java.util.Map.Entry;
 
 import de.hsw.warehouse.analysis.Transaction;
 
+/**
+ * Diese Klasse repräsentiert ein Lager. Ein Lager enthält Lagerplätze, in welchen wiederum Arikel gelagert werden.
+ * In dieser Klasse findet das ein- und auslagern von Artikeln stall.
+ * @author Constantin
+ * @version
+ */
 public class Warehouse
 {
 
 	Location[] locations;
 	private int size, volumePerLocation;
 
+	/**
+	 * @param size Die Anzahl der Lagerplätze.
+	 * @param volumePerLocation Das Volumen pro Lagerplatz.
+	 */
 	public Warehouse(int size, int volumePerLocation)
 	{
 		this.size = size;
@@ -22,16 +32,31 @@ public class Warehouse
 		}
 	}
 
+	/**
+	 * @return Die Anzahl der Lagerplätze des Lagers.
+	 */
 	public int getSize()
 	{
 		return size;
 	}
 
+	/**
+	 * @return Das Volumen der Lagerplätze des Lagers.
+	 */
 	public int getVolumePerLocation()
 	{
 		return volumePerLocation;
 	}
 
+	/**
+	 * Diese Methode lagert Artikel einer bestimmten Artikelnummer in einer bestimmten Menge ein.
+	 * Dabei wird konrolliert, ob genug Platz in dem Lager vorhanden ist.
+	 * @param articleID Die Artikelnummer der einzulagernden Artikel.
+	 * @param quantity Die Anzahl der einzulagernden Artikel.
+	 * @param date Das Datum, an den die Einlagerung stattfindet/stattgefunden hat.
+	 * @return Eine {@link de.hsw.warehouse.analysis.Transaction Transaktion}, die die Einlagerung widerspiegelt.
+	 * @throws NotEnoughSpaceException Wenn nicht genug Platz für den Artikel im Lager vorhanden ist.
+	 */
 	public Transaction store(int articleID, int quantity, GregorianCalendar date)
 			throws NotEnoughSpaceException
 	{
@@ -54,6 +79,15 @@ public class Warehouse
 
 	}
 
+	/**
+	 * Diese Methode lagert Artikel einer bestimmten Artikelnummer in einer bestimmten Menge aus.
+	 * Dabei wird konrolliert, ob die gewünschte Anzahl Artikel in dem Lager vorhanden ist.
+	 * @param articleID Die Artikelnummer der auszulagernden Artikel.
+	 * @param quantity Die Anzahl der auszulagernden Artikel.
+	 * @param date Das Datum, an den die Auslagerung stattfindet/stattgefunden hat.
+	 * @return Eine {@link de.hsw.warehouse.analysis.Transaction Transaktion}, die die Auslagerung widerspiegelt.
+	 * @throws NotEnoughArticleException Wenn nicht genug Artikel im Lager vorhanden sind.
+	 */
 	public Transaction age(int articleID, int quantity, GregorianCalendar date)
 			throws NotEnoughArticleException
 	{
@@ -69,6 +103,12 @@ public class Warehouse
 		}
 	}
 
+	/**
+	 * Sucht Artikel mit der angegebenen Artikelnummer.
+	 * @param articleID Die Artikelnummer, deren entsprechender Artikel gesucht werden soll.
+	 * @param quantity Die maximale Anzahl, nach der gesucht werden soll.
+	 * @return Hashmap, in der Artikel Lagerplätzen zugeordnet werden.
+	 */
 	public HashMap<Article, Location> findArticle(int articleID, int quantity)
 	{
 		HashMap<Article, Location> map = new HashMap<Article, Location>();
@@ -84,6 +124,11 @@ public class Warehouse
 		return map;
 	}
 
+	/**
+	 * Sucht Artikel mit der angegebenen Artikelnummer.
+	 * @param articleID Die Artikelnummer, deren entsprechender Artikel gesucht werden soll.
+	 * @return Hashmap, in der Artikel Lagerplätzen zugeordnet werden.
+	 */
 	public HashMap<Article, Location> findArticle(int articleID)
 	{
 		HashMap<Article, Location> map = new HashMap<Article, Location>();
@@ -98,6 +143,12 @@ public class Warehouse
 		return map;
 	}
 
+	/**
+	 * Prüft, ob für den angegebenen Artikel in der angegebenen Anzahl genug Platz verfügbar ist.
+	 * @param articleID Die Artikelnummer des gewünschten Artikels.
+	 * @param quantity Die Anzahl des Artikels.
+	 * @return true, wenn genug Platz vorhanden ist.
+	 */
 	public boolean enoughFreeSpace(int articleID, int quantity)
 	{
 		int quantityPerLocation;
