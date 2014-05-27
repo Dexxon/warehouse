@@ -15,7 +15,21 @@ import java.util.Scanner;
 
 import de.hsw.warehouse.model.Assortment;
 
+/**
+ * Diese Klasse stellt statische Hilfsmethoden zur Verfügung. Dazu gehören Eingagemethoden sowie Methoden für das Lesen und Schreiben von Dateien auf der Festplatte.
+ * @author Constantin
+ *
+ */
 public class Util {
+	
+	/**
+	 * Diese Methode fragt eine Datums- oder Datumseingabe ab. Dabei können flexibel ein Tag, ein Monat oder ein Zeitraum eingegeben werden.
+	 * Es wird ein Array zurückgegeben, welches den eingegebenen Zeitraum repräsentiert.
+	 * 
+	 * @param message Die Eingabeaufforderung
+	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
+	 * @return
+	 */
 	public static GregorianCalendar[] inputDateOrPeriod(String message, GregorianCalendar defaultDate) {
 		System.out.print(message);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,6 +44,22 @@ public class Util {
 		return result.toArray(new GregorianCalendar[result.size()]);
 	}
 
+	/**
+	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um.
+	 * 
+	 * Beispiel:
+	 * 		Eingabe: 16.07.2013
+	 * 		Rückgabe: 16.07.2013 00:00; 16.07.2013 23:59
+	 * 
+	 * 		Eingabe: 07.2013
+	 * 		Rückgabe: 01.07.2013 00:00;31.07.2013 23:59
+	 * 
+	 * 		Eingabe: 16.07.2013-18.07.2013
+	 * 		Rückgabe: 16.07.2013 00:00;18.07.2013 23:59
+	 * @param input Die Eingabe. Ein Element entspricht dabei einem Datums-String.
+	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemact wurde.
+	 * @return
+	 */
 	private static ArrayList<GregorianCalendar> parseInputToGregorianCalendar(String input[], GregorianCalendar defaultDate) {
 		ArrayList<GregorianCalendar> result = new ArrayList<GregorianCalendar>();
 		SimpleDateFormat sdf = new SimpleDateFormat();
@@ -66,6 +96,12 @@ public class Util {
 		return result;
 	}
 
+	/**
+	 * Diese Methode schreibt die übergebenen Zeilen in eine Datei.
+	 * @param lines	Die zu schreibenden Zeilen.
+	 * @param path Der Pfad zu der Datei, in die die Zeilen geschrieben werden.
+	 * @throws IOException Wenn ein I/O Fehler auftritt.
+	 */
 	public static void writeToDisk(String[] lines, Path path) throws IOException {
 		FileWriter fileWriter = new FileWriter(path.toFile());
 		for (int i = 0; i < lines.length; i++) {
@@ -75,6 +111,12 @@ public class Util {
 		fileWriter.close();
 	}
 
+	/**
+	 * Diese Methode liest Zeilen aus einer Datei.
+	 * @param path Der Pfad zu der zu lesenden Datei.
+	 * @return Ein String-Array. Jedes Element enthält eine Zeile der Datei.
+	 * @throws FileNotFoundException Wenn die Datei nicht gefunden wird, weil z.B. ein ungültiger Pfad angegeben wurde.
+	 */
 	public static String[] readFromDisk(Path path) throws FileNotFoundException {
 		Scanner input = new Scanner(path.toFile());
 		ArrayList<String> lines = new ArrayList<String>();
@@ -85,6 +127,11 @@ public class Util {
 		return lines.toArray(new String[lines.size()]);
 	}
 
+	/**
+	 * Diese Methode parst ein Datum in einen lesbaren String.
+	 * @param gc Das zu parsende Datum.
+	 * @return Einen String, welcher das Datum in dem Format "dd.MM.YY" enthält.
+	 */
 	public static String parseDate(GregorianCalendar gc) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YY");
 		return sdf.format(gc.getTime());
@@ -102,6 +149,10 @@ public class Util {
 		//return inputDateOrPeriod(time, new GregorianCalendar());
 	}
 
+	/**
+	 * Eingabe einer Artikelnummer. Dabei wird geprüft, ob diese gülig ist.
+	 * @return Die eingegebene Artikelnummer.
+	 */
 	public static int inputArticleID() {
 		int id;
 		do {
@@ -118,6 +169,10 @@ public class Util {
 		return id;
 	}
 
+	/**
+	 * Eingabe eines Pfades.
+	 * @return Den eingebene Pfad.
+	 */
 	public static Path inputPath()
 	{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
