@@ -59,11 +59,6 @@ public class MenuStructure
 			public void run()
 			{
 				System.out.println("Artikelbestand.");
-				Testdata data = new Testdata(meinTest.warehouse, meinTest.startDate, meinTest.endDate);
-				int articleID = Util.inputArticleID();
-				GregorianCalendar[] periodOfTime = Util.inputDateOrPeriod("Geben Sie einen Zeitraum oder einen Zeitpunkt ein: ", new GregorianCalendar());
-				System.out.println(periodOfTime.length);
-				Analysis.stockCourseOfPeriod(articleID, periodOfTime[0], periodOfTime[1], data);
 
 			}
 		}));
@@ -111,7 +106,6 @@ public class MenuStructure
 				Testdata data = new Testdata(meinTest.warehouse, meinTest.startDate, meinTest.endDate);
 				int articleID = Util.inputArticleID();
 				GregorianCalendar[] periodOfTime = Util.inputDateOrPeriod("Geben Sie einen Zeitraum oder einen Zeitpunkt ein: ", new GregorianCalendar());
-				System.out.println(periodOfTime.length);
 				if (periodOfTime.length == 1){
 					Analysis.stockUtilization(periodOfTime[0], data);
 				}

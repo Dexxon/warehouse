@@ -146,10 +146,10 @@ public class Analysis {
 
 	public static void stockUtilizationInPeriod(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
 		int utilization = 0;
-		System.out.println("START: erste Transaktion am " + Util.parseDate(data.getTransactions().getFirst().getDate()));
-		System.out.println("Übergebenes Startdatum: " + Util.parseDate(startDate));
+		System.out.println("START: erste Transaction am " + Util.parseDate(data.getTransactions().getFirst().getDate()));
+		System.out.println("Übergebenses Startdatum: " + Util.parseDate(startDate));
 		if(data.getTransactions().getFirst().getDate().before(startDate)){
-			System.out.println("Vorherige Transaktionen nachvollziehen...");
+			System.out.println("Vorherige Transactionen nachvollziehen...");
 			for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), startDate)) {
 				utilization += transaction.getVolume() * transaction.getQuantity();
 			}
