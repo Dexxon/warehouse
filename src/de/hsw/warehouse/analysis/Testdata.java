@@ -145,7 +145,7 @@ public class Testdata
 		try {
 			Util.writeToDisk(lines, path);
 		} catch (IOException e) {
-			System.out.println("Fehler beim Schreiben auf die Festplatte.");
+			System.err.println("Fehler beim Schreiben auf die Festplatte.");
 		}
 	}
 	
@@ -159,7 +159,7 @@ public class Testdata
 		try {
 			lines = Util.readFromDisk(path);
 		} catch (FileNotFoundException e) {
-			System.out.println("Fehler beim Einlesen der Testdaten. Stellen Sie sicher, dass Sie den richtigen Pfad angegeben haben.");
+			System.err.println("Fehler beim Einlesen der Testdaten. Stellen Sie sicher, dass Sie den richtigen Pfad angegeben haben.");
 			throw new NullPointerException();
 		}
 		this.sizeOfWarehouse = Integer.parseInt(lines[0].split(";")[0]);
