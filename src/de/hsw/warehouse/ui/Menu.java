@@ -82,7 +82,7 @@ public class Menu extends MenuItem
 
 	public Menu add(MenuItem menueItem)
 	{
-		menuItems.add(menueItem);
+		menuItems.add(0, menueItem);
 		return this;
 	}
 }
