@@ -66,13 +66,4 @@ public class Transaction
 	{
 		return date;
 	}
-
-	@Override
-	public String toString()
-	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YY HH:mm");
-		return sdf.format(this.date.getTime()) + ":\t"
-				+ String.format("%3d", this.quantity) + "\t"
-				+ String.format("%3d", this.articleID);
-	}
 }
