@@ -148,23 +148,25 @@ public class Analysis {
 
 	}
 	public static void stockUtilizationInPeriod(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
+		
+		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
 		int utilization = 0;
-		if(data.getTransactions().getFirst().getDate().before(startDate)){
-			for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), startDate)) {
+		if(data.getTransactions().getFirst().getDate().before(currentDate)){
+			for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), currentDate)) {
 				utilization += transaction.getVolume() * transaction.getQuantity();
 			}
 		}
-		int[] volumePerDay = new int[calculateDays(startDate, endDate)];
+		int[] volumePerDay = new int[calculateDays(currentDate, endDate)];
 		System.out.printf("%-29s %-10s\n", "Datum: ", " Auslastung: ");
 		for (int i = 0; i < volumePerDay.length; i++){
-			int[] articleQuantities = calculateQuantityPerDay(startDate, data);
+			int[] articleQuantities = calculateQuantityPerDay(currentDate, data);
 			for (int j = 0; j < articleQuantities.length; j++){
 				volumePerDay[i] += articleQuantities[j]*Assortment.getArticleVolume(j);
 			}
 			//System.out.println("Datum: " + Util.parseDate(startDate) + " beträgt " + (float)volumePerDay[i]/data.getSizeOfWarehouse());
-			System.out.printf("%-30s %.2f %-10s\n", Util.parseDate(startDate), (float)volumePerDay[i]/data.getSizeOfWarehouse()*100, "%");
+			System.out.printf("%-30s %.2f %-10s\n", Util.parseDate(currentDate), (float)volumePerDay[i]/data.getSizeOfWarehouse()*100, "%");
 			utilization += volumePerDay[i];
-			startDate.add(GregorianCalendar.DAY_OF_YEAR, 1);	
+			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);	
 		}
 		//System.out.printf("Die durchschnittliche Auslastung ist: " + (float)utilization/volumePerDay.length/data.getSizeOfWarehouse() + "%\n");
 		System.out.printf("\n%-19s %.2f %-10s\n", "Durchschnittliche Auslastung: ", (float)utilization/volumePerDay.length/data.getSizeOfWarehouse()*100, "%");
