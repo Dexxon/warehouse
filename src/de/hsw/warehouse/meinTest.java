@@ -32,5 +32,6 @@ public class meinTest {
 //		}
 //		System.out.println(trans.isEmpty());
 		Analysis.turnFrequency(startDate, endDate, data);
+		Analysis.stockUtilizationInPeriod(startDate, endDate, data);
 	}
 }
