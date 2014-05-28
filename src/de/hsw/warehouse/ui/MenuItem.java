@@ -45,11 +45,6 @@ public class MenuItem implements Runnable
 		} catch (Throwable t) {
 			t.printStackTrace(System.err);
 		}
-		try {
-			Thread.sleep(20);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 }

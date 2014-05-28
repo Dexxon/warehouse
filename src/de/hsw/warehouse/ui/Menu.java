@@ -32,9 +32,9 @@ public class Menu extends MenuItem
 		setAction(this);
 		this.menuItems = new ArrayList<MenuItem>(Arrays.asList(menuItems));
 		if (back)
-			this.menuItems.add(Menu.back);
+			this.menuItems.add(0, Menu.back);
 		if (exit)
-			this.menuItems.add(Menu.exit);
+			this.menuItems.add(0, Menu.exit);
 
 	}
 
@@ -45,7 +45,7 @@ public class Menu extends MenuItem
 		for (MenuItem item : menuItems) {
 			System.out.println((option++) + ": " + item.getTitle());
 		}
-		System.out.println("Wählen Sie eine Option: ");
+		System.out.print("Wählen Sie eine Option: ");
 	}
 
 	private MenuItem prompt() throws IOException
@@ -61,8 +61,7 @@ public class Menu extends MenuItem
 				if (option >= 0 && option < menuItems.size()) {
 					return menuItems.get(option);
 				}
-			} catch (NumberFormatException e) {
-			}
+			} catch (NumberFormatException e) {}
 			System.err.println(line + " ist keine gültige Option\n");
 
 		}
