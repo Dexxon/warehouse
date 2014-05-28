@@ -143,13 +143,38 @@ public class Analysis {
 		System.out.println("Am " + Util.parseDate(date) + " beträgt die Auslastung des Lagers " + ((double) utilization) / data.getSizeOfWarehouse() * 100 + "%");
 
 	}
-
 	public static void stockUtilizationInPeriod(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
 		int utilization = 0;
-		System.out.println("START: erste Transaction am " + Util.parseDate(data.getTransactions().getFirst().getDate()));
+		if(data.getTransactions().getFirst().getDate().before(startDate)){
+			for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), startDate)) {
+				utilization += transaction.getVolume() * transaction.getQuantity();
+			}
+		}
+		int[] volumePerDay = new int[calculateDays(startDate, endDate)];
+		System.out.printf("%-29s %-10s\n", "Datum: ", " Auslastung: ");
+		for (int i = 0; i < volumePerDay.length; i++){
+			int[] articleQuantities = calculateQuantityPerDay(startDate, data);
+			for (int j = 0; j < articleQuantities.length; j++){
+				volumePerDay[i] += articleQuantities[j]*Assortment.getArticleVolume(j);
+			}
+			//System.out.println("Datum: " + Util.parseDate(startDate) + " beträgt " + (float)volumePerDay[i]/data.getSizeOfWarehouse());
+			System.out.printf("%-30s %.2f %-10s\n", Util.parseDate(startDate), (float)volumePerDay[i]/data.getSizeOfWarehouse()*100, "%");
+			utilization += volumePerDay[i];
+			startDate.add(GregorianCalendar.DAY_OF_YEAR, 1);	
+		}
+		//System.out.printf("Die durchschnittliche Auslastung ist: " + (float)utilization/volumePerDay.length/data.getSizeOfWarehouse() + "%\n");
+		System.out.printf("\n%-19s %.2f %-10s\n", "Durchschnittliche Auslastung: ", (float)utilization/volumePerDay.length/data.getSizeOfWarehouse()*100, "%");
+		System.out.println();
+		
+		
+	}
+
+	public static void stockUtilizationInPeriod2(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
+		int utilization = 0;
+		System.out.println("START: erste Transaktion am " + Util.parseDate(data.getTransactions().getFirst().getDate()));
 		System.out.println("Übergebenses Startdatum: " + Util.parseDate(startDate));
 		if(data.getTransactions().getFirst().getDate().before(startDate)){
-			System.out.println("Vorherige Transactionen nachvollziehen...");
+			System.out.println("Vorherige Transaktionen nachvollziehen...");
 			for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), startDate)) {
 				utilization += transaction.getVolume() * transaction.getQuantity();
 			}
@@ -209,7 +234,7 @@ public class Analysis {
 		}
 			
 		
-		for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), endDate)) {
+		for (Transaction transaction : data.getTransactionsInPeriod(startDate, endDate)) {
 			if (transaction.getQuantity() < 0) {
 				disposals[transaction.getArticleID()] += transaction.getQuantity();
 			}
