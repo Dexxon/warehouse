@@ -25,6 +25,19 @@ public class Testdata
 			GregorianCalendar endDate)
 	{
 		this.sizeOfWarehouse = warehouse.getSize() * warehouse.getVolumePerLocation();
+		
+		if(startDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY) {
+			startDate.add(GregorianCalendar.DAY_OF_WEEK, 2);
+		} else if (startDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SUNDAY) {
+			startDate.add(GregorianCalendar.DAY_OF_WEEK, 1);
+			}
+		
+		if(endDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY) {
+			endDate.add(GregorianCalendar.DAY_OF_WEEK, -1);
+		} else if (endDate.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SUNDAY) {
+			endDate.add(GregorianCalendar.DAY_OF_WEEK, -2);
+		}
+		
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.transactions = new LinkedList<Transaction>();
@@ -82,7 +95,7 @@ public class Testdata
 	{
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
 		int articleID, quantity, transactionsPerDay;
-
+		
 		while (currentDate.before(endDate)) {
 			currentDate.set(GregorianCalendar.HOUR_OF_DAY, 7);
 			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1;
@@ -122,7 +135,7 @@ public class Testdata
 	public void writeToDisk(Path path)
 	{
 		String[] lines = new String[this.getTransactions().size() + 1];
-		lines[0] = String.valueOf(this.getSizeOfWarehouse());
+		lines[0] = String.valueOf(this.getSizeOfWarehouse()) + ";";
 		int index = 1;
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
 		for(Transaction transaction : this.transactions){
@@ -149,6 +162,7 @@ public class Testdata
 			System.out.println("Fehler beim Einlesen der Testdaten. Stellen Sie sicher, dass Sie den richtigen Pfad angegeben haben.");
 			throw new NullPointerException();
 		}
+		this.sizeOfWarehouse = Integer.parseInt(lines[0].split(";")[0]);
 		for(int i = 1; i < lines.length; i++) {
 			articleID = Integer.parseInt(lines[i].split(";")[0]);
 			try {
