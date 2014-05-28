@@ -193,7 +193,7 @@ public class Analysis {
 		int utilization = 0;
 		if(data.getTransactions().getFirst().getDate().before(currentDate)){
 			for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), currentDate)) {
-				utilization += transaction.getVolume() * transaction.getQuantity();
+				utilization += transaction.getVolume();
 			}
 		}
 		int[] volumePerDay = new int[calculateDays(currentDate, endDate)];

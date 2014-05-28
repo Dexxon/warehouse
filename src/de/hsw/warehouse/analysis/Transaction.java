@@ -27,7 +27,7 @@ public class Transaction
 		this.articleID = artikelID;
 		this.quantity = quantity;
 		this.date = date;
-		this.volume = Assortment.getArticleVolume(articleID);
+		this.volume = Assortment.getArticleVolume(articleID) * this.quantity;
 	}
 
 	/**
