@@ -158,9 +158,6 @@ public class MenuStructure
 			public void run()
 			{
 				period = Util.inputDateOrPeriod("Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period[0]) + " - " + Util.parseDate(period[1]) + "]:", period);
-				System.out.println(period[0].getTime());
-				System.out.println(period[1].getTime());
-				System.out.println(testdata.getSizeOfWarehouse());
 				try {
 					Analysis.stockUtilizationInPeriod(period[0], period[1], testdata);
 				} catch (NullPointerException e) {
