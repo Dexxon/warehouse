@@ -23,7 +23,7 @@ public class meinTest {
 		endDate = (GregorianCalendar) startDate.clone();
 		endDate.roll(Calendar.MONTH, 1);
 		System.out.println(Util.parseDate(endDate));
-		Analysis.stockUtilizationInPeriod(startDate, endDate, data);
+		//Analysis.stockUtilizationInPeriod(startDate, endDate, data);
 //		//ArrayList<Transaction> trans = new ArrayList<Transaction>();
 //		
 //		//trans.addAll(data.getTransactionsInPeriod(startDate, endDate));
@@ -31,5 +31,6 @@ public class meinTest {
 //			System.out.println(transaction.getQuantity());
 //		}
 //		System.out.println(trans.isEmpty());
+		Analysis.turnFrequency(startDate, endDate, data);
 	}
 }

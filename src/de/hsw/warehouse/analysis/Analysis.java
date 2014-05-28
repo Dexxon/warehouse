@@ -201,5 +201,31 @@ public class Analysis {
 		//System.out.println("Am " + Util.parseDate(date) + " beträgt die Auslastung des Lagers " + ((double) utilization) / data.getSizeOfWarehouse() * 100 + "%");
 
 	}
+	
+	public static void turnFrequency(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data){
+		Integer[] disposals = new Integer[Assortment.getSize()];
+		for (int i =0; i < disposals.length; i++){
+			disposals[i]=0;
+		}
+			
+		
+		for (Transaction transaction : data.getTransactionsInPeriod(data.getTransactions().getFirst().getDate(), endDate)) {
+			if (transaction.getQuantity() < 0) {
+				disposals[transaction.getArticleID()] += transaction.getQuantity();
+			}
+		}
+		int[] averageQuantity = calculateAverageQuantity(startDate, endDate, data);
+		float[] turnFrequencyPerArticle = new float[Assortment.getSize()];
+		System.out.printf("%-13s %-60s %-15s\n", "Artikelnummer", "Artikelname", "Umschlagshäufigkeit");
+		for (int i = 0; i< Assortment.getSize(); i++){
+			if (disposals[i] < 0 && averageQuantity[i] > 0){
+			turnFrequencyPerArticle[i] = (float)disposals[i] / averageQuantity[i] * -1;
+			System.out.printf("%-13d %-60s %.2f\n", i, Assortment.getArticleName(i), turnFrequencyPerArticle[i]);
+			}
+			else System.out.printf("%-13d %-60s" + " 0\n", i, Assortment.getArticleName(i));
+		}
+		
+		
+	}
 
 }
