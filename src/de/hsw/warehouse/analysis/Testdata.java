@@ -44,7 +44,7 @@ public class Testdata
 		generateTestData(warehouse, startDate, endDate);
 	}
 
-	public Testdata(Path path) throws NullPointerException
+	public Testdata(Path path) throws Exception
 	{
 		this.transactions = this.readFromDisk(path);
 		this.startDate = this.transactions.getFirst().getDate();
@@ -67,16 +67,15 @@ public class Testdata
 		int toIndex = this.transactions.size();
 		int index = 0;
 		for(Transaction transaction : this.transactions){
-			if(transaction.getDate().after(startOfPeriod) && fromIndex == 0){
+			if(transaction.getDate().compareTo(startOfPeriod) <= 0 && fromIndex == 0){
 				fromIndex = index;
 			}
-			if(transaction.getDate().after(endOfPeriod) && toIndex == this.transactions.size()){
-				toIndex = index;
+			if(transaction.getDate().compareTo(endOfPeriod) >= 0 && toIndex == this.transactions.size()){
+				toIndex = index + 1;
 				break;
 			}
 			index++;
 		}
-		
 		return this.transactions.subList(fromIndex, toIndex);
 	}
 
@@ -149,7 +148,7 @@ public class Testdata
 		}
 	}
 	
-	public LinkedList<Transaction> readFromDisk(Path path) throws NullPointerException
+	public LinkedList<Transaction> readFromDisk(Path path) throws Exception
 	{
 		String[] lines = null;
 		int quantity, articleID;
@@ -160,7 +159,6 @@ public class Testdata
 			lines = Util.readFromDisk(path);
 		} catch (FileNotFoundException e) {
 			System.err.println("Fehler beim Einlesen der Testdaten. Stellen Sie sicher, dass Sie den richtigen Pfad angegeben haben.");
-			throw new NullPointerException();
 		}
 		this.sizeOfWarehouse = Integer.parseInt(lines[0].split(";")[0]);
 		for(int i = 1; i < lines.length; i++) {
