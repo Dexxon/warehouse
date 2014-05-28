@@ -125,25 +125,6 @@ public class Warehouse
 	}
 
 	/**
-	 * Sucht Artikel mit der angegebenen Artikelnummer.
-	 * @param articleID Die Artikelnummer, deren entsprechender Artikel gesucht werden soll.
-	 * @return Hashmap, in der Artikel Lagerplätzen zugeordnet werden.
-	 */
-	private HashMap<Article, Location> findArticle(int articleID)
-	{
-		HashMap<Article, Location> map = new HashMap<Article, Location>();
-
-		for (Location location : locations) {
-			for (Article artikel : location.getArticle()) {
-				if (artikel.getArticleID() == articleID) {
-					map.put(artikel, location);
-				}
-			}
-		}
-		return map;
-	}
-
-	/**
 	 * Prüft, ob für den angegebenen Artikel in der angegebenen Anzahl genug Platz verfügbar ist.
 	 * @param articleID Die Artikelnummer des gewünschten Artikels.
 	 * @param quantity Die Anzahl des Artikels.
