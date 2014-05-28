@@ -117,7 +117,6 @@ public class Testdata
 				currentDate.add(GregorianCalendar.DAY_OF_YEAR, 2);
 			}
 		}
-		System.out.println("Es wurden " + this.transactions.size() + " Testdatensätze erstellt.");
 	}
 	
 	public void writeToDisk(Path path)
@@ -133,7 +132,7 @@ public class Testdata
 		try {
 			Util.writeToDisk(lines, path);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Fehler beim Schreiben auf die Festplatte.");
 		}
 	}
 	
