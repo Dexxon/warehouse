@@ -69,7 +69,6 @@ public class Testdata
 		for(Transaction transaction : this.transactions){
 			if(transaction.getDate().compareTo(startOfPeriod) <= 0 && fromIndex == 0){
 				fromIndex = index + 1;
-				System.out.println(fromIndex);
 			}
 			if(transaction.getDate().compareTo(endOfPeriod) >= 0 && toIndex == this.transactions.size()){
 				toIndex = index + 1;
