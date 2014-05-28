@@ -9,31 +9,6 @@ import de.hsw.warehouse.util.Util;
 
 public class Analysis {
 
-	/*public static Warehouse warehouse = new Warehouse(2000, 20);
-	public static GregorianCalendar startDate = new GregorianCalendar(2012, GregorianCalendar.AUGUST, 16);
-	public static GregorianCalendar endDate = new GregorianCalendar(2013, GregorianCalendar.AUGUST, 16);
-
-	public static void main(String[] args) {
-		Testdata data = new Testdata(warehouse, startDate, endDate);
-		GregorianCalendar pointOfInventoryStart = new GregorianCalendar(2012, GregorianCalendar.AUGUST, 30);
-		GregorianCalendar pointOfInventoryEnd = new GregorianCalendar(2012, GregorianCalendar.SEPTEMBER, 12);
-
-		//quantityPerDay(pointOfInventoryStart, data);
-		//System.out.println("\n\n\n");
-		//quantityOfPeriod(pointOfInventoryStart, pointOfInventoryEnd, data);
-		// quantityPerDay(pointOfInventoryEnd, data);
-		//stockCourseOfPeriod(30,pointOfInventoryStart,pointOfInventoryEnd, data);
-		//differenceCalculatorOfPeriod(pointOfInventoryStart,pointOfInventoryEnd, data);
-
-	}*/
-
-	/*
-	 * Methode wird für einen bestimmten Artikel (Artikelnummer) bis zu einem
-	 * bestimmten Datum ausgeführt. Wenn man den gesamten Bestand ausrechnen
-	 * möchte, muss man diesen Vorgang in eine Schleife "verpacken", sodass für
-	 * jeden Artikel der Bestand zum Zeipunkt x bestimmt werden kann.
-	 */
-
 	private static int[] calculateQuantityPerDay(GregorianCalendar date, Testdata data) {
 
 		int[] quantity = new int[Assortment.getSize()];
