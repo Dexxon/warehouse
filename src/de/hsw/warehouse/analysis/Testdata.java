@@ -63,7 +63,7 @@ public class Testdata
 	 */
 	public Testdata(Path path) throws Exception
 	{
-		this.transactions = this.readFromDisk(path);
+		this.readFromDisk(path);
 		this.startDate = this.transactions.getFirst().getDate();
 		this.endDate = this.transactions.getLast().getDate();
 	}
@@ -203,15 +203,13 @@ public class Testdata
 	/**
 	 * Hier werden Testdaten von der Festplatte eingelesen.
 	 * @param path Der Pfad zu der Datei, in welcher die Testdaten gespeichert sind.
-	 * @return Eine Liste aller Testdatensätze.
 	 * @throws Exception
 	 */
-	public LinkedList<Transaction> readFromDisk(Path path) throws Exception
+	public void readFromDisk(Path path) throws Exception
 	{
 		String[] lines = null;
 		int quantity, articleID;
 		GregorianCalendar date = new GregorianCalendar();
-		LinkedList<Transaction> transactions = new LinkedList<Transaction>();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
 		try {
 			lines = Util.readFromDisk(path);
@@ -227,8 +225,7 @@ public class Testdata
 				e.printStackTrace();
 			}
 			quantity = Integer.parseInt(lines[i].split(";")[2]);
-			transactions.add(new Transaction(articleID, quantity, (GregorianCalendar) date.clone()));
+			this.transactions.add(new Transaction(articleID, quantity, (GregorianCalendar) date.clone()));
 		}
-		return transactions;
 	}
 }
