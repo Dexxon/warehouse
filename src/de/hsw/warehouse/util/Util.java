@@ -134,7 +134,7 @@ public class Util {
 	 * @return Einen String, welcher das Datum in dem Format "dd.MM.YY" enthält.
 	 */
 	public static String parseDate(GregorianCalendar gc) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YY");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
 		return sdf.format(gc.getTime());
 	}
 
