@@ -5,8 +5,25 @@ import java.util.GregorianCalendar;
 import de.hsw.warehouse.model.Assortment;
 import de.hsw.warehouse.util.Util;
 
+/**
+ * Diese Klasse stellt statische Methoden zur Auswertung der Testdaten bereit. Dabei wird zwischen zwei verschiedenen Methodenarten unterschieden:<br>
+ * 1. calculate* Klassen<br>
+ * 	&emsp;&emsp;Diese Klassen berechnen Werte, welche als Grundlagen für die Auswertungen dienen. Sie sind daher nur für diese Klasse sichtbar ("private") und beinhalten keine Ausgaben.<br>
+ * 2. Alle anderen Klassen<br>
+ * 	&emsp;&emsp;Diese Klassen übernehmen die eigentlichen Auswertungen, welche dabei direkt auf der Konsole ausgegeben werden. Die Sichtbarkeit dieser Klassen ist "public".
+ * @author Lorenz Surkemper, Timo Rodenwald
+ * @version 
+ */
 public class Analysis {
 
+	/**
+	 * Berechnet die Anzahl der Artikel im Lager zu einem bestimmten Zeitpunkt,
+	 * indem die Quantitäten aller Transaktionen pro Artikel bis zu diesem Datum aufaddiert werden.
+	 * @param date Der Zeitpunkt, zu dem die Anzahl berechnet werden soll.
+	 * @param data Die auszuwertenden Testdaten.
+	 * @return Ein Array, dessen Länge der Größe des Sortiments entspricht. Dabei entspricht der Index der Artikelnummer.
+	 * Jedes Element des Arrays enthält die Anzahl der Artikel zu dem angegebenen Zeitpunkt.
+	 */
 	private static int[] calculateQuantityPerDay(GregorianCalendar date, Testdata data) {
 
 		int[] quantity = new int[Assortment.getSize()];
@@ -17,6 +34,12 @@ public class Analysis {
 		return quantity;
 	}
 
+	/**
+	 * Berechnet die Anzahl Tage zwischen zwei Daten.
+	 * @param startDate Startdatum.
+	 * @param endDate Enddatum.
+	 * @return Differenz der Daten in Tagen.
+	 */
 	private static int calculateDays(GregorianCalendar startDate, GregorianCalendar endDate) {
 	
 		long timeInMillis = endDate.getTimeInMillis() - startDate.getTimeInMillis();
@@ -24,6 +47,14 @@ public class Analysis {
 		return timeInDays;
 	}
 
+	/**
+	 * Berechnet die durchschnittliche Anzahl von Artikeln im Lager in einem angegebenen Zeitraum.
+	 * @param startDate Der Startpunkt des Zeitraums.
+	 * @param endDate Der Endpunkt des Zeitraums.
+	 * @param data Die auszuwertenden Testdaten.
+	 * @return Ein Array, dessen Länge der Größe des Sortiments entspricht. Dabei entspricht der Index der Artikelnummer.
+	 * Jedes Element des Arrays enthält die durchschnittliche Anzahl der Artikel zu dem angegebenen Zeitraum.
+	 */
 	private static int[] calculateAverageQuantity(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
 
 		int[] average = new int[Assortment.getSize()];
@@ -49,6 +80,12 @@ public class Analysis {
 
 	}
 
+	/**
+	 * Auswertung über die Anzahl der Artikel in einem bestimmten Zeitraum. Dieser Zeitraum kann auch ein Tag sein.
+	 * @param startDate Der Startpunkt des Zeitraums.
+	 * @param endDate Der Endpunkt des Zeitraums.
+	 * @param data Die auszuwertenden Testdaten.
+	 */
 	public static void quantityOfPeriod(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
 
 		int quantityBegin[] = calculateQuantityPerDay(startDate, data);
@@ -64,6 +101,12 @@ public class Analysis {
 		}
 	}
 
+	/**
+	 * Auswertung über die Differenzmenge der Artikel in einem bestimmten Zeitraum.
+	 * @param startDate Der Startpunkt des Zeitraums.
+	 * @param endDate Der Endpunkt des Zeitraums.
+	 * @param data Die auszuwertenden Testdaten.
+	 */
 	public static void differenceOfPeriod(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
 	
 		int quantityStart[] = calculateQuantityPerDay(startDate, data);
@@ -80,6 +123,12 @@ public class Analysis {
 		}
 	}
 
+	/**
+	 * Auswertung über die Umschlagshäufigkeit der Artikel in einem bestimmten Zeitraum.
+	 * @param startDate Der Startpunkt des Zeitraums.
+	 * @param endDate Der Endpunkt des Zeitraums.
+	 * @param data Die auszuwertenden Testdaten.
+	 */
 	public static void turnFrequency(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data){
 		Integer[] disposals = new Integer[Assortment.getSize()];
 		for (int i =0; i < disposals.length; i++){
@@ -106,6 +155,13 @@ public class Analysis {
 		
 	}
 
+	/**
+	 * Auswertung über den Artikelverlauf eines Artikels in einem bestimmten Zeitraum.
+	 * @param articleID Die Artikelnummer des auszuwertenden Artikels.
+	 * @param startDate Der Startpunkt des Zeitraums.
+	 * @param endDate Der Endpunkt des Zeitraums.
+	 * @param data Die auszuwertenden Testdaten.
+	 */
 	public static void stockCourseOfPeriod(int articleID, GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
 
 		if(data == null) {
@@ -125,6 +181,12 @@ public class Analysis {
 		
 	}
 
+	/**
+	 * Auswertung über die Lagerauslastung in einem bestimmten Zeitraum.
+	 * @param startDate Der Startpunkt des Zeitraums.
+	 * @param endDate Der Endpunkt des Zeitraums.
+	 * @param data Die auszuwertenden Testdaten.
+	 */
 	public static void stockUtilizationInPeriod(GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
 		
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
