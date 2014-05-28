@@ -144,10 +144,10 @@ public class Util {
 	 * @return Die eingegebene Artikelnummer.
 	 */
 	public static int inputArticleID(int defaultArticleID) {
-		int id = defaultArticleID;
+		int id = -1;
 		String input = "";
 		do {
-			System.out.print("Geben Sie die ID des gewünschten Artikels ein [" + defaultArticleID + "]: ");
+			System.out.print("Geben Sie die ID des gewünschten Artikels ein (0-" + (Assortment.getSize()-1) + ")[" + defaultArticleID + "]: ");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				input = br.readLine();
@@ -156,12 +156,10 @@ public class Util {
 				System.err.println("Fehler beim Einlesen.");;
 			} catch (NumberFormatException e1) {
 				if (input.equals("")){
-					return id;
-				} else {
-					System.err.println("Bitte geben Sie eine gültige Artikelnummer ein.");
-				}	
+					return defaultArticleID;
+				}
 			}
-		} while (id < 0 || id > Assortment.getSize() || input != "");
+		} while (id < 0 || id >= Assortment.getSize());
 		return id;
 	}
 
