@@ -11,28 +11,28 @@ public class MenuItem implements Runnable
 		this.title = title;
 	}
 
-	public MenuItem(String title, Runnable action)
+	MenuItem(String title, Runnable action)
 	{
 		this.title = title;
 		this.action = action;
 	}
 
-	public String getTitle()
+	String getTitle()
 	{
 		return title;
 	}
 
-	public Runnable getAction()
+	Runnable getAction()
 	{
 		return action;
 	}
 
-	public void setAction(Runnable action)
+	void setAction(Runnable action)
 	{
 		this.action = action;
 	}
 
-	public boolean hasAction()
+	boolean hasAction()
 	{
 		return action != null;
 	}

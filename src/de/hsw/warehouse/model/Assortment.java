@@ -7,14 +7,14 @@ import java.util.Scanner;
 
 /**
  * In dieser Klasse wird das Sortiment statisch definiert.
- * @author Constantin
+ * @author Constantin Grote
  * @version
  */
 public class Assortment
 {
 	/**
 	 * Diese anonyme Klasse wird für den Aufbau des Sortiments benötigt. Sie entspricht weitestgehend der Klasse "Article. Diese kann hier jedoch nicht verwendet werden (siehe Dokumentation).
-	 * @author Constantin
+	 * @author Constantin Grote
 	 * @version 
 	 */
 	static class SingleArticle
@@ -37,7 +37,7 @@ public class Assortment
 		}
 	}
 	
-	static SingleArticle[] articlePool = initialiseArticlePool("C:\\Artikelpool.csv");
+	private static SingleArticle[] articlePool = initialiseArticlePool("C:\\Artikelpool.csv");
 	
 	/**
 	 * Liest den Artikelpool aus einer .csv-Datei von der Festplatte ein.

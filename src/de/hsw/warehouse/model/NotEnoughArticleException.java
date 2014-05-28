@@ -12,7 +12,7 @@ public class NotEnoughArticleException extends Exception
 	/**
 	 * Konstruktor für die Exception.
 	 */
-	public NotEnoughArticleException(){
+	NotEnoughArticleException(){
 		super();
 	}
 }

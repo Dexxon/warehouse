@@ -12,7 +12,7 @@ public class NotEnoughSpaceException extends Exception
 	/**
 	 * Konstruktor für die Exception.
 	 */
-	public NotEnoughSpaceException(){
+	NotEnoughSpaceException(){
 		super();
 	}
 }

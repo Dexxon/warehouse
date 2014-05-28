@@ -11,7 +11,7 @@ public class Menu extends MenuItem
 	ArrayList<MenuItem> menuItems;
 	String title;
 
-	public static final MenuItem exit = new MenuItem("Beenden", new Runnable()
+	static final MenuItem exit = new MenuItem("Beenden", new Runnable()
 	{
 		public void run()
 		{
@@ -19,14 +19,14 @@ public class Menu extends MenuItem
 		}
 	});
 
-	public static final MenuItem back = new MenuItem("Zurück");
+	static final MenuItem back = new MenuItem("Zurück");
 
-	public Menu(String title, MenuItem... menuItems)
+	Menu(String title, MenuItem... menuItems)
 	{
 		this(title, false, true, menuItems);
 	}
 
-	public Menu(String title, boolean back, boolean exit, MenuItem... menuItems)
+	Menu(String title, boolean back, boolean exit, MenuItem... menuItems)
 	{
 		super(title);
 		setAction(this);
@@ -38,7 +38,7 @@ public class Menu extends MenuItem
 
 	}
 
-	public void display()
+	void display()
 	{
 		int option = 0;
 		System.out.println("\n" + getTitle() + ":");
@@ -67,6 +67,7 @@ public class Menu extends MenuItem
 		}
 	}
 
+	@Override
 	public void run()
 	{
 		try {
@@ -79,7 +80,7 @@ public class Menu extends MenuItem
 		}
 	}
 
-	public Menu add(MenuItem menueItem)
+	Menu add(MenuItem menueItem)
 	{
 		menuItems.add(menueItem);
 		return this;

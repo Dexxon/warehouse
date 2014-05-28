@@ -15,7 +15,7 @@ import de.hsw.warehouse.analysis.Transaction;
 public class Warehouse
 {
 
-	Location[] locations;
+	private Location[] locations;
 	private int size, volumePerLocation;
 
 	/**
@@ -109,7 +109,7 @@ public class Warehouse
 	 * @param quantity Die maximale Anzahl, nach der gesucht werden soll.
 	 * @return Hashmap, in der Artikel Lagerplätzen zugeordnet werden.
 	 */
-	public HashMap<Article, Location> findArticle(int articleID, int quantity)
+	private HashMap<Article, Location> findArticle(int articleID, int quantity)
 	{
 		HashMap<Article, Location> map = new HashMap<Article, Location>();
 
@@ -129,7 +129,7 @@ public class Warehouse
 	 * @param articleID Die Artikelnummer, deren entsprechender Artikel gesucht werden soll.
 	 * @return Hashmap, in der Artikel Lagerplätzen zugeordnet werden.
 	 */
-	public HashMap<Article, Location> findArticle(int articleID)
+	private HashMap<Article, Location> findArticle(int articleID)
 	{
 		HashMap<Article, Location> map = new HashMap<Article, Location>();
 
@@ -149,7 +149,7 @@ public class Warehouse
 	 * @param quantity Die Anzahl des Artikels.
 	 * @return true, wenn genug Platz vorhanden ist.
 	 */
-	public boolean enoughFreeSpace(int articleID, int quantity)
+	private boolean enoughFreeSpace(int articleID, int quantity)
 	{
 		int quantityPerLocation;
 		for (Location location : locations) {

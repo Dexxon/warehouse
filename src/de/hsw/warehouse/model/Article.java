@@ -5,7 +5,7 @@ package de.hsw.warehouse.model;
  * @author Constantin Grote
  * @version 
  */
-public class Article
+class Article
 {
 	private int articleID;
 	private String articleName;
@@ -16,7 +16,7 @@ public class Article
 	 * Konstruktor der Klasse Article. Die Attribute des Artikels werden anhand der Artikelnummer bestimmt.
 	 * @param articleID Die Artikelnummer des zu erzeugenden Artikels.
 	 */
-	public Article(int articleID)
+	Article(int articleID)
 	{
 		this.articleID = articleID;
 		this.articleName = Assortment.getArticleName(articleID);
@@ -28,7 +28,7 @@ public class Article
 	/**
 	 * @return Die Artikelnummer des Artikels.
 	 */
-	public int getArticleID()
+	int getArticleID()
 	{
 		return articleID;
 	}
@@ -36,7 +36,7 @@ public class Article
 	/**
 	 * @return Der Name des Artikels.
 	 */
-	public String getName()
+	String getName()
 	{
 		return articleName;
 	}
@@ -44,7 +44,7 @@ public class Article
 	/**
 	 * @return Die Warengruppe des Artikels.
 	 */
-	public String getCommodityGroup()
+	String getCommodityGroup()
 	{
 		return commodityGroup;
 	}
@@ -52,7 +52,7 @@ public class Article
 	/**
 	 * @return Das Volumen des Artikels.
 	 */
-	public int getVolume()
+	int getVolume()
 	{
 		return volume;
 	}

@@ -19,22 +19,22 @@ public class Transaction
 		this.volume = Assortment.getArticleVolume(articleID);
 	}
 
-	public int getVolume()
+	int getVolume()
 	{
 		return volume;
 	}
 
-	public int getArticleID()
+	int getArticleID()
 	{
 		return articleID;
 	}
 
-	public int getQuantity()
+	int getQuantity()
 	{
 		return quantity;
 	}
 
-	public GregorianCalendar getDate()
+	GregorianCalendar getDate()
 	{
 		return date;
 	}
