@@ -1,5 +1,16 @@
 package de.hsw.warehouse.ui;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.NumberFormat;
+import java.util.GregorianCalendar;
+
+import de.hsw.warehouse.analysis.Analysis;
+import de.hsw.warehouse.analysis.Testdata;
+import de.hsw.warehouse.model.Warehouse;
+import de.hsw.warehouse.util.Util;
+
 public class MenuStructure
 {
 
@@ -8,8 +19,16 @@ public class MenuStructure
 	private static Menu mainMenu = new Menu("Hauptmenü", false, true, testDataMenu,
 			analysisMenu);
 
+	private static GregorianCalendar[] period = {new GregorianCalendar(2012, GregorianCalendar.JULY, 16),new GregorianCalendar(2013, GregorianCalendar.JULY, 16)};
+	private static Warehouse warehouse;
+	private static Testdata testdata;
+	private static Path path = Paths.get("C:\\Testdata\\testdata.csv");
+	private static int articleID = 0;
+	
 	public static void main(String[] args)
 	{
+		System.out.println("Herzlich Willkommen!");
+		System.out.println("Bitte erzeugen Sie zuerst die Testdaten oder lesen Sie bereits bestehende Testdaten ein.");
 
 		testDataMenu.add(new MenuItem("Testdaten erzeugen", new Runnable()
 		{
@@ -17,8 +36,20 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				System.out.println("Testdaten werden erzeugt...");
-
+				warehouse = new Warehouse(2000, 20);
+				
+				if(testdata == null) {
+					period = Util.inputDateOrPeriod("Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period[0]) + " - " + Util.parseDate(period[1]) + "]:", period);
+					testdata = new Testdata(warehouse, period[0], period[1]);
+				} else {
+					do {
+						period = Util.inputDateOrPeriod("Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period[0]) + " + - " + Util.parseDate(period[1]) + "]:", period);
+						testdata = new Testdata(warehouse, period[0], period[1]);
+					} while (testdata.getTransactions().isEmpty());
+				}
+				System.out.println("Es wurden " + NumberFormat.getInstance().format(testdata.getTransactions().size()) + " Testdatensätze in dem Zeitraum vom " + Util.parseDate(period[0]) + " bis zum " + Util.parseDate(period[1]) + " erstellt.");
+				
+				testdata.writeToDisk(path);
 			}
 		}));
 
@@ -28,8 +59,16 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				System.out.println("Testdaten werden eingelesen...");
-
+				Path tempPath = Util.inputPath(path);
+				warehouse = new Warehouse(2000, 20);
+				try {
+					testdata = new Testdata(tempPath);
+					period[0] = testdata.getStartDate();
+					period[1] = testdata.getEndDate();
+					System.out.println("Es wurden " + NumberFormat.getInstance().format(testdata.getTransactions().size()) + " Testdatensätze in dem Zeitraum vom " + Util.parseDate(period[0]) + " bis zum " + Util.parseDate(period[1]) + " eingelesen.");
+					path = tempPath;
+				}
+				catch (NullPointerException e) {}
 			}
 		}));
 
@@ -39,8 +78,12 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				System.out.println("Testdaten werden erzeugt...");
-
+				File file = new File(path.toUri());
+				if(file.delete()) {
+					System.out.println("Testdaten erfolgreich gelöscht.");
+				} else {
+					System.err.println("Die Testdaten konnten nicht gelöscht werden.");
+				}
 			}
 		}));
 
@@ -50,8 +93,16 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				System.out.println("Artikelbestand.");
-
+				try {
+					Analysis.quantityPerDay(Util.inputDateOrPeriod("Bitte geben Sie ein Datum ein [" + Util.parseDate(period[0]) + "]: ", period)[0], testdata);
+				} catch (NullPointerException e) {
+					System.err.println(" Bitte erzeugen Sie zuerst Testdaten.");
+				}
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
 			}
 		}));
 
@@ -61,8 +112,12 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				System.out.println("Differenzmenge.");
-
+				period = Util.inputDateOrPeriod("Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period[0]) + " - " + Util.parseDate(period[1]) + "]:", period);
+				try {
+					Analysis.differenceOfPeriod(period[0], period[1], testdata);
+				} catch (NullPointerException e) {
+					System.err.println("Bitte erzeugen Sie zuerst Testdaten.");
+				}
 			}
 		}));
 
@@ -72,19 +127,28 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				System.out.println("Umschagshäufigkeit.");
-
+				period = Util.inputDateOrPeriod("Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period[0]) + " - " + Util.parseDate(period[1]) + "]:", period);
+				try {
+					Analysis.turnFrequency(period[0], period[1], testdata);
+				} catch (NullPointerException e) {
+					System.err.println("Bitte erzeugen Sie zuerst Testdaten.");
+				}
 			}
 		}));
 
 		analysisMenu.add(new MenuItem("Bestandsverlauf", new Runnable()
 		{
-
+			
 			@Override
 			public void run()
 			{
-				System.out.println("Bestandsverlauf.");
-
+				period = Util.inputDateOrPeriod("Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period[0]) + " - " + Util.parseDate(period[1]) + "]:", period);
+				articleID = Util.inputArticleID(0);
+				try {
+					Analysis.stockCourseOfPeriod(articleID, period[0], period[1], testdata);
+				} catch (NullPointerException e) {
+					System.err.println("Bitte erzeugen Sie zuerst Testdaten.");
+				}
 			}
 		}));
 
@@ -94,7 +158,12 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				System.out.println("Auslastung.");
+				period = Util.inputDateOrPeriod("Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period[0]) + " - " + Util.parseDate(period[1]) + "]:", period);
+				try {
+					Analysis.stockUtilizationInPeriod(period[0], period[1], testdata);
+				} catch (NullPointerException e) {
+					System.err.println("Bitte erzeugen Sie zuerst Testdaten.");
+				}
 
 			}
 		}));

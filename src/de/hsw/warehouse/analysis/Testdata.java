@@ -31,7 +31,7 @@ public class Testdata
 		generateTestData(warehouse, startDate, endDate);
 	}
 
-	public Testdata(Path path)
+	public Testdata(Path path) throws NullPointerException
 	{
 		this.transactions = this.readFromDisk(path);
 		this.startDate = this.transactions.getFirst().getDate();
@@ -136,7 +136,7 @@ public class Testdata
 		}
 	}
 	
-	public LinkedList<Transaction> readFromDisk(Path path)
+	public LinkedList<Transaction> readFromDisk(Path path) throws NullPointerException
 	{
 		String[] lines = null;
 		int quantity, articleID;
@@ -147,6 +147,7 @@ public class Testdata
 			lines = Util.readFromDisk(path);
 		} catch (FileNotFoundException e) {
 			System.out.println("Fehler beim Einlesen der Testdaten. Stellen Sie sicher, dass Sie den richtigen Pfad angegeben haben.");
+			throw new NullPointerException();
 		}
 		for(int i = 1; i < lines.length; i++) {
 			articleID = Integer.parseInt(lines[i].split(";")[0]);

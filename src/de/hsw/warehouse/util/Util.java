@@ -140,36 +140,48 @@ public class Util {
 
 	/**
 	 * Eingabe einer Artikelnummer. Dabei wird geprüft, ob diese gülig ist.
+	 * @param defaultArticleID Wird zurückgegeben, wenn nichts eingegeben wird.
 	 * @return Die eingegebene Artikelnummer.
 	 */
-	public static int inputArticleID() {
-		int id;
+	public static int inputArticleID(int defaultArticleID) {
+		int id = defaultArticleID;
+		String input = "";
 		do {
-			System.out.print("Geben Sie die ID des gewünschten Artikels ein :");
+			System.out.print("Geben Sie die ID des gewünschten Artikels ein [" + defaultArticleID + "]: ");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			String input = "";
 			try {
 				input = br.readLine();
+				id = Integer.parseInt(input);
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.err.println("Fehler beim Einlesen.");;
+			} catch (NumberFormatException e1) {
+				if (input.equals("")){
+					return id;
+				} else {
+					System.err.println("Bitte geben Sie eine gültige Artikelnummer ein.");
+				}	
 			}
-			id = Integer.parseInt(input);
-		} while (id < 0 || id > Assortment.getSize());
+		} while (id < 0 || id > Assortment.getSize() || input != "");
 		return id;
 	}
 
 	/**
 	 * Eingabe eines Pfades.
+	 * @param defaultPath Wird verwendet, wenn kein oder ein falscher Pfad eingegeben wird.
 	 * @return Den eingebene Pfad.
 	 */
-	public static Path inputPath()
+	public static Path inputPath(Path defaultPath)
 	{
+		System.out.print("Bitte geben Sie einen Pfad ein[" + defaultPath + "]: ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input = "";
 		try {
 			input = br.readLine();
 		} catch (IOException e) {
 			System.out.println("Fehler bei der Eingabe");
+		}
+		if(input.equals("")){
+			return defaultPath;
 		}
 		return Paths.get(input);
 	}	

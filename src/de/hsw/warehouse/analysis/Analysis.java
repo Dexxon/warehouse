@@ -80,11 +80,11 @@ public class Analysis {
 
 		System.out.println("\n");
 		System.out.println("Bestand am " + date.getTime() + ":\n");
-		System.out.println("Artikelnummer \t Artikelname \t Anzahl");
+		System.out.printf("%-13s %-60s %-15s\n","Artikelnummer" , "Artikelname", "Anzahl");
 		
 
 		for(int articleID = 0; articleID < Assortment.getSize();articleID++) {
-			System.out.println(articleID + "\t" + Assortment.getArticleName(articleID) + "\t" + quantity[articleID]);
+			System.out.printf("%-13d %-60s %-15d\n", articleID, Assortment.getArticleName(articleID), quantity[articleID]);
 		}
 	}
 
@@ -105,6 +105,10 @@ public class Analysis {
 
 	public static void stockCourseOfPeriod(int articleID, GregorianCalendar startDate, GregorianCalendar endDate, Testdata data) {
 
+		if(data == null) {
+			throw new NullPointerException();
+		}
+		
 		GregorianCalendar tempDate = (GregorianCalendar) startDate.clone();
 		System.out.println("\n");
 		System.out.println("Bestand vom " + Util.parseDate(startDate) + " bis zum " + Util.parseDate(endDate) + " für den Artikel '" + Assortment.getArticleName(articleID) + "':\n");

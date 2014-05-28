@@ -62,9 +62,8 @@ public class Menu extends MenuItem
 					return menuItems.get(option);
 				}
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
 			}
-			System.out.println(line + " ist keine gültige Option\n");
+			System.err.println(line + " ist keine gültige Option\n");
 
 		}
 	}
@@ -81,9 +80,9 @@ public class Menu extends MenuItem
 		}
 	}
 
-	public Menu add(MenuItem menuePunkt)
+	public Menu add(MenuItem menueItem)
 	{
-		menuItems.add(menuePunkt);
+		menuItems.add(menueItem);
 		return this;
 	}
 }
