@@ -29,7 +29,7 @@ public class Menu extends MenuItem
 	});
 
 	/**
-	 * Der "Zurück"-Eintrag. Dieser hat keinen ausführbaren Code und wird mit dem Konstruktor {@link de.hsw.warehouse.ui.MenuItem#MenuItem(String) MenuItem(String)} erstellt.
+	 * Der "Zurück"-Eintrag. Dieser hat keinen {@link java.lang.Runnable ausführbaren Code} und wird mit dem Konstruktor {@link de.hsw.warehouse.ui.MenuItem#MenuItem(String) MenuItem(String)} erstellt.
 	 * Aus diesem Grund exisitiert dieser Konstruktor und ist nur in dieser Klasse und der Oberklasse sichtbar, damit er nicht woanders aufgerufen werden kann.
 	 */
 	public static final MenuItem back = new MenuItem("Zurück");
@@ -91,10 +91,10 @@ public class Menu extends MenuItem
 	}
 
 	/**
-	 * Der ausführbare Code des Menüs.<br>
-	 * Der Benutzer wird zunächst nach der Eingabe gefragt. Wenn ein  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag} ausgewählt wurde, wird dessen Code ausgeführt.
-	 * Handelt es sich bei dem  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag} um ein Untermenü, wird diese Methode für jenes Menü ausgeführt. Handelt es sich um einen  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag}, wird dessen Code ausgeführt.
-	 * Ist dieser Code nicht vorhanden (das bedeutet es handelt sich um den "Zurück"-Eintrag), wird die Methode verlassen und in das Obermenü zurückgekehrt.
+	 * Der {@link java.lang.Runnable ausführbare Code} des Menüs.<br>
+	 * Der Benutzer wird zunächst nach der Eingabe gefragt. Wenn ein  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag} ausgewählt wurde, wird dessen {@link java.lang.Runnable Code} ausgeführt.
+	 * Handelt es sich bei dem  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag} um ein Untermenü, wird diese Methode für jenes Menü ausgeführt. Handelt es sich um einen  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag}, wird dessen {@link java.lang.Runnable Code} ausgeführt.
+	 * Ist dieser {@link java.lang.Runnable Code} nicht vorhanden (das bedeutet es handelt sich um den "Zurück"-Eintrag), wird die Methode verlassen und in das Obermenü zurückgekehrt.
 	 */
 	@Override
 	public void run()

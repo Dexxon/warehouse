@@ -11,6 +11,15 @@ import de.hsw.warehouse.analysis.Testdata;
 import de.hsw.warehouse.model.Warehouse;
 import de.hsw.warehouse.util.Util;
 
+/**
+ * In dieser Klasse werden die einzelnen {@link de.hsw.warehouse.ui.MenuItem Menüeinträge} und {@link de.hsw.warehouse.ui.Menu Menüs} erstellt und zu einer <code>Menüstruktur</code> zusammengefügt.<br>
+ * Außerdem enthält diese Klasse den {@link de.hsw.warehouse.ui.MenuStructure#main(String[]) Einstiegspunkt} für das Programm.<br>
+ * Die Felder dieser Klasse sind Parameter für die {@link de.hsw.warehouse.analysis.Analysis Auswertungen}. Sie stellen Standardwerte dar, mit denen die {@link de.hsw.warehouse.analysis.Analysis Auswertungen} stattfinden, wenn keine oder eine falsche Benutzereingabe gemacht wurde.
+ * Dabei werden bei der Ausführung einer {@link de.hsw.warehouse.analysis.Analysis Auswertung} die übergebenen Parameter in den Feldern gespeichert, so dass die Felder immer die zuletzt eingegebenen Werte enthalten.
+ * @author Constantin
+ * @version
+ * @see <a href="http://bytes.com/topic/java/insights/870013-text-based-menus">http://bytes.com/topic/java/insights/870013-text-based-menus</a>
+ */
 public class MenuStructure
 {
 
@@ -25,6 +34,10 @@ public class MenuStructure
 	private static Path path = Paths.get("C:\\Testdata\\testdata.csv");
 	private static int articleID = 0;
 	
+	/**
+	 * Stellt den Einstiegspunkt für die Applikation dar. Hier werden die {@link de.hsw.warehouse.ui.MenuItem Menüeintrage} erstellt und zusammengefügt. Anschließend wird für das Hauptmenü die Methode {@link de.hsw.warehouse.ui.Menu#run()} aufgerufen, welche das Menü aufruft und die Benutzerinteraktion startet.
+	 * @param args Die Kommandozeilenargumente. Werden hier nicht verwertet.
+	 */
 	public static void main(String[] args)
 	{
 		System.out.println("Herzlich Willkommen!");
