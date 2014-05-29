@@ -77,6 +77,7 @@ public class MenuItem implements Runnable
 	{
 		try {
 			action.run();
+			Thread.sleep(500);
 		} catch (Throwable t) {
 			t.printStackTrace(System.err);
 		}
