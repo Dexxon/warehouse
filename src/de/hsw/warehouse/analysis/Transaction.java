@@ -18,16 +18,16 @@ public class Transaction
 
 	/**
 	 * Erzeugung einer Lagerbewegung.
-	 * @param artikelID Die {@link de.hsw.warehouse.model.Article Artikel}nummer der bewegten {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @param articleID Die {@link de.hsw.warehouse.model.Article Artikel}nummer der bewegten {@link de.hsw.warehouse.model.Article Artikel}.
 	 * @param quantity Die Anzahl der bewegten {@link de.hsw.warehouse.model.Article Artikel}.
 	 * @param date Das Datum der Bewegung.
 	 */
-	public Transaction(int artikelID, int quantity, GregorianCalendar date)
+	public Transaction(int articleID, int quantity, GregorianCalendar date)
 	{
-		this.articleID = artikelID;
+		this.articleID = articleID;
 		this.quantity = quantity;
 		this.date = date;
-		this.volume = Assortment.getArticleVolume(articleID) * this.quantity;
+		this.volume = Assortment.getArticleVolume(this.articleID) * this.quantity;
 	}
 
 	/**
