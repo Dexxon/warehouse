@@ -19,8 +19,8 @@ import de.hsw.warehouse.model.Assortment;
  * Diese Klasse stellt statische Hilfsmethoden zur Verfügung. Dazu gehören Eingagemethoden sowie
  * Methoden für das Lesen und Schreiben von Dateien auf der Festplatte.
  * 
- * @author Constantin
- * 
+ * @author Nico Tietje, Lorenz Surkemper, Constantin Grote
+ * @version 29.05.2013
  */
 public class Util
 {
@@ -55,22 +55,22 @@ public class Util
 	}
 
 	/**
-	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um.
+	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um. Enthält "input"
+	 * nur ein Element (Datum), wird der Zeitraum zurückgegeben, welcher diesen Tag widerspiegelt.
 	 * 
 	 * Beispiel:<br>
+	 * <br>
 	 * &emsp;Eingabe: 16.07.2013<br>
 	 * &emsp;Rückgabe: 16.07.2013 00:00; 16.07.2013 23:59<br>
 	 * <br>
-	 * 
 	 * &emsp;Eingabe: 07.2013<br>
 	 * &emsp;Rückgabe: 01.07.2013 00:00;31.07.2013 23:59<br>
 	 * <br>
-	 * 
 	 * &emsp;Eingabe: 16.07.2013-18.07.2013<br>
 	 * &emsp;Rückgabe: 16.07.2013 00:00;18.07.2013 23:59
 	 * 
 	 * @param input Die Eingabe. Ein Element entspricht dabei einem Datums-String.
-	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemact wurde.
+	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
 	 * @return Eine {@link java.util.ArrayList ArrayList}, welche den angegebenen Zeitraum
 	 *         darstellt.
 	 */

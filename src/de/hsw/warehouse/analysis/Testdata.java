@@ -22,7 +22,7 @@ import de.hsw.warehouse.util.Util;
  * liegt, sowie Start- und Endzeitpunkt der Testdaten.
  * 
  * @author Nico Tietje, Constantin Grote
- * @version
+ * @version 29.05.2013
  */
 public class Testdata
 {
@@ -191,7 +191,7 @@ public class Testdata
 					} catch (NotEnoughArticleException e) {
 					}
 				}
-				
+
 				transactionsPerDay--;
 			}
 
@@ -213,14 +213,14 @@ public class Testdata
 		lines[0] = String.valueOf(this.getSizeOfWarehouse()) + ";";
 		int index = 1;
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
-		
+
 		for (Transaction transaction : this.transactions) {
 			lines[index] = transaction.getArticleID() + ";"
 					+ sdf.format(transaction.getDate().getTime()) + ";" + transaction.getQuantity()
 					+ ";";
 			index++;
 		}
-		
+
 		try {
 			Util.writeToDisk(lines, path);
 		} catch (IOException e) {
@@ -241,16 +241,16 @@ public class Testdata
 		this.transactions = new LinkedList<>();
 		GregorianCalendar date = new GregorianCalendar();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
-		
+
 		try {
 			lines = Util.readFromDisk(path);
 		} catch (FileNotFoundException e) {
 			System.err
 					.println("Fehler beim Einlesen der Testdaten. Stellen Sie sicher, dass Sie den richtigen Pfad angegeben haben.");
 		}
-		
+
 		this.sizeOfWarehouse = Integer.parseInt(lines[0].split(";")[0]);
-		
+
 		for (int i = 1; i < lines.length; i++) {
 			articleID = Integer.parseInt(lines[i].split(";")[0]);
 			try {

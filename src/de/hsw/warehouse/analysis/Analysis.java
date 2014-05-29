@@ -7,16 +7,17 @@ import de.hsw.warehouse.util.Util;
 
 /**
  * Diese Klasse stellt statische Methoden zur Auswertung der Testdaten bereit. Dabei wird zwischen
- * zwei verschiedenen Methodenarten unterschieden:<br>
+ * zwei verschiedenen Methodenarten unterschieden:<br><br>
  * 1. calculate* Klassen<br>
- * &emsp;&emsp;Diese Klassen berechnen Werte, welche als Grundlagen für die Auswertungen dienen. Sie
- * sind daher nur für diese Klasse sichtbar ("private") und beinhalten keine Ausgaben.<br>
+ * &emsp;&emsp;Diese Methoden berechnen Werte, welche als Grundlagen für die Auswertungen dienen.
+ * Sie sind daher nur für diese Klasse sichtbar ("private") und beinhalten keine Ausgaben, sondern
+ * liefern das Ergebnis als Rückgabewert.<br>
  * 2. Alle anderen Klassen<br>
- * &emsp;&emsp;Diese Klassen übernehmen die eigentlichen Auswertungen, welche dabei direkt auf der
- * Konsole ausgegeben werden. Die Sichtbarkeit dieser Klassen ist "public".
+ * &emsp;&emsp;Diese Methoden übernehmen die eigentlichen Auswertungen, welche dabei direkt auf der
+ * Konsole ausgegeben werden. Die Sichtbarkeit dieser Methoden ist "public".
  * 
- * @author Lorenz Surkemper, Timo Rodenwald
- * @version
+ * @author Lorenz Surkemper, Timo Rodenwaldt, Constantin Grote
+ * @version 29.05.2013
  */
 public class Analysis
 {
@@ -89,7 +90,7 @@ public class Analysis
 		for (int i = 0; i < Assortment.getSize(); i++) {
 			average[i] = subtotal[i] / days;
 		}
-		
+
 		return average;
 
 	}

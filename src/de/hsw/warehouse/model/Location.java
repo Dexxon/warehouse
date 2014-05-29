@@ -5,10 +5,12 @@ import java.util.ArrayList;
 /**
  * Diese Klasse stellt einen einzelnen Lagerplatz dar. In einem Lagerplatz können mehrere Artikel
  * gelagert werden. Ein Lagerplatz hat ein bestimmmtes Volumen. Ist dieses ausgeschöpft, können
- * keine weiteren {@link de.hsw.warehouse.model.Article Artikel} hinzugefügt werden.
+ * keine weiteren {@link de.hsw.warehouse.model.Article Artikel} hinzugefügt werden. Dabei wird
+ * nicht geprüft, ob noch genügend Platz vorhanden ist. Diese Prüfung muss also auf höherer Ebene
+ * stattfinden.
  * 
  * @author Constantin Grote
- * @version
+ * @version 29.05.2013
  */
 public class Location
 {
@@ -71,7 +73,7 @@ public class Location
 	 * nicht geprüft, ob noch genügend Platz vorhanden ist. Diese Prüfung muss also auf höherer
 	 * Ebene stattfinden.
 	 * 
-	 * @param articles Der hinzuzufügende {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @param article Der hinzuzufügende {@link de.hsw.warehouse.model.Article Artikel}.
 	 */
 	public void addArticle(Article article)
 	{
@@ -83,7 +85,7 @@ public class Location
 	 * Entfernt einen {@link de.hsw.warehouse.model.Article Artikel} aus dem Lagerplatz, falls er
 	 * vorhanden ist.
 	 * 
-	 * @param articles Der zu entfernende {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @param article Der zu entfernende {@link de.hsw.warehouse.model.Article Artikel}.
 	 */
 	public void removeArticle(Article article)
 	{

@@ -9,17 +9,21 @@ import java.util.Scanner;
  * In dieser Klasse wird das Sortiment statisch definiert.
  * 
  * @author Constantin Grote
- * @version
+ * @version 29.05.2013
  */
 public class Assortment
 {
 	/**
 	 * Diese anonyme Klasse wird für den Aufbau des Sortiments benötigt. Sie entspricht
 	 * weitestgehend der Klasse "{@link de.hsw.warehouse.model.Article}". Diese kann hier jedoch
-	 * nicht verwendet werden (siehe Dokumentation).
+	 * nicht verwendet werden (siehe Dokumentation), da für deren
+	 * {@link de.hsw.warehouse.model.Article#Article(int) Konstruktor} das Sortiment bereits
+	 * aufgebaut werden muss. Eine Vererbung ist auch nicht optimal, da nicht gewünscht wird, da
+	 * {@link de.hsw.warehouse.model.Article Artikel} lediglich miüber die Artikelnummer erstellt
+	 * werden sollen.
 	 * 
 	 * @author Constantin Grote
-	 * @version
+	 * @version 29.05.2013
 	 */
 	static class SingleArticle
 	{
@@ -28,6 +32,7 @@ public class Assortment
 		private int volume;
 
 		/**
+		 * Erstellt einen einzelnen Artikel.
 		 * 
 		 * @param name Der Name des {@link de.hsw.warehouse.model.Article Artikels}.
 		 * @param commodityGroup Die Warengruppe des {@link de.hsw.warehouse.model.Article Artikels}
@@ -55,13 +60,13 @@ public class Assortment
 	{
 		LinkedList<SingleArticle> articlePool = new LinkedList<SingleArticle>();
 		Scanner input = null;
-		
+
 		try {
 			input = new Scanner(new File(path));
 		} catch (FileNotFoundException e) {
 			System.out.println("Fehler beim Einlesen der Artikelliste.");
 		}
-		
+
 		String[] line;
 
 		while (input.hasNextLine()) {

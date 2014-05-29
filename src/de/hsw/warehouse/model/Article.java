@@ -1,11 +1,11 @@
 package de.hsw.warehouse.model;
 
 /**
- * Diese Klasse stellt einen Artikel dar. Dieser besteht aus einer Artikelnummer, einem
- * Namen, einer Warengruppe und einem Volumen.
+ * Diese Klasse stellt einen Artikel dar. Dieser besteht aus einer Artikelnummer, einem Namen, einer
+ * Warengruppe und einem Volumen.
  * 
  * @author Constantin Grote
- * @version
+ * @version 29.05.2013
  */
 public class Article
 {
@@ -15,8 +15,7 @@ public class Article
 	private int volume;
 
 	/**
-	 * Konstruktor der Klasse Article. Die Attribute des Artikels werden anhand der Artikelnummer
-	 * bestimmt.
+	 * Erstellt einen Artikel. Die Attribute des Artikels werden anhand der Artikelnummer bestimmt.
 	 * 
 	 * @param articleID Die Artikelnummer des zu erzeugenden Artikels.
 	 */

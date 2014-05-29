@@ -13,7 +13,7 @@ import java.util.Arrays;
  * Menüeintrag und kann eine Unterklasse der Klasse {@link de.hsw.warehouse.ui.MenuItem} sein.
  * 
  * @author Timo Rodenwaldt
- * @version
+ * @version 29.05.2013
  * @see <a
  *      href="http://bytes.com/topic/java/insights/870013-text-based-menus">http://bytes.com/topic/java/insights/870013-text-based-menus</a>
  */
@@ -55,7 +55,7 @@ public class Menu extends MenuItem
 		super(title);
 		setAction(this);
 		this.menuItems = new ArrayList<MenuItem>(Arrays.asList(menuItems));
-		
+
 		if (back)
 			this.menuItems.add(0, Menu.back);
 		if (exit)
@@ -71,11 +71,11 @@ public class Menu extends MenuItem
 	{
 		int option = 0;
 		System.out.println("\n" + getTitle() + ":");
-		
+
 		for (MenuItem item : this.menuItems) {
 			System.out.println((option++) + ": " + item.getTitle());
 		}
-		
+
 		System.out.print("Wählen Sie eine Option: ");
 	}
 
@@ -89,7 +89,7 @@ public class Menu extends MenuItem
 	private MenuItem prompt() throws IOException
 	{
 		int option;
-		
+
 		while (true) {
 			display();
 			BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

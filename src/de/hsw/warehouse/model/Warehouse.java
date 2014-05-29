@@ -12,8 +12,8 @@ import de.hsw.warehouse.analysis.Transaction;
  * In dieser Klasse findet das ein- und auslagern von {@link de.hsw.warehouse.model.Article
  * Artikeln} stall.
  * 
- * @author Constantin
- * @version
+ * @author Constantin Grote
+ * @version 29.05.2013
  */
 public class Warehouse
 {
@@ -108,13 +108,13 @@ public class Warehouse
 			throws NotEnoughArticleException
 	{
 		HashMap<Article, Location> articleToLocation = findArticle(articleID, quantity);
-		
+
 		if (articleToLocation.size() >= quantity) {
-			
+
 			for (Entry<Article, Location> map : articleToLocation.entrySet()) {
 				map.getValue().removeArticle(map.getKey());
 			}
-			
+
 			return new Transaction(articleID, -quantity, date);
 		} else {
 			throw new NotEnoughArticleException();
@@ -135,7 +135,7 @@ public class Warehouse
 		HashMap<Article, Location> map = new HashMap<Article, Location>();
 
 		for (Location location : locations) {
-			
+
 			for (int i = 0; i < location.getArticles().size() && quantity > 0; i++) {
 				if (location.getArticles().get(i).getArticleID() == articleID) {
 					map.put(location.getArticles().get(i), location);
@@ -159,10 +159,10 @@ public class Warehouse
 	private boolean enoughFreeSpace(int articleID, int quantity)
 	{
 		int quantityPerLocation;
-		
+
 		for (Location location : locations) {
 			quantityPerLocation = 1;
-			
+
 			while (true) {
 				if (location.getFreeSpace() >= Assortment.getArticleVolume(articleID)
 						* quantityPerLocation) {

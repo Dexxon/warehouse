@@ -14,8 +14,7 @@ import de.hsw.warehouse.util.Util;
 
 /**
  * In dieser Klasse werden die einzelnen {@link de.hsw.warehouse.ui.MenuItem Menüeinträge} und
- * {@link de.hsw.warehouse.ui.Menu Menüs} erstellt und zu einer <code>Menüstruktur</code>
- * zusammengefügt.<br>
+ * {@link de.hsw.warehouse.ui.Menu Menüs} erstellt und zu einer Menüstruktur zusammengefügt.<br>
  * Außerdem enthält diese Klasse den {@link de.hsw.warehouse.ui.MenuStructure#main(String[])
  * Einstiegspunkt} für das Programm.<br>
  * Die Felder dieser Klasse sind Parameter für die {@link de.hsw.warehouse.analysis.Analysis
@@ -25,8 +24,8 @@ import de.hsw.warehouse.util.Util;
  * {@link de.hsw.warehouse.analysis.Analysis Auswertung} die übergebenen Parameter in den Feldern
  * gespeichert, so dass die Felder immer die zuletzt eingegebenen Werte enthalten.
  * 
- * @author Constantin
- * @version
+ * @author Timo Rodenwaldt, Lorenz Surkemper, Nico Tietje, Constantin Grote
+ * @version 29.05.2013
  * @see <a
  *      href="http://bytes.com/topic/java/insights/870013-text-based-menus">http://bytes.com/topic/java/insights/870013-text-based-menus</a>
  */
@@ -80,15 +79,15 @@ public class MenuStructure
 						testdata = new Testdata(warehouse, period.get(0), period.get(1));
 					} while (testdata.getTransactions().isEmpty());
 				}
-				
+
 				period.set(0, testdata.getStartDate());
 				period.set(1, testdata.getEndDate());
-				
+
 				System.out.println("Es wurden "
 						+ NumberFormat.getInstance().format(testdata.getTransactions().size())
 						+ " Testdatensätze in dem Zeitraum vom " + Util.parseDate(period.get(0))
 						+ " bis zum " + Util.parseDate(period.get(1)) + " erstellt.");
-				
+
 				testdata.writeToDisk(path);
 			}
 		}));
@@ -100,7 +99,7 @@ public class MenuStructure
 			{
 				Path tempPath = Util.inputPath(path);
 				warehouse = new Warehouse(2000, 20);
-				
+
 				try {
 					testdata = new Testdata(tempPath);
 					period.set(0, testdata.getStartDate());
@@ -124,7 +123,7 @@ public class MenuStructure
 			public void run()
 			{
 				File file = new File(path.toUri());
-				
+
 				if (file.delete()) {
 					System.out.println("Testdaten erfolgreich gelöscht.");
 					testdata = null;
@@ -146,7 +145,7 @@ public class MenuStructure
 						"Bitte geben Sie einen Zeitraum oder ein Datum ein ["
 								+ Util.parseDate(period.get(0)) + " - "
 								+ Util.parseDate(period.get(1)) + "]: ", period);
-				
+
 				try {
 					Analysis.quantityOfPeriod(period.get(0), period.get(1), testdata);
 				} catch (NullPointerException e) {
@@ -164,7 +163,7 @@ public class MenuStructure
 				period = Util.inputDateOrPeriod(
 						"Bitte geben Sie einen Zeitraum ein: [" + Util.parseDate(period.get(0))
 								+ " - " + Util.parseDate(period.get(1)) + "]:", period);
-				
+
 				try {
 					Analysis.differenceOfPeriod(period.get(0), period.get(1), testdata);
 				} catch (NullPointerException e) {
@@ -182,7 +181,7 @@ public class MenuStructure
 				period = Util.inputDateOrPeriod(
 						"Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period.get(0))
 								+ " - " + Util.parseDate(period.get(1)) + "]:", period);
-				
+
 				try {
 					Analysis.turnFrequency(period.get(0), period.get(1), testdata);
 				} catch (NullPointerException e) {
@@ -201,7 +200,7 @@ public class MenuStructure
 						"Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period.get(0))
 								+ " - " + Util.parseDate(period.get(1)) + "]:", period);
 				articleID = Util.inputArticleID(0);
-				
+
 				try {
 					Analysis.stockCourseOfPeriod(articleID, period.get(0), period.get(1), testdata);
 				} catch (NullPointerException e) {
@@ -219,7 +218,7 @@ public class MenuStructure
 				period = Util.inputDateOrPeriod(
 						"Bitte geben Sie einen Zeitraum ein [" + Util.parseDate(period.get(0))
 								+ " - " + Util.parseDate(period.get(1)) + "]:", period);
-				
+
 				try {
 					Analysis.stockUtilizationInPeriod(period.get(0), period.get(1), testdata);
 				} catch (NullPointerException e) {
