@@ -1,9 +1,11 @@
 package de.hsw.warehouse.model;
 
 /**
- * Instanzen dieser Klasse stellen einen Artikel dar. Dieser besteht aus einer Artikelnummer, einem Namen, einer Warengruppe und einem Volumen.
+ * Diese Klasse stellt einen Artikel dar. Dieser besteht aus einer Artikelnummer, einem
+ * Namen, einer Warengruppe und einem Volumen.
+ * 
  * @author Constantin Grote
- * @version 
+ * @version
  */
 public class Article
 {
@@ -13,7 +15,9 @@ public class Article
 	private int volume;
 
 	/**
-	 * Konstruktor der Klasse Article. Die Attribute des Artikels werden anhand der Artikelnummer bestimmt.
+	 * Konstruktor der Klasse Article. Die Attribute des Artikels werden anhand der Artikelnummer
+	 * bestimmt.
+	 * 
 	 * @param articleID Die Artikelnummer des zu erzeugenden Artikels.
 	 */
 	public Article(int articleID)
@@ -27,38 +31,42 @@ public class Article
 
 	/**
 	 * Gibt die Artikelnummer des Artikels zurück.
+	 * 
 	 * @return Die Artikelnummer des Artikels.
 	 */
 	public int getArticleID()
 	{
-		return articleID;
+		return this.articleID;
 	}
 
 	/**
 	 * Gibt den Namen des Artikels zurück.
+	 * 
 	 * @return Der Name des Artikels.
 	 */
 	public String getName()
 	{
-		return articleName;
+		return this.articleName;
 	}
 
 	/**
 	 * Gibt die Warengruppe des Artikels zurück.
+	 * 
 	 * @return Die Warengruppe des Artikels.
 	 */
 	public String getCommodityGroup()
 	{
-		return commodityGroup;
+		return this.commodityGroup;
 	}
 
 	/**
 	 * Gibt das Volumen des Artikels zurück.
+	 * 
 	 * @return Das Volumen des Artikels.
 	 */
 	public int getVolume()
 	{
-		return volume;
+		return this.volume;
 	}
 
 }

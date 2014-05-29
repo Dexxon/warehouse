@@ -16,21 +16,28 @@ import java.util.Scanner;
 import de.hsw.warehouse.model.Assortment;
 
 /**
- * Diese Klasse stellt statische Hilfsmethoden zur Verfügung. Dazu gehören Eingagemethoden sowie Methoden für das Lesen und Schreiben von Dateien auf der Festplatte.
+ * Diese Klasse stellt statische Hilfsmethoden zur Verfügung. Dazu gehören Eingagemethoden sowie
+ * Methoden für das Lesen und Schreiben von Dateien auf der Festplatte.
+ * 
  * @author Constantin
- *
+ * 
  */
-public class Util {
-	
+public class Util
+{
+
 	/**
-	 * Diese Methode fragt eine Datums- oder Datumseingabe ab. Dabei können flexibel ein Tag, ein Monat oder ein Zeitraum eingegeben werden.
-	 * Es wird ein Array zurückgegeben, welches den eingegebenen Zeitraum repräsentiert.
+	 * Diese Methode fragt eine Datums- oder Datumseingabe ab. Dabei können flexibel ein Tag, ein
+	 * Monat oder ein Zeitraum eingegeben werden. Es wird ein Array zurückgegeben, welches den
+	 * eingegebenen Zeitraum repräsentiert.
 	 * 
 	 * @param message Die Eingabeaufforderung
 	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
-	 * @return Ein Array, welches den eingegebenen Zeitraum darstellt. Das erste Element ist der Startzeitpunkt, das zweite der Endzeitpunkt.
+	 * @return Ein Array, welches den eingegebenen Zeitraum darstellt. Das erste Element ist der
+	 *         Startzeitpunkt, das zweite der Endzeitpunkt.
 	 */
-	public static ArrayList<GregorianCalendar> inputDateOrPeriod(String message, ArrayList<GregorianCalendar> defaultDate) {
+	public static ArrayList<GregorianCalendar> inputDateOrPeriod(String message,
+			ArrayList<GregorianCalendar> defaultDate)
+	{
 		System.out.print(message);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input = "";
@@ -41,7 +48,7 @@ public class Util {
 		}
 		String[] inputArray = input.split("-");
 		ArrayList<GregorianCalendar> result = parseInputToGregorianCalendar(inputArray, defaultDate);
-		if(result.get(0).after(result.get(1))) {
+		if (result.get(0).after(result.get(1))) {
 			result = inputDateOrPeriod("Bitte geben Sie korrekte Daten ein: ", defaultDate);
 		}
 		return result;
@@ -51,19 +58,25 @@ public class Util {
 	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um.
 	 * 
 	 * Beispiel:<br>
-	 * 		&emsp;Eingabe: 16.07.2013<br>
-	 * 		&emsp;Rückgabe: 16.07.2013 00:00; 16.07.2013 23:59<br><br>
+	 * &emsp;Eingabe: 16.07.2013<br>
+	 * &emsp;Rückgabe: 16.07.2013 00:00; 16.07.2013 23:59<br>
+	 * <br>
 	 * 
-	 * 		&emsp;Eingabe: 07.2013<br>
-	 * 		&emsp;Rückgabe: 01.07.2013 00:00;31.07.2013 23:59<br><br>
+	 * &emsp;Eingabe: 07.2013<br>
+	 * &emsp;Rückgabe: 01.07.2013 00:00;31.07.2013 23:59<br>
+	 * <br>
 	 * 
-	 * 		&emsp;Eingabe: 16.07.2013-18.07.2013<br>
-	 * 		&emsp;Rückgabe: 16.07.2013 00:00;18.07.2013 23:59
+	 * &emsp;Eingabe: 16.07.2013-18.07.2013<br>
+	 * &emsp;Rückgabe: 16.07.2013 00:00;18.07.2013 23:59
+	 * 
 	 * @param input Die Eingabe. Ein Element entspricht dabei einem Datums-String.
 	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemact wurde.
-	 * @return Eine {@link java.util.ArrayList ArrayList}, welche den angegebenen Zeitraum darstellt.
+	 * @return Eine {@link java.util.ArrayList ArrayList}, welche den angegebenen Zeitraum
+	 *         darstellt.
 	 */
-	private static ArrayList<GregorianCalendar> parseInputToGregorianCalendar(String input[], ArrayList<GregorianCalendar> defaultDate) {
+	private static ArrayList<GregorianCalendar> parseInputToGregorianCalendar(String input[],
+			ArrayList<GregorianCalendar> defaultDate)
+	{
 		ArrayList<GregorianCalendar> result = new ArrayList<GregorianCalendar>();
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		for (int i = 0; i < input.length; i++) {
@@ -101,11 +114,13 @@ public class Util {
 
 	/**
 	 * Diese Methode schreibt die übergebenen Zeilen in eine Datei.
-	 * @param lines	Die zu schreibenden Zeilen.
+	 * 
+	 * @param lines Die zu schreibenden Zeilen.
 	 * @param path Der Pfad zu der Datei, in die die Zeilen geschrieben werden.
 	 * @throws IOException Wenn ein I/O Fehler auftritt.
 	 */
-	public static void writeToDisk(String[] lines, Path path) throws IOException {
+	public static void writeToDisk(String[] lines, Path path) throws IOException
+	{
 		FileWriter fileWriter = new FileWriter(path.toFile());
 		for (int i = 0; i < lines.length; i++) {
 			fileWriter.write(lines[i]);
@@ -116,11 +131,14 @@ public class Util {
 
 	/**
 	 * Diese Methode liest Zeilen aus einer Datei.
+	 * 
 	 * @param path Der Pfad zu der zu lesenden Datei.
 	 * @return Ein String-Array. Jedes Element enthält eine Zeile der Datei.
-	 * @throws FileNotFoundException Wenn die Datei nicht gefunden wird, weil z.B. ein ungültiger Pfad angegeben wurde.
+	 * @throws FileNotFoundException Wenn die Datei nicht gefunden wird, weil z.B. ein ungültiger
+	 *             Pfad angegeben wurde.
 	 */
-	public static String[] readFromDisk(Path path) throws FileNotFoundException {
+	public static String[] readFromDisk(Path path) throws FileNotFoundException
+	{
 		Scanner input = new Scanner(path.toFile());
 		ArrayList<String> lines = new ArrayList<String>();
 		while (input.hasNext()) {
@@ -132,32 +150,38 @@ public class Util {
 
 	/**
 	 * Diese Methode parst ein Datum in einen lesbaren String.
+	 * 
 	 * @param gc Das zu parsende Datum.
 	 * @return Einen String, welcher das Datum in dem Format "dd.MM.YY" enthält.
 	 */
-	public static String parseDate(GregorianCalendar gc) {
+	public static String parseDate(GregorianCalendar gc)
+	{
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.YYYY");
 		return sdf.format(gc.getTime());
 	}
 
 	/**
 	 * Eingabe einer Artikelnummer. Dabei wird geprüft, ob diese gülig ist.
+	 * 
 	 * @param defaultArticleID Wird zurückgegeben, wenn nichts eingegeben wird.
 	 * @return Die eingegebene Artikelnummer.
 	 */
-	public static int inputArticleID(int defaultArticleID) {
+	public static int inputArticleID(int defaultArticleID)
+	{
 		int id = -1;
 		String input = "";
 		do {
-			System.out.print("Geben Sie die ID des gewünschten Artikels ein (0-" + (Assortment.getSize()-1) + ")[" + defaultArticleID + "]: ");
+			System.out.print("Geben Sie die ID des gewünschten Artikels ein (0-"
+					+ (Assortment.getSize() - 1) + ")[" + defaultArticleID + "]: ");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				input = br.readLine();
 				id = Integer.parseInt(input);
 			} catch (IOException e) {
-				System.err.println("Fehler beim Einlesen.");;
+				System.err.println("Fehler beim Einlesen.");
+				;
 			} catch (NumberFormatException e1) {
-				if (input.equals("")){
+				if (input.equals("")) {
 					return defaultArticleID;
 				}
 			}
@@ -167,6 +191,7 @@ public class Util {
 
 	/**
 	 * Eingabe eines Pfades.
+	 * 
 	 * @param defaultPath Wird verwendet, wenn kein oder ein falscher Pfad eingegeben wird.
 	 * @return Den eingebene Pfad.
 	 */
@@ -180,9 +205,9 @@ public class Util {
 		} catch (IOException e) {
 			System.out.println("Fehler bei der Eingabe");
 		}
-		if(input.equals("")){
+		if (input.equals("")) {
 			return defaultPath;
 		}
 		return Paths.get(input);
-	}	
+	}
 }

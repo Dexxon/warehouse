@@ -2,8 +2,9 @@ package de.hsw.warehouse.model;
 
 /**
  * Diese Exception wird geworfen, wenn nicht genügend Artikel vorhanden sind.
+ * 
  * @author Constantin
- *
+ * 
  */
 public class NotEnoughArticleException extends Exception
 {
@@ -12,7 +13,8 @@ public class NotEnoughArticleException extends Exception
 	/**
 	 * Konstruktor für die Exception.
 	 */
-	public NotEnoughArticleException(){
+	public NotEnoughArticleException()
+	{
 		super();
 	}
 }
