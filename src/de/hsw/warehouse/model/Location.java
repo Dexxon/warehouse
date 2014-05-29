@@ -3,7 +3,7 @@ package de.hsw.warehouse.model;
 import java.util.ArrayList;
 
 /**
- * Diese Klasse stellt einen einzelnen Lagerplatz dar. In einem Lagerplatz können mehrere Artikel gelagert werden. Ein Lagerplatz hat ein bestimmmtes Volumen. Ist dieses ausgeschöpft, können keine weiteren Artikel hinzugefügt werden.
+ * Diese Klasse stellt einen einzelnen Lagerplatz dar. In einem Lagerplatz können mehrere Artikel gelagert werden. Ein Lagerplatz hat ein bestimmmtes Volumen. Ist dieses ausgeschöpft, können keine weiteren {@link de.hsw.warehouse.model.Article Artikel} hinzugefügt werden.
  * @author Constantin Grote
  * @version 
  */
@@ -15,6 +15,7 @@ class Location
 	private ArrayList<Article> article = new ArrayList<Article>();
 
 	/**
+	 * Gibt das Volumen des Lagerplatzes zurück.
 	 * @param volumen Das Volumen des Lagerplatzes.
 	 */
 	Location(int volumen)
@@ -23,6 +24,7 @@ class Location
 	}
 
 	/**
+	 * Gibt die aktuelle Auslastung des Lagerplatzes zurück.
 	 * @return Die aktuelle Auslastung des Lagerplatzes.
 	 */
 	int getLoad()
@@ -31,6 +33,7 @@ class Location
 	}
 
 	/**
+	 * Gibt die Gesamtkapazität des Lagerplatzes zurück.
 	 * @return Die Gesamtkapazität des Lagerplatzes.
 	 */
 	int getCapacity()
@@ -39,6 +42,7 @@ class Location
 	}
 
 	/**
+	 * Gibt den noch zur Verfügung stehenden Platz in dem Lagerplatz zurück.
 	 * @return Den noch zur Verfügung stehenden Platz in dem Lagerplatz.
 	 */
 	int getFreeSpace()
@@ -47,7 +51,8 @@ class Location
 	}
 	
 	/**
-	 * @return Die in dem Lagerplatz gelagerten Artikel.
+	 * Gibt die in dem Lagerplatz gelagerten {@link de.hsw.warehouse.model.Article Artikel} zurück.
+	 * @return Die in dem Lagerplatz gelagerten {@link de.hsw.warehouse.model.Article Artikel}.
 	 */
 	ArrayList<Article> getArticle()
 	{
@@ -55,8 +60,8 @@ class Location
 	}
 
 	/**
-	 * Fügt dem Lagerplatz einen Artikel hinzu. Dabei wird nicht geprüft, ob noch genügend Platz vorhanden ist. Diese Prüfung muss also auf höherer Ebene stattfinden.
-	 * @param article Der hinzuzufügende Artikel.
+	 * Fügt dem Lagerplatz einen {@link de.hsw.warehouse.model.Article Artikel} hinzu. Dabei wird nicht geprüft, ob noch genügend Platz vorhanden ist. Diese Prüfung muss also auf höherer Ebene stattfinden.
+	 * @param article Der hinzuzufügende {@link de.hsw.warehouse.model.Article Artikel}.
 	 */
 	void addArticle(Article article)
 	{
@@ -65,8 +70,8 @@ class Location
 	}
 
 	/**
-	 * Entfernt einen Artikel aus dem Lagerplatz, falls er vorhanden ist.
-	 * @param article Der zu entfernende Artikel.
+	 * Entfernt einen {@link de.hsw.warehouse.model.Article Artikel} aus dem Lagerplatz, falls er vorhanden ist.
+	 * @param article Der zu entfernende {@link de.hsw.warehouse.model.Article Artikel}.
 	 */
 	void removeArticle(Article article)
 	{
