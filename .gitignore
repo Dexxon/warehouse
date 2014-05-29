@@ -69,3 +69,6 @@ local.properties
  
 # PDT-specif
 /doc/
+
+# Diagram files
+*.ucls
