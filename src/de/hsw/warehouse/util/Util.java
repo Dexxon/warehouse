@@ -30,7 +30,7 @@ public class Util {
 	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
 	 * @return Ein Array, welches den eingegebenen Zeitraum darstellt. Das erste Element ist der Startzeitpunkt, das zweite der Endzeitpunkt.
 	 */
-	public static GregorianCalendar[] inputDateOrPeriod(String message, GregorianCalendar[] defaultDate) {
+	public static ArrayList<GregorianCalendar> inputDateOrPeriod(String message, ArrayList<GregorianCalendar> defaultDate) {
 		System.out.print(message);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input = "";
@@ -41,7 +41,10 @@ public class Util {
 		}
 		String[] inputArray = input.split("-");
 		ArrayList<GregorianCalendar> result = parseInputToGregorianCalendar(inputArray, defaultDate);
-		return result.toArray(new GregorianCalendar[result.size()]);
+		if(result.get(0).after(result.get(1))) {
+			result = inputDateOrPeriod("Bitte geben Sie korrekte Daten ein: ", defaultDate);
+		}
+		return result;
 	}
 
 	/**
@@ -60,7 +63,7 @@ public class Util {
 	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemact wurde.
 	 * @return Eine {@link java.util.ArrayList ArrayList}, welche den angegebenen Zeitraum darstellt.
 	 */
-	private static ArrayList<GregorianCalendar> parseInputToGregorianCalendar(String input[], GregorianCalendar[] defaultDate) {
+	private static ArrayList<GregorianCalendar> parseInputToGregorianCalendar(String input[], ArrayList<GregorianCalendar> defaultDate) {
 		ArrayList<GregorianCalendar> result = new ArrayList<GregorianCalendar>();
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		for (int i = 0; i < input.length; i++) {
@@ -89,8 +92,7 @@ public class Util {
 						result.get(i).add(GregorianCalendar.SECOND, -1);
 					}
 				} catch (ParseException e1) {
-					result.set(i, defaultDate[0]);
-					result.add(defaultDate[1]);
+					result = defaultDate;
 				}
 			}
 		}
