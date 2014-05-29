@@ -16,11 +16,11 @@ class Location
 
 	/**
 	 * Gibt das Volumen des Lagerplatzes zurück.
-	 * @param volumen Das Volumen des Lagerplatzes.
+	 * @param volume Das Volumen des Lagerplatzes.
 	 */
-	Location(int volumen)
+	Location(int volume)
 	{
-		this.capacity = volumen;
+		this.capacity = volume;
 	}
 
 	/**
