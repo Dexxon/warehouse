@@ -15,7 +15,7 @@ class Location
 	private ArrayList<Article> article = new ArrayList<Article>();
 
 	/**
-	 * Gibt das Volumen des Lagerplatzes zurück.
+	 * Erzeugt einen Lagerplatz mit der angegebenen Kapazität.
 	 * @param volume Das Volumen des Lagerplatzes.
 	 */
 	Location(int volume)

@@ -26,6 +26,7 @@ class Article
 	}
 
 	/**
+	 * Gibt die Artikelnummer des Artikels zurück.
 	 * @return Die Artikelnummer des Artikels.
 	 */
 	int getArticleID()
@@ -34,6 +35,7 @@ class Article
 	}
 
 	/**
+	 * Gibt den Namen des Artikels zurück.
 	 * @return Der Name des Artikels.
 	 */
 	String getName()
@@ -42,6 +44,7 @@ class Article
 	}
 
 	/**
+	 * Gibt die Warengruppe des Artikels zurück.
 	 * @return Die Warengruppe des Artikels.
 	 */
 	String getCommodityGroup()
@@ -50,6 +53,7 @@ class Article
 	}
 
 	/**
+	 * Gibt das Volumen des Artikels zurück.
 	 * @return Das Volumen des Artikels.
 	 */
 	int getVolume()

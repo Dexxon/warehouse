@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Assortment
 {
 	/**
-	 * Diese anonyme Klasse wird für den Aufbau des Sortiments benötigt. Sie entspricht weitestgehend der Klasse "Article. Diese kann hier jedoch nicht verwendet werden (siehe Dokumentation).
+	 * Diese anonyme Klasse wird für den Aufbau des Sortiments benötigt. Sie entspricht weitestgehend der Klasse "{@link de.hsw.warehouse.model.Article}". Diese kann hier jedoch nicht verwendet werden (siehe Dokumentation).
 	 * @author Constantin Grote
 	 * @version 
 	 */
@@ -25,9 +25,9 @@ public class Assortment
 
 		/**
 		 * 
-		 * @param name Der Name des Artikels.
-		 * @param commodityGroup Die Warengruppe des Artikels.
-		 * @param volume Das Volumen des Artikels.
+		 * @param name Der Name des {@link de.hsw.warehouse.model.Article Artikels}.
+		 * @param commodityGroup Die Warengruppe des {@link de.hsw.warehouse.model.Article Artikels}.
+		 * @param volume Das Volumen des {@link de.hsw.warehouse.model.Article Artikels}.
 		 */
 		public SingleArticle(String name, String commodityGroup, int volume)
 		{
@@ -42,7 +42,7 @@ public class Assortment
 	/**
 	 * Liest den Artikelpool aus einer .csv-Datei von der Festplatte ein.
 	 * @param path Der Pfad zu dem Artikelpool.
-	 * @return Ein Array, welches alle Artikel des Sortiments enthält.
+	 * @return Ein Array, welches alle {@link de.hsw.warehouse.model.Article Artikel} des Sortiments enthält.
 	 */
 	private static SingleArticle[] initialiseArticlePool(String path) 
 	{	
@@ -65,8 +65,9 @@ public class Assortment
 	}
 	
 	/**
-	 * @param articleID Artikelnummer des gewünschten Artikels.
-	 * @return Name des der Artikelnummer entsprechenden Artikels.
+	 * Gibt den der Artikelnummer entsprechenden Artikelnamen zurück.
+	 * @param articleID Artikelnummer des gewünschten {@link de.hsw.warehouse.model.Article Artikels}.
+	 * @return Name des der Artikelnummer entsprechenden {@link de.hsw.warehouse.model.Article Artikels}.
 	 */
 	public static String getArticleName(int articleID)
 	{
@@ -74,8 +75,9 @@ public class Assortment
 	}
 	
 	/**
-	 * @param ArticleID Artikelnummer des gewünschten Artikels.
-	 * @return Warengruppe des der Artikelnummer entsprechenden Artikels.
+	 * Gibt die der Artikelnummer entsprechende Warengruppe zurück.
+	 * @param ArticleID Artikelnummer des gewünschten {@link de.hsw.warehouse.model.Article Artikels}.
+	 * @return Warengruppe des der Artikelnummer entsprechenden {@link de.hsw.warehouse.model.Article Artikels}.
 	 */
 	public static String getArticleCommodityGroup(int ArticleID)
 	{
@@ -83,8 +85,9 @@ public class Assortment
 	}
 	
 	/**
-	 * @param articleID Artikelnummer des gewünschten Artikels.
-	 * @return Volumen des der Artikelnummer entsprechenden Artikels.
+	 * Gibt das der Artikelnummer entsprechende Volumen zurück.
+	 * @param articleID Artikelnummer des gewünschten {@link de.hsw.warehouse.model.Article Artikels}.
+	 * @return Volumen des der Artikelnummer entsprechenden {@link de.hsw.warehouse.model.Article Artikels}.
 	 */
 	public static int getArticleVolume(int articleID)
 	{
@@ -92,7 +95,8 @@ public class Assortment
 	}
 	
 	/**
-	 * @return Die Anzahl der im Sortiment vorhandenen Artikel.
+	 * Gibt die Anzahl der im Sortiment vorhandenen {@link de.hsw.warehouse.model.Article Artikel} zurück.
+	 * @return Die Anzahl der im Sortiment vorhandenen {@link de.hsw.warehouse.model.Article Artikel}.
 	 */
 	public static int getSize()
 	{
