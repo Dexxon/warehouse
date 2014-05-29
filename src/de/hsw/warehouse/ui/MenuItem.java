@@ -26,7 +26,7 @@ public class MenuItem implements Runnable
 	 * @param title Der Titel des Menüeintrags.
 	 * @param action Der ausführbare Code.
 	 */
-	MenuItem(String title, Runnable action)
+	public MenuItem(String title, Runnable action)
 	{
 		this.title = title;
 		this.action = action;
@@ -36,7 +36,7 @@ public class MenuItem implements Runnable
 	 * Gibt den Titel des Eintrags zurück.
 	 * @return Der Titel des Menüeintrags.
 	 */
-	String getTitle()
+	public String getTitle()
 	{
 		return title;
 	}
@@ -45,7 +45,7 @@ public class MenuItem implements Runnable
 	 * Gibt den ausführbaren Code zurück.
 	 * @return Der ausführbare Code.
 	 */
-	Runnable getAction()
+	public Runnable getAction()
 	{
 		return action;
 	}
@@ -54,7 +54,7 @@ public class MenuItem implements Runnable
 	 * Setzt den ausführbaren Code.
 	 * @param action Der ausführbare Code.
 	 */
-	void setAction(Runnable action)
+	public void setAction(Runnable action)
 	{
 		this.action = action;
 	}
@@ -63,7 +63,7 @@ public class MenuItem implements Runnable
 	 * Stellt fest, ob der Menüeintrag ausführbaren Code enthält.
 	 * @return <code>true</code>, wenn der Eintrag ausführbaren Code enthält, ansonsten <code>false</code>.
 	 */
-	boolean hasAction()
+	public boolean hasAction()
 	{
 		return action != null;
 	}

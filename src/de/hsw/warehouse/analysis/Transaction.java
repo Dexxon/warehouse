@@ -34,7 +34,7 @@ public class Transaction
 	 * Gibt das Volumen der Bewegung zurück. Dieses wird errechnet, indem das Volumen eines {@link de.hsw.warehouse.model.Article Artikels} mit der Anzahl der {@link de.hsw.warehouse.model.Article Artikel} multipliziert wird.
 	 * @return Das Volumen der Bewegung.
 	 */
-	int getVolume()
+	public int getVolume()
 	{
 		return volume;
 	}
@@ -43,7 +43,7 @@ public class Transaction
 	 * Gibt die {@link de.hsw.warehouse.model.Article Artikel}nummer der bewegten {@link de.hsw.warehouse.model.Article Artikel} zurück.
 	 * @return Die {@link de.hsw.warehouse.model.Article Artikel}nummer der bewegten {@link de.hsw.warehouse.model.Article Artikel}.
 	 */
-	int getArticleID()
+	public int getArticleID()
 	{
 		return articleID;
 	}
@@ -52,7 +52,7 @@ public class Transaction
 	 * Gibt die Anzahl der bewegten {@link de.hsw.warehouse.model.Article Artikel} zurück.
 	 * @return Die Anzahl der bewegten {@link de.hsw.warehouse.model.Article Artikel}.
 	 */
-	int getQuantity()
+	public int getQuantity()
 	{
 		return quantity;
 	}
@@ -61,7 +61,7 @@ public class Transaction
 	 * Gibt das Datum der Bewegung zurück.
 	 * @return Das Datum der Bewegung.
 	 */
-	GregorianCalendar getDate()
+	public GregorianCalendar getDate()
 	{
 		return date;
 	}

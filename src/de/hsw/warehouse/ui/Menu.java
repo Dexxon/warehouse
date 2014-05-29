@@ -20,7 +20,7 @@ public class Menu extends MenuItem
 	/**
 	 * Der "Beenden"-Eintrag. Wird dieser ausgewählt, beendet sich das Programm normal.
 	 */
-	static final MenuItem exit = new MenuItem("Beenden", new Runnable()
+	public static final MenuItem exit = new MenuItem("Beenden", new Runnable()
 	{
 		public void run()
 		{
@@ -32,7 +32,7 @@ public class Menu extends MenuItem
 	 * Der "Zurück"-Eintrag. Dieser hat keinen ausführbaren Code und wird mit dem Konstruktor {@link de.hsw.warehouse.ui.MenuItem#MenuItem(String) MenuItem(String)} erstellt.
 	 * Aus diesem Grund exisitiert dieser Konstruktor und ist nur in dieser Klasse und der Oberklasse sichtbar, damit er nicht woanders aufgerufen werden kann.
 	 */
-	static final MenuItem back = new MenuItem("Zurück");
+	public static final MenuItem back = new MenuItem("Zurück");
 
 	/**
 	 * Erstellt ein Menü mit den angegebenen Einträgen und dem angegebenen Titel.
@@ -41,7 +41,7 @@ public class Menu extends MenuItem
 	 * @param exit Gibt an, ob ein {@link de.hsw.warehouse.ui.Menu#exit "Beenden"-Eintrag} vorhanden sein soll.
 	 * @param menuItems Die hinzuzufügenden {@link de.hsw.warehouse.ui.MenuItem Menüeinträge}.
 	 */
-	Menu(String title, boolean back, boolean exit, MenuItem... menuItems)
+	public Menu(String title, boolean back, boolean exit, MenuItem... menuItems)
 	{
 		super(title);
 		setAction(this);
@@ -56,7 +56,7 @@ public class Menu extends MenuItem
 	/**
 	 * Gibt alle {@link de.hsw.warehouse.ui.MenuItem Menüeinträge} mit vorangestellter Nummerierung zeilenweise auf der Konsole aus.
 	 */
-	void display()
+	public void display()
 	{
 		int option = 0;
 		System.out.println("\n" + getTitle() + ":");
@@ -113,7 +113,7 @@ public class Menu extends MenuItem
 	 * Fügt dem Menü einen  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag} hinzu.
 	 * @param menueItem Der hinzuzufügende  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag}.
 	 */
-	void add(MenuItem menueItem)
+	public void add(MenuItem menueItem)
 	{
 		menuItems.add(menueItem);
 	}
