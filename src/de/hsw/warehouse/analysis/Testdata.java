@@ -209,6 +209,7 @@ public class Testdata
 	{
 		String[] lines = null;
 		int quantity, articleID;
+		this.transactions = new LinkedList<>();
 		GregorianCalendar date = new GregorianCalendar();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy-HH.mm");
 		try {
