@@ -111,10 +111,10 @@ public class Menu extends MenuItem
 
 	/**
 	 * Fügt dem Menü einen  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag} hinzu.
-	 * @param menueItem Der hinzuzufügende  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag}.
+	 * @param menuItem Der hinzuzufügende  {@link de.hsw.warehouse.ui.MenuItem Menüeintrag}.
 	 */
-	public void add(MenuItem menueItem)
+	public void add(MenuItem menuItem)
 	{
-		menuItems.add(menueItem);
+		menuItems.add(menuItem);
 	}
 }
