@@ -16,7 +16,6 @@ import java.util.Arrays;
 public class Menu extends MenuItem
 {
 	ArrayList<MenuItem> menuItems;
-	String title;
 
 	/**
 	 * Der "Beenden"-Eintrag. Wird dieser ausgewählt, beendet sich das Programm normal.
@@ -34,11 +33,6 @@ public class Menu extends MenuItem
 	 * Aus diesem Grund exisitiert dieser Konstruktor und ist nur in dieser Klasse und der Oberklasse sichtbar, damit er nicht woanders aufgerufen werden kann.
 	 */
 	static final MenuItem back = new MenuItem("Zurück");
-
-	Menu(String title, MenuItem... menuItems)
-	{
-		this(title, false, true, menuItems);
-	}
 
 	/**
 	 * Erstellt ein Menü mit den angegebenen Einträgen und dem angegebenen Titel.
