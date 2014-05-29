@@ -101,6 +101,8 @@ public class MenuStructure
 				File file = new File(path.toUri());
 				if(file.delete()) {
 					System.out.println("Testdaten erfolgreich gelöscht.");
+					testdata = null;
+					warehouse = null;
 				} else {
 					System.err.println("Die Testdaten konnten nicht gelöscht werden. Stellen Sie sicher, dass die Datei nicht in einem anderen Programm geöffnet ist.");
 				}
