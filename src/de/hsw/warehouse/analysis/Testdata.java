@@ -22,7 +22,7 @@ import de.hsw.warehouse.util.Util;
  * liegt, sowie Start- und Endzeitpunkt der Testdaten.
  * 
  * @author Nico Tietje, Constantin Grote
- * @version 29.05.2013
+ * @version 29.05.2014
  */
 public class Testdata
 {

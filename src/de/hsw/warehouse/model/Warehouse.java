@@ -13,7 +13,7 @@ import de.hsw.warehouse.analysis.Transaction;
  * Artikeln} stall.
  * 
  * @author Constantin Grote
- * @version 29.05.2013
+ * @version 29.05.2014
  */
 public class Warehouse
 {

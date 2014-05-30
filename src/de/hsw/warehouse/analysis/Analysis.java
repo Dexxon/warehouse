@@ -17,7 +17,7 @@ import de.hsw.warehouse.util.Util;
  * Konsole ausgegeben werden. Die Sichtbarkeit dieser Methoden ist "public".
  * 
  * @author Lorenz Surkemper, Timo Rodenwaldt, Constantin Grote
- * @version 29.05.2013
+ * @version 29.05.2014
  */
 public class Analysis
 {

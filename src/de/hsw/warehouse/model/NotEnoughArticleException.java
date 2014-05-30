@@ -4,7 +4,7 @@ package de.hsw.warehouse.model;
  * Diese Exception wird geworfen, wenn nicht genügend Artikel vorhanden sind.
  * 
  * @author Constantin Grote
- * @version 29.05.2013
+ * @version 29.05.2014
  */
 public class NotEnoughArticleException extends Exception
 {

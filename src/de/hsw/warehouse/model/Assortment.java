@@ -9,7 +9,7 @@ import java.util.Scanner;
  * In dieser Klasse wird das Sortiment statisch definiert.
  * 
  * @author Constantin Grote
- * @version 29.05.2013
+ * @version 29.05.2014
  */
 public class Assortment
 {
@@ -23,7 +23,7 @@ public class Assortment
 	 * werden sollen.
 	 * 
 	 * @author Constantin Grote
-	 * @version 29.05.2013
+	 * @version 29.05.2014
 	 */
 	static class SingleArticle
 	{

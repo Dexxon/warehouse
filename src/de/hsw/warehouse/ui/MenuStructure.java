@@ -25,7 +25,7 @@ import de.hsw.warehouse.util.Util;
  * gespeichert, so dass die Felder immer die zuletzt eingegebenen Werte enthalten.
  * 
  * @author Timo Rodenwaldt, Lorenz Surkemper, Nico Tietje, Constantin Grote
- * @version 29.05.2013
+ * @version 29.05.2014
  * @see <a
  *      href="http://bytes.com/topic/java/insights/870013-text-based-menus">http://bytes.com/topic/java/insights/870013-text-based-menus</a>
  */
