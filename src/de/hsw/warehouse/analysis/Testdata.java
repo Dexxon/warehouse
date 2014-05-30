@@ -169,30 +169,34 @@ public class Testdata
 		int articleID, quantity, transactionsPerDay;
 
 		while (currentDate.before(endDate)) {
-			currentDate.set(GregorianCalendar.HOUR_OF_DAY, 7);
 			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1;
 			int tempTransactionsPerDay = transactionsPerDay;
-
+			currentDate.set(GregorianCalendar.HOUR_OF_DAY, 7);
+			currentDate.clear(GregorianCalendar.MINUTE);
+			
 			while (transactionsPerDay > 0) {
-				currentDate.add(GregorianCalendar.MINUTE, 480 / tempTransactionsPerDay);
+						
 				quantity = (int) Math.round(Math.random() * 19) + 1;
 				articleID = (int) Math.round(Math.random() * (Assortment.getSize() - 1));
-
+				
 				if ((int) Math.round(Math.random()) == 1) {
 					try {
 						this.transactions.add(warehouse.store(articleID, quantity,
 								(GregorianCalendar) currentDate.clone()));
+						currentDate.add(GregorianCalendar.MINUTE, 480 / tempTransactionsPerDay);
+						transactionsPerDay--;
 					} catch (NotEnoughSpaceException e) {
 					}
 				} else {
 					try {
 						this.transactions.add(warehouse.age(articleID, quantity,
 								(GregorianCalendar) currentDate.clone()));
+						currentDate.add(GregorianCalendar.MINUTE, 480 / tempTransactionsPerDay);
+						transactionsPerDay--;
 					} catch (NotEnoughArticleException e) {
 					}
 				}
-
-				transactionsPerDay--;
+				System.out.println(currentDate.getTime());
 			}
 
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
