@@ -1,4 +1,4 @@
-package de.hsw.warehouse.analysis;
+package de.hsw_hameln.warehouse.analysis;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,16 +9,16 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.hsw.warehouse.model.Assortment;
-import de.hsw.warehouse.model.NotEnoughArticleException;
-import de.hsw.warehouse.model.NotEnoughSpaceException;
-import de.hsw.warehouse.model.Warehouse;
-import de.hsw.warehouse.util.Util;
+import de.hsw_hameln.warehouse.model.Assortment;
+import de.hsw_hameln.warehouse.model.NotEnoughArticleException;
+import de.hsw_hameln.warehouse.model.NotEnoughSpaceException;
+import de.hsw_hameln.warehouse.model.Warehouse;
+import de.hsw_hameln.warehouse.util.Util;
 
 /**
  * Diese Klasse repräsentiert die Testdaten. Ein Testdatensatz entspricht dabei einer
- * {@link de.hsw.warehouse.analysis.Transaction Lagerbewegung}. Außerdem wird hier das Gesamtvolumen
- * des {@link de.hsw.warehouse.model.Warehouse Lagers} festgehalten, welches den Testdaten zugrunde
+ * {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegung}. Außerdem wird hier das Gesamtvolumen
+ * des {@link de.hsw_hameln.warehouse.model.Warehouse Lagers} festgehalten, welches den Testdaten zugrunde
  * liegt, sowie Start- und Endzeitpunkt der Testdaten.
  * 
  * @author Nico Tietje, Constantin Grote
@@ -33,10 +33,10 @@ public class Testdata
 	/**
 	 * Erzeugt neue, zufällige Testdatensätze. Dabei wird geprüft, ob das Startdatum ein
 	 * arbeitsfreier Tag ist und in diesem Fall am nächsten Arbeitstag mit der
-	 * {@link de.hsw.warehouse.analysis.Testdata#generateTestData(Warehouse, GregorianCalendar, GregorianCalendar)
+	 * {@link de.hsw_hameln.warehouse.analysis.Testdata#generateTestData(Warehouse, GregorianCalendar, GregorianCalendar)
 	 * Testdatengenerierung} begonnen.
 	 * 
-	 * @param warehouse Das zugrunde liegende {@link de.hsw.warehouse.model.Warehouse Lager}.
+	 * @param warehouse Das zugrunde liegende {@link de.hsw_hameln.warehouse.model.Warehouse Lager}.
 	 * @param startDate Der Startzeitpunkt für die Erstellung von Testdatensätzen.
 	 * @param endDate Der Endzeitpunkt für die Erstellung von Testdatensätzen.
 	 */
@@ -63,7 +63,7 @@ public class Testdata
 	}
 
 	/**
-	 * {@link de.hsw.warehouse.analysis.Testdata#readFromDisk(Path) Liest} bereits vorhandene
+	 * {@link de.hsw_hameln.warehouse.analysis.Testdata#readFromDisk(Path) Liest} bereits vorhandene
 	 * Testdaten aus dem angegebenen Pfad ein.
 	 * 
 	 * @param path Der Pfad zu der Datei, in welcher die Testdaten gespeichert sind.
@@ -77,10 +77,10 @@ public class Testdata
 	}
 
 	/**
-	 * Gibt das Gesamtvolumen des zugrunde liegenden {@link de.hsw.warehouse.model.Warehouse Lagers}
+	 * Gibt das Gesamtvolumen des zugrunde liegenden {@link de.hsw_hameln.warehouse.model.Warehouse Lagers}
 	 * zurück.
 	 * 
-	 * @return Das Gesamtvolumen des zugrunde liegenden {@link de.hsw.warehouse.model.Warehouse
+	 * @return Das Gesamtvolumen des zugrunde liegenden {@link de.hsw_hameln.warehouse.model.Warehouse
 	 *         Lagers}.
 	 */
 	public int getSizeOfWarehouse()
@@ -89,7 +89,7 @@ public class Testdata
 	}
 
 	/**
-	 * Gibt eine Liste aller {@link de.hsw.warehouse.analysis.Transaction Lagerbewegungen}
+	 * Gibt eine Liste aller {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegungen}
 	 * /Testdatensätze zurück.
 	 * 
 	 * @return Eine Liste aller Testdatensätze.
@@ -100,7 +100,7 @@ public class Testdata
 	}
 
 	/**
-	 * Gibt eine Liste aller {@link de.hsw.warehouse.analysis.Transaction Lagerbewegungen}
+	 * Gibt eine Liste aller {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegungen}
 	 * /Testdatensätze zurück.
 	 * 
 	 * @param startOfPeriod Startpunkt des Zeitraums.
@@ -151,14 +151,14 @@ public class Testdata
 	 * Diese Methode generiert die einzelnen Testdatensätze. Dabei wurden folgende Annahmen
 	 * getroffen:<br>
 	 * &emsp;1. Ein Arbeitstag startet um 7:00 Uhr und dauert 8:00 Stunden.<br>
-	 * &emsp;2. An einem Tag finden maximal 20 {@link de.hsw.warehouse.analysis.Transaction
+	 * &emsp;2. An einem Tag finden maximal 20 {@link de.hsw_hameln.warehouse.analysis.Transaction
 	 * Lagerbewegungen} statt.<br>
-	 * &emsp;3. Eine {@link de.hsw.warehouse.analysis.Transaction Lagerbewegung} besteht aus der
-	 * {@link de.hsw.warehouse.model.Warehouse#store(int, int, GregorianCalendar) Ein}- bzw.
-	 * {@link de.hsw.warehouse.model.Warehouse#store(int, int, GregorianCalendar) Aus}lagerung von
-	 * max. 20 {@link de.hsw.warehouse.model.Article Artikeln} eines Typen.
+	 * &emsp;3. Eine {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegung} besteht aus der
+	 * {@link de.hsw_hameln.warehouse.model.Warehouse#store(int, int, GregorianCalendar) Ein}- bzw.
+	 * {@link de.hsw_hameln.warehouse.model.Warehouse#store(int, int, GregorianCalendar) Aus}lagerung von
+	 * max. 20 {@link de.hsw_hameln.warehouse.model.Article Artikeln} eines Typen.
 	 * 
-	 * @param warehouse Das zugrunde liegende {@link de.hsw.warehouse.model.Warehouse Lager}.
+	 * @param warehouse Das zugrunde liegende {@link de.hsw_hameln.warehouse.model.Warehouse Lager}.
 	 * @param startDate Der Startzeitpunkt für die Erstellung von Testdatensätzen.
 	 * @param endDate Der Endzeitpunkt für die Erstellung von Testdatensätzen.
 	 */

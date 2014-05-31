@@ -1,11 +1,11 @@
-package de.hsw.warehouse.model;
+package de.hsw_hameln.warehouse.model;
 
 import java.util.ArrayList;
 
 /**
  * Diese Klasse stellt einen einzelnen Lagerplatz dar. In einem Lagerplatz können mehrere Artikel
  * gelagert werden. Ein Lagerplatz hat ein bestimmmtes Volumen. Ist dieses ausgeschöpft, können
- * keine weiteren {@link de.hsw.warehouse.model.Article Artikel} hinzugefügt werden. Dabei wird
+ * keine weiteren {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzugefügt werden. Dabei wird
  * nicht geprüft, ob noch genügend Platz vorhanden ist. Diese Prüfung muss also auf höherer Ebene
  * stattfinden.
  * 
@@ -59,9 +59,9 @@ public class Location
 	}
 
 	/**
-	 * Gibt die in dem Lagerplatz gelagerten {@link de.hsw.warehouse.model.Article Artikel} zurück.
+	 * Gibt die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article Artikel} zurück.
 	 * 
-	 * @return Die in dem Lagerplatz gelagerten {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @return Die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
 	public ArrayList<Article> getArticles()
 	{
@@ -69,11 +69,11 @@ public class Location
 	}
 
 	/**
-	 * Fügt dem Lagerplatz einen {@link de.hsw.warehouse.model.Article Artikel} hinzu. Dabei wird
+	 * Fügt dem Lagerplatz einen {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzu. Dabei wird
 	 * nicht geprüft, ob noch genügend Platz vorhanden ist. Diese Prüfung muss also auf höherer
 	 * Ebene stattfinden.
 	 * 
-	 * @param article Der hinzuzufügende {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @param article Der hinzuzufügende {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
 	public void addArticle(Article article)
 	{
@@ -82,10 +82,10 @@ public class Location
 	}
 
 	/**
-	 * Entfernt einen {@link de.hsw.warehouse.model.Article Artikel} aus dem Lagerplatz, falls er
+	 * Entfernt einen {@link de.hsw_hameln.warehouse.model.Article Artikel} aus dem Lagerplatz, falls er
 	 * vorhanden ist.
 	 * 
-	 * @param article Der zu entfernende {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @param article Der zu entfernende {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
 	public void removeArticle(Article article)
 	{

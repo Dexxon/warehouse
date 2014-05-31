@@ -1,9 +1,9 @@
-package de.hsw.warehouse.analysis;
+package de.hsw_hameln.warehouse.analysis;
 
 import java.util.GregorianCalendar;
 
-import de.hsw.warehouse.model.Assortment;
-import de.hsw.warehouse.util.Util;
+import de.hsw_hameln.warehouse.model.Assortment;
+import de.hsw_hameln.warehouse.util.Util;
 
 /**
  * Diese Klasse stellt statische Methoden zur Auswertung der Testdaten bereit. Dabei wird zwischen

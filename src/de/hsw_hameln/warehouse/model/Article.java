@@ -1,4 +1,4 @@
-package de.hsw.warehouse.model;
+package de.hsw_hameln.warehouse.model;
 
 /**
  * Diese Klasse stellt einen Artikel dar. Dieser besteht aus einer Artikelnummer, einem Namen, einer

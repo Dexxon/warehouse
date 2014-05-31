@@ -1,4 +1,4 @@
-package de.hsw.warehouse.ui;
+package de.hsw_hameln.warehouse.ui;
 
 /**
  * Diese Klasse repräsentiert einen Menüeintrag. Dieser wird durch einen {@link java.lang.String}

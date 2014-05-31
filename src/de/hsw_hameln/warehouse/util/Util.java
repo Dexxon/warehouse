@@ -1,4 +1,4 @@
-package de.hsw.warehouse.util;
+package de.hsw_hameln.warehouse.util;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-import de.hsw.warehouse.model.Assortment;
+import de.hsw_hameln.warehouse.model.Assortment;
 
 /**
  * Diese Klasse stellt statische Hilfsmethoden zur Verfügung. Dazu gehören Eingagemethoden sowie

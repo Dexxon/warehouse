@@ -1,4 +1,4 @@
-package de.hsw.warehouse.model;
+package de.hsw_hameln.warehouse.model;
 
 /**
  * Diese Exception wird geworfen, wenn nicht genügend Artikel vorhanden sind.

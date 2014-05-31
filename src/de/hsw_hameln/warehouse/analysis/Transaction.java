@@ -1,14 +1,14 @@
-package de.hsw.warehouse.analysis;
+package de.hsw_hameln.warehouse.analysis;
 
 import java.util.GregorianCalendar;
 
-import de.hsw.warehouse.model.Assortment;
+import de.hsw_hameln.warehouse.model.Assortment;
 
 /**
  * Diese Klasse stellt eine einzelne Bewegung dar. Dabei werden der Zeitpunkt der Bewegung sowie die
- * {@link de.hsw.warehouse.model.Article Artikel}nummer, die Anzahl und das Gesamtvolumen
+ * {@link de.hsw_hameln.warehouse.model.Article Artikel}nummer, die Anzahl und das Gesamtvolumen
  * festgehalten. Daraus ergibt sich, dass eine Bewegung immer nur
- * {@link de.hsw.warehouse.model.Article Artikel} eines Typs enthält.
+ * {@link de.hsw_hameln.warehouse.model.Article Artikel} eines Typs enthält.
  * 
  * @author Constantin Grote
  * @version 29.05.2014
@@ -21,9 +21,9 @@ public class Transaction
 	/**
 	 * Erzeugung einer Lagerbewegung.
 	 * 
-	 * @param articleID Die {@link de.hsw.warehouse.model.Article Artikel}nummer der bewegten
-	 *            {@link de.hsw.warehouse.model.Article Artikel}.
-	 * @param quantity Die Anzahl der bewegten {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @param articleID Die {@link de.hsw_hameln.warehouse.model.Article Artikel}nummer der bewegten
+	 *            {@link de.hsw_hameln.warehouse.model.Article Artikel}.
+	 * @param quantity Die Anzahl der bewegten {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 * @param date Das Datum der Bewegung.
 	 */
 	public Transaction(int articleID, int quantity, GregorianCalendar date)
@@ -36,8 +36,8 @@ public class Transaction
 
 	/**
 	 * Gibt das Volumen der Bewegung zurück. Dieses wird errechnet, indem das Volumen eines
-	 * {@link de.hsw.warehouse.model.Article Artikels} mit der Anzahl der
-	 * {@link de.hsw.warehouse.model.Article Artikel} multipliziert wird.
+	 * {@link de.hsw_hameln.warehouse.model.Article Artikels} mit der Anzahl der
+	 * {@link de.hsw_hameln.warehouse.model.Article Artikel} multipliziert wird.
 	 * 
 	 * @return Das Volumen der Bewegung.
 	 */
@@ -47,11 +47,11 @@ public class Transaction
 	}
 
 	/**
-	 * Gibt die {@link de.hsw.warehouse.model.Article Artikel}nummer der bewegten
-	 * {@link de.hsw.warehouse.model.Article Artikel} zurück.
+	 * Gibt die {@link de.hsw_hameln.warehouse.model.Article Artikel}nummer der bewegten
+	 * {@link de.hsw_hameln.warehouse.model.Article Artikel} zurück.
 	 * 
-	 * @return Die {@link de.hsw.warehouse.model.Article Artikel}nummer der bewegten
-	 *         {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @return Die {@link de.hsw_hameln.warehouse.model.Article Artikel}nummer der bewegten
+	 *         {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
 	public int getArticleID()
 	{
@@ -59,9 +59,9 @@ public class Transaction
 	}
 
 	/**
-	 * Gibt die Anzahl der bewegten {@link de.hsw.warehouse.model.Article Artikel} zurück.
+	 * Gibt die Anzahl der bewegten {@link de.hsw_hameln.warehouse.model.Article Artikel} zurück.
 	 * 
-	 * @return Die Anzahl der bewegten {@link de.hsw.warehouse.model.Article Artikel}.
+	 * @return Die Anzahl der bewegten {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
 	public int getQuantity()
 	{

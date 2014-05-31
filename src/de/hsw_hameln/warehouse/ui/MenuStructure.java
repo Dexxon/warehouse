@@ -1,4 +1,4 @@
-package de.hsw.warehouse.ui;
+package de.hsw_hameln.warehouse.ui;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -7,21 +7,21 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-import de.hsw.warehouse.analysis.Analysis;
-import de.hsw.warehouse.analysis.Testdata;
-import de.hsw.warehouse.model.Warehouse;
-import de.hsw.warehouse.util.Util;
+import de.hsw_hameln.warehouse.analysis.Analysis;
+import de.hsw_hameln.warehouse.analysis.Testdata;
+import de.hsw_hameln.warehouse.model.Warehouse;
+import de.hsw_hameln.warehouse.util.Util;
 
 /**
- * In dieser Klasse werden die einzelnen {@link de.hsw.warehouse.ui.MenuItem Menüeinträge} und
- * {@link de.hsw.warehouse.ui.Menu Menüs} erstellt und zu einer Menüstruktur zusammengefügt.<br>
- * Außerdem enthält diese Klasse den {@link de.hsw.warehouse.ui.MenuStructure#main(String[])
+ * In dieser Klasse werden die einzelnen {@link de.hsw_hameln.warehouse.ui.MenuItem Menüeinträge} und
+ * {@link de.hsw_hameln.warehouse.ui.Menu Menüs} erstellt und zu einer Menüstruktur zusammengefügt.<br>
+ * Außerdem enthält diese Klasse den {@link de.hsw_hameln.warehouse.ui.MenuStructure#main(String[])
  * Einstiegspunkt} für das Programm.<br>
- * Die Felder dieser Klasse sind Parameter für die {@link de.hsw.warehouse.analysis.Analysis
+ * Die Felder dieser Klasse sind Parameter für die {@link de.hsw_hameln.warehouse.analysis.Analysis
  * Auswertungen}. Sie stellen Standardwerte dar, mit denen die
- * {@link de.hsw.warehouse.analysis.Analysis Auswertungen} stattfinden, wenn keine oder eine falsche
+ * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertungen} stattfinden, wenn keine oder eine falsche
  * Benutzereingabe gemacht wurde. Dabei werden bei der Ausführung einer
- * {@link de.hsw.warehouse.analysis.Analysis Auswertung} die übergebenen Parameter in den Feldern
+ * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertung} die übergebenen Parameter in den Feldern
  * gespeichert, so dass die Felder immer die zuletzt eingegebenen Werte enthalten.
  * 
  * @author Timo Rodenwaldt, Lorenz Surkemper, Nico Tietje, Constantin Grote
@@ -43,8 +43,8 @@ public class MenuStructure
 
 	/**
 	 * Stellt den Einstiegspunkt für die Applikation dar. Hier werden die
-	 * {@link de.hsw.warehouse.ui.MenuItem Menüeintrage} erstellt und zusammengefügt. Anschließend
-	 * wird für das Hauptmenü die Methode {@link de.hsw.warehouse.ui.Menu#run()} aufgerufen, welche
+	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menüeintrage} erstellt und zusammengefügt. Anschließend
+	 * wird für das Hauptmenü die Methode {@link de.hsw_hameln.warehouse.ui.Menu#run()} aufgerufen, welche
 	 * das Menü aufruft und die Benutzerinteraktion startet.
 	 * 
 	 * @param args Die Kommandozeilenargumente. Werden hier nicht verwertet.
