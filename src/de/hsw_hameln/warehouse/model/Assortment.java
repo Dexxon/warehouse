@@ -14,23 +14,13 @@ import java.util.Scanner;
 public class Assortment
 {
 	/**
-	 * Diese anonyme Klasse wird für den Aufbau des Sortiments benötigt. Sie entspricht
-	 * weitestgehend der Klasse "{@link de.hsw_hameln.warehouse.model.Article}". Diese kann hier jedoch
-	 * nicht verwendet werden (siehe Dokumentation), da für deren
-	 * {@link de.hsw_hameln.warehouse.model.Article#Article(int) Konstruktor} das Sortiment bereits
-	 * aufgebaut werden muss. Eine Vererbung ist auch nicht optimal, da nicht gewünscht wird, da
-	 * {@link de.hsw_hameln.warehouse.model.Article Artikel} lediglich miüber die Artikelnummer erstellt
-	 * werden sollen.
+	 * Diese anonyme Klasse wird für den Aufbau des Sortiments benötigt. Da sie die gleichen Eigenschaften hat wie die Klasse "{@link de.hsw_hameln.warehouse.model.Article}", erbt sie von dieser.
 	 * 
 	 * @author Constantin Grote
 	 * @version 29.05.2014
 	 */
-	static class AssortmentArticle
+	static class AssortmentArticle extends Article
 	{
-		private String name;
-		private String commodityGroup;
-		private int volume;
-
 		/**
 		 * Erstellt einen einzelnen Artikel.
 		 * 
@@ -41,7 +31,7 @@ public class Assortment
 		 */
 		public AssortmentArticle(String name, String commodityGroup, int volume)
 		{
-			this.name = name;
+			this.articleName= name;
 			this.commodityGroup = commodityGroup;
 			this.volume = volume;
 		}
@@ -88,7 +78,7 @@ public class Assortment
 	 */
 	public static String getArticleName(int articleID)
 	{
-		return articlePool[articleID].name;
+		return articlePool[articleID].articleName;
 	}
 
 	/**

@@ -9,10 +9,21 @@ package de.hsw_hameln.warehouse.model;
  */
 public class Article
 {
-	private int articleID;
-	private String articleName;
-	private String commodityGroup;
-	private int volume;
+	protected int articleID;
+	protected String articleName;
+	protected String commodityGroup;
+	protected int volume;
+
+	/**
+	 * Wird für die Vererbung zu der Klasse "{@link de.hsw_hameln.warehouse.Assortment.SingleArticle}" benötigt. Initialisiert alle Werte mit einem Standardwert.
+	 */
+	protected Article()
+	{
+		this.articleID = 0;
+		this.articleName = "";
+		this.commodityGroup = "";
+		this.volume = 0;
+	}
 
 	/**
 	 * Erstellt einen Artikel. Die Attribute des Artikels werden anhand der Artikelnummer bestimmt.
