@@ -25,7 +25,7 @@ public class Assortment
 	 * @author Constantin Grote
 	 * @version 29.05.2014
 	 */
-	static class SingleArticle
+	static class AssortmentArticle
 	{
 		private String name;
 		private String commodityGroup;
@@ -39,7 +39,7 @@ public class Assortment
 		 *            .
 		 * @param volume Das Volumen des {@link de.hsw_hameln.warehouse.model.Article Artikels}.
 		 */
-		public SingleArticle(String name, String commodityGroup, int volume)
+		public AssortmentArticle(String name, String commodityGroup, int volume)
 		{
 			this.name = name;
 			this.commodityGroup = commodityGroup;
@@ -47,7 +47,7 @@ public class Assortment
 		}
 	}
 
-	private static SingleArticle[] articlePool = initialiseArticlePool("C:\\Artikelpool.csv");
+	private static AssortmentArticle[] articlePool = initialiseArticlePool("C:\\Artikelpool.csv");
 
 	/**
 	 * Liest den Artikelpool aus einer .csv-Datei von der Festplatte ein.
@@ -56,9 +56,9 @@ public class Assortment
 	 * @return Ein Array, welches alle {@link de.hsw_hameln.warehouse.model.Article Artikel} des Sortiments
 	 *         enthält.
 	 */
-	private static SingleArticle[] initialiseArticlePool(String path)
+	private static AssortmentArticle[] initialiseArticlePool(String path)
 	{
-		LinkedList<SingleArticle> articlePool = new LinkedList<SingleArticle>();
+		LinkedList<AssortmentArticle> articlePool = new LinkedList<AssortmentArticle>();
 		Scanner input = null;
 
 		try {
@@ -71,11 +71,11 @@ public class Assortment
 
 		while (input.hasNextLine()) {
 			line = input.nextLine().split(";");
-			articlePool.add(new SingleArticle(line[0], line[1], Integer.parseInt(line[2])));
+			articlePool.add(new AssortmentArticle(line[0], line[1], Integer.parseInt(line[2])));
 		}
 
 		input.close();
-		return articlePool.toArray(new SingleArticle[articlePool.size()]);
+		return articlePool.toArray(new AssortmentArticle[articlePool.size()]);
 	}
 
 	/**
