@@ -43,7 +43,9 @@ public class Assortment
 
 	private static AssortmentArticle[] articlePool = initialiseArticlePool(Util.inputPath(
 			Paths.get("C:\\Lagerbewegungen\\artikelpool.csv"),
-			"Bitte geben Sie den Pfad zu der Artikelliste ein"));
+			"Bitte geben Sie den Pfad zu der Artikelliste ein")); // hier kann der Standardpfad fuer
+																	// den Artikelpool angepasst
+																	// werden
 
 	/**
 	 * Liest den Artikelpool aus einer .csv-Datei von der Festplatte ein.
