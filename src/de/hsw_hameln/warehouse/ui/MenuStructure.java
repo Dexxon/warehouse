@@ -1,6 +1,8 @@
 package de.hsw_hameln.warehouse.ui;
 
 import java.io.File;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.NumberFormat;
@@ -13,16 +15,17 @@ import de.hsw_hameln.warehouse.model.Warehouse;
 import de.hsw_hameln.warehouse.util.Util;
 
 /**
- * In dieser Klasse werden die einzelnen {@link de.hsw_hameln.warehouse.ui.MenuItem Menüeinträge} und
- * {@link de.hsw_hameln.warehouse.ui.Menu Menüs} erstellt und zu einer Menüstruktur zusammengefügt.<br>
+ * In dieser Klasse werden die einzelnen {@link de.hsw_hameln.warehouse.ui.MenuItem Menüeinträge}
+ * und {@link de.hsw_hameln.warehouse.ui.Menu Menüs} erstellt und zu einer Menüstruktur
+ * zusammengefügt.<br>
  * Außerdem enthält diese Klasse den {@link de.hsw_hameln.warehouse.ui.MenuStructure#main(String[])
  * Einstiegspunkt} für das Programm.<br>
  * Die Felder dieser Klasse sind Parameter für die {@link de.hsw_hameln.warehouse.analysis.Analysis
  * Auswertungen}. Sie stellen Standardwerte dar, mit denen die
- * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertungen} stattfinden, wenn keine oder eine falsche
- * Benutzereingabe gemacht wurde. Dabei werden bei der Ausführung einer
- * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertung} die übergebenen Parameter in den Feldern
- * gespeichert, so dass die Felder immer die zuletzt eingegebenen Werte enthalten.
+ * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertungen} stattfinden, wenn keine oder eine
+ * falsche Benutzereingabe gemacht wurde. Dabei werden bei der Ausführung einer
+ * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertung} die übergebenen Parameter in den
+ * Feldern gespeichert, so dass die Felder immer die zuletzt eingegebenen Werte enthalten.
  * 
  * @author Timo Rodenwaldt, Lorenz Surkemper, Nico Tietje, Constantin Grote
  * @version 29.05.2014
@@ -43,14 +46,19 @@ public class MenuStructure
 
 	/**
 	 * Stellt den Einstiegspunkt für die Applikation dar. Hier werden die
-	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menüeintrage} erstellt und zusammengefügt. Anschließend
-	 * wird für das Hauptmenü die Methode {@link de.hsw_hameln.warehouse.ui.Menu#run()} aufgerufen, welche
-	 * das Menü aufruft und die Benutzerinteraktion startet.
+	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menüeintrage} erstellt und zusammengefügt.
+	 * Anschließend wird für das Hauptmenü die Methode {@link de.hsw_hameln.warehouse.ui.Menu#run()}
+	 * aufgerufen, welche das Menü aufruft und die Benutzerinteraktion startet.
 	 * 
 	 * @param args Die Kommandozeilenargumente. Werden hier nicht verwertet.
 	 */
 	public static void main(String[] args)
 	{
+		try {
+			System.setOut(new PrintStream(System.out, true, "Cp850"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		System.out.println("Herzlich Willkommen!");
 		System.out
 				.println("Bitte erzeugen Sie zuerst die Testdaten oder lesen Sie bereits bestehende Testdaten ein.");
@@ -63,7 +71,9 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				warehouse = new Warehouse(2000, 20);
+				warehouse = new Warehouse(2000, 20); // hier können die Werte für das Volumen des
+														// Lagers und der Lagerplätze angepasst
+														// werden.
 
 				if (testdata == null) {
 					period = Util.inputDateOrPeriod(
@@ -98,7 +108,8 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				Path tempPath = Util.inputPath(path, "Bitte geben Sie den Pfad zu der Testdatendatei ein");
+				Path tempPath = Util.inputPath(path,
+						"Bitte geben Sie den Pfad zu der Testdatendatei ein");
 				warehouse = new Warehouse(2000, 20);
 
 				try {
