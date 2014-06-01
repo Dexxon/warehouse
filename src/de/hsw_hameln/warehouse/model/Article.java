@@ -15,7 +15,7 @@ public class Article
 	protected int volume;
 
 	/**
-	 * Standardkonstruktor. Initialisiert alle Werte mit einem Standardwert.
+	 * Standardkonstruktor. Initialisiert alle Felder mit einem Standardwert.
 	 */
 	protected Article()
 	{
