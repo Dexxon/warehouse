@@ -169,7 +169,8 @@ public class Testdata
 		int articleID, quantity, transactionsPerDay;
 		int minutesPerDay = 480; // hier kann die Laenge eines Arbeitstages angepasst werden
 		while (currentDate.before(endDate)) {
-			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1; // hier kann der Wert fuer
+			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1; // hier kann der Wert
+																			// fuer
 																			// die maximale Anzahl
 																			// Bewegungen pro Tag
 																			// angepasst werden.

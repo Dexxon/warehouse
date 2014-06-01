@@ -18,12 +18,12 @@ import de.hsw_hameln.warehouse.util.Util;
  * In dieser Klasse werden die einzelnen {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintraege}
  * und {@link de.hsw_hameln.warehouse.ui.Menu Menues} erstellt und zu einer Menuestruktur
  * zusammengefuegt.<br>
- * Auﬂerdem enthaelt diese Klasse den {@link de.hsw_hameln.warehouse.ui.MenuStructure#main(String[])
- * Einstiegspunkt} fuer das Programm.<br>
- * Die Felder dieser Klasse sind Parameter fuer die {@link de.hsw_hameln.warehouse.analysis.Analysis
- * Auswertungen}. Sie stellen Standardwerte dar, mit denen die
- * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertungen} stattfinden, wenn keine oder eine
- * falsche Benutzereingabe gemacht wurde. Dabei werden bei der Ausfuehrung einer
+ * Auﬂerdem enthaelt diese Klasse den
+ * {@link de.hsw_hameln.warehouse.ui.MenuStructure#main(String[]) Einstiegspunkt} fuer das Programm.<br>
+ * Die Felder dieser Klasse sind Parameter fuer die
+ * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertungen}. Sie stellen Standardwerte dar,
+ * mit denen die {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertungen} stattfinden, wenn
+ * keine oder eine falsche Benutzereingabe gemacht wurde. Dabei werden bei der Ausfuehrung einer
  * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertung} die uebergebenen Parameter in den
  * Feldern gespeichert, so dass die Felder immer die zuletzt eingegebenen Werte enthalten.
  * 
@@ -47,8 +47,9 @@ public class MenuStructure
 	/**
 	 * Stellt den Einstiegspunkt fuer die Applikation dar. Hier werden die
 	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrage} erstellt und zusammengefuegt.
-	 * Anschlieﬂend wird fuer das Hauptmenue die Methode {@link de.hsw_hameln.warehouse.ui.Menu#run()}
-	 * aufgerufen, welche das Menue aufruft und die Benutzerinteraktion startet.
+	 * Anschlieﬂend wird fuer das Hauptmenue die Methode
+	 * {@link de.hsw_hameln.warehouse.ui.Menu#run()} aufgerufen, welche das Menue aufruft und die
+	 * Benutzerinteraktion startet.
 	 * 
 	 * @param args Die Kommandozeilenargumente. Werden hier nicht verwertet.
 	 */

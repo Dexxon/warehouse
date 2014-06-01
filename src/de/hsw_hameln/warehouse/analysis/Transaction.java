@@ -23,7 +23,8 @@ public class Transaction
 	 * 
 	 * @param articleID Die {@link de.hsw_hameln.warehouse.model.Article Artikel}nummer der bewegten
 	 *            {@link de.hsw_hameln.warehouse.model.Article Artikel}.
-	 * @param quantity Die Anzahl der bewegten {@link de.hsw_hameln.warehouse.model.Article Artikel}.
+	 * @param quantity Die Anzahl der bewegten {@link de.hsw_hameln.warehouse.model.Article Artikel}
+	 *            .
 	 * @param date Das Datum der Bewegung.
 	 */
 	public Transaction(int articleID, int quantity, GregorianCalendar date)

@@ -7,7 +7,8 @@ import de.hsw_hameln.warehouse.util.Util;
 
 /**
  * Diese Klasse stellt statische Methoden zur Auswertung der Testdaten bereit. Dabei wird zwischen
- * zwei verschiedenen Methodenarten unterschieden:<br><br>
+ * zwei verschiedenen Methodenarten unterschieden:<br>
+ * <br>
  * 1. calculate* Klassen<br>
  * &emsp;&emsp;Diese Methoden berechnen Werte, welche als Grundlagen fuer die Auswertungen dienen.
  * Sie sind daher nur fuer diese Klasse sichtbar ("private") und beinhalten keine Ausgaben, sondern
@@ -109,7 +110,7 @@ public class Analysis
 		if (data == null) {
 			throw new NullPointerException();
 		}
-		
+
 		int quantityBegin[] = calculateQuantityPerDay(startDate, data);
 		int quantityEnd[] = calculateQuantityPerDay(endDate, data);
 		int averageQuantity[] = calculateAverageQuantity(startDate, endDate, data);

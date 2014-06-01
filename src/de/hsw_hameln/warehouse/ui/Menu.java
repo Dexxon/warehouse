@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Diese Klasse repraesentiert ein Menue. Dieses kann mehrere {@link de.hsw_hameln.warehouse.ui.MenuItem
- * Menueeintrage} beinhalten.<br>
+ * Diese Klasse repraesentiert ein Menue. Dieses kann mehrere
+ * {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrage} beinhalten.<br>
  * Da ein Menue als einzelne Zeile in einem anderen Menue angezeigt wird, ist es gleichzeitig ein
- * Menueeintrag und kann eine Unterklasse der Klasse {@link de.hsw_hameln.warehouse.ui.MenuItem} sein.
+ * Menueeintrag und kann eine Unterklasse der Klasse {@link de.hsw_hameln.warehouse.ui.MenuItem}
+ * sein.
  * 
  * @author Timo Rodenwaldt
  * @version 29.05.2014
@@ -33,10 +34,10 @@ public class Menu extends MenuItem
 	});
 
 	/**
-	 * Der "Zurueck"-Eintrag. Dieser hat keinen {@link java.lang.Runnable ausfuehrbaren Code} und wird
-	 * mit dem Konstruktor {@link de.hsw_hameln.warehouse.ui.MenuItem#MenuItem(String) MenuItem(String)}
-	 * erstellt. Aus diesem Grund exisitiert dieser Konstruktor und ist nur in dieser Klasse und der
-	 * Oberklasse sichtbar, damit er nicht woanders aufgerufen werden kann.
+	 * Der "Zurueck"-Eintrag. Dieser hat keinen {@link java.lang.Runnable ausfuehrbaren Code} und
+	 * wird mit dem Konstruktor {@link de.hsw_hameln.warehouse.ui.MenuItem#MenuItem(String)
+	 * MenuItem(String)} erstellt. Aus diesem Grund exisitiert dieser Konstruktor und ist nur in
+	 * dieser Klasse und der Oberklasse sichtbar, damit er nicht woanders aufgerufen werden kann.
 	 */
 	public static final MenuItem back = new MenuItem("Zurueck");
 
@@ -44,11 +45,12 @@ public class Menu extends MenuItem
 	 * Erstellt ein Menue mit den angegebenen Eintraegen und dem angegebenen Titel.
 	 * 
 	 * @param title Der Titel des Menues.
-	 * @param back Gibt an, ob ein {@link de.hsw_hameln.warehouse.ui.Menu#back "Zurueck"-Eintrag} vorhanden
-	 *            sein soll.
-	 * @param exit Gibt an, ob ein {@link de.hsw_hameln.warehouse.ui.Menu#exit "Beenden"-Eintrag} vorhanden
-	 *            sein soll.
-	 * @param menuItems Die hinzuzufuegenden {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintraege}.
+	 * @param back Gibt an, ob ein {@link de.hsw_hameln.warehouse.ui.Menu#back "Zurueck"-Eintrag}
+	 *            vorhanden sein soll.
+	 * @param exit Gibt an, ob ein {@link de.hsw_hameln.warehouse.ui.Menu#exit "Beenden"-Eintrag}
+	 *            vorhanden sein soll.
+	 * @param menuItems Die hinzuzufuegenden {@link de.hsw_hameln.warehouse.ui.MenuItem
+	 *            Menueeintraege}.
 	 */
 	public Menu(String title, boolean back, boolean exit, MenuItem... menuItems)
 	{
@@ -64,8 +66,8 @@ public class Menu extends MenuItem
 	}
 
 	/**
-	 * Gibt alle {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintraege} mit vorangestellter Nummerierung
-	 * zeilenweise auf der Konsole aus.
+	 * Gibt alle {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintraege} mit vorangestellter
+	 * Nummerierung zeilenweise auf der Konsole aus.
 	 */
 	public void display()
 	{
@@ -80,8 +82,8 @@ public class Menu extends MenuItem
 	}
 
 	/**
-	 * Fragt den Benutzer nach einer Eingabe, mit der er einen {@link de.hsw_hameln.warehouse.ui.MenuItem
-	 * Menueeintrag} auswaehlen kann.
+	 * Fragt den Benutzer nach einer Eingabe, mit der er einen
+	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrag} auswaehlen kann.
 	 * 
 	 * @return Der ausgewaehlte {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrag}.
 	 * @throws IOException Wenn bei der Eingabe Fehler auftreten.
@@ -111,11 +113,12 @@ public class Menu extends MenuItem
 	 * Der Benutzer wird zunaechst nach der Eingabe gefragt. Wenn ein
 	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrag} ausgewaehlt wurde, wird dessen
 	 * {@link java.lang.Runnable Code} ausgefuehrt. Handelt es sich bei dem
-	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrag} um ein Untermenue, wird diese Methode fuer
-	 * jenes Menue ausgefuehrt. Handelt es sich um einen {@link de.hsw_hameln.warehouse.ui.MenuItem
-	 * Menueeintrag}, wird dessen {@link java.lang.Runnable Code} ausgefuehrt. Ist dieser
-	 * {@link java.lang.Runnable Code} nicht vorhanden (das bedeutet es handelt sich um den
-	 * "Zurueck"-Eintrag), wird die Methode verlassen und in das Obermenue zurueckgekehrt.
+	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrag} um ein Untermenue, wird diese
+	 * Methode fuer jenes Menue ausgefuehrt. Handelt es sich um einen
+	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrag}, wird dessen
+	 * {@link java.lang.Runnable Code} ausgefuehrt. Ist dieser {@link java.lang.Runnable Code} nicht
+	 * vorhanden (das bedeutet es handelt sich um den "Zurueck"-Eintrag), wird die Methode verlassen
+	 * und in das Obermenue zurueckgekehrt.
 	 */
 	@Override
 	public void run()

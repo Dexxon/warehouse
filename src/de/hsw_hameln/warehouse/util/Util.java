@@ -55,8 +55,9 @@ public class Util
 	}
 
 	/**
-	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um. Enthaelt "input"
-	 * nur ein Element (Datum), wird der Zeitraum zurueckgegeben, welcher diesen Tag widerspiegelt.
+	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um. Enthaelt
+	 * "input" nur ein Element (Datum), wird der Zeitraum zurueckgegeben, welcher diesen Tag
+	 * widerspiegelt.
 	 * 
 	 * Beispiel:<br>
 	 * <br>

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 /**
  * Diese Klasse stellt einen einzelnen Lagerplatz dar. In einem Lagerplatz koennen mehrere Artikel
  * gelagert werden. Ein Lagerplatz hat ein bestimmmtes Volumen. Ist dieses ausgeschoepft, koennen
- * keine weiteren {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzugefuegt werden. Dabei wird
- * nicht geprueft, ob noch genuegend Platz vorhanden ist. Diese Pruefung muss also auf hoeherer Ebene
- * stattfinden.
+ * keine weiteren {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzugefuegt werden. Dabei
+ * wird nicht geprueft, ob noch genuegend Platz vorhanden ist. Diese Pruefung muss also auf hoeherer
+ * Ebene stattfinden.
  * 
  * @author Constantin Grote
  * @version 29.05.2014
@@ -59,9 +59,11 @@ public class Location
 	}
 
 	/**
-	 * Gibt die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article Artikel} zurueck.
+	 * Gibt die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article Artikel}
+	 * zurueck.
 	 * 
-	 * @return Die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article Artikel}.
+	 * @return Die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article
+	 *         Artikel}.
 	 */
 	public ArrayList<Article> getArticles()
 	{
@@ -69,9 +71,9 @@ public class Location
 	}
 
 	/**
-	 * Fuegt dem Lagerplatz einen {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzu. Dabei wird
-	 * nicht geprueft, ob noch genuegend Platz vorhanden ist. Diese Pruefung muss also auf hoeherer
-	 * Ebene stattfinden.
+	 * Fuegt dem Lagerplatz einen {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzu. Dabei
+	 * wird nicht geprueft, ob noch genuegend Platz vorhanden ist. Diese Pruefung muss also auf
+	 * hoeherer Ebene stattfinden.
 	 * 
 	 * @param article Der hinzuzufuegende {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
@@ -82,8 +84,8 @@ public class Location
 	}
 
 	/**
-	 * Entfernt einen {@link de.hsw_hameln.warehouse.model.Article Artikel} aus dem Lagerplatz, falls er
-	 * vorhanden ist.
+	 * Entfernt einen {@link de.hsw_hameln.warehouse.model.Article Artikel} aus dem Lagerplatz,
+	 * falls er vorhanden ist.
 	 * 
 	 * @param article Der zu entfernende {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */

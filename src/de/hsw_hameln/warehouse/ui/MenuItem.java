@@ -2,9 +2,9 @@ package de.hsw_hameln.warehouse.ui;
 
 /**
  * Diese Klasse repraesentiert einen Menueeintrag. Dieser wird durch einen {@link java.lang.String}
- * und einen {@link java.lang.Runnable ausfuehrbaren Code} repraesentiert. Der String stellt dabei den
- * Titel des Menueeintrags dar. Der Code wird ausgefuehrt, wenn der Menueeintrag vom Nutzer ausgewaehlt
- * wird.
+ * und einen {@link java.lang.Runnable ausfuehrbaren Code} repraesentiert. Der String stellt dabei
+ * den Titel des Menueeintrags dar. Der Code wird ausgefuehrt, wenn der Menueeintrag vom Nutzer
+ * ausgewaehlt wird.
  * 
  * @author Timo Rodenwaldt
  * @version 29.05.2014
