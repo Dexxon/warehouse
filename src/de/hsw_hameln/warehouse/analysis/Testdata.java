@@ -227,6 +227,7 @@ public class Testdata
 
 		try {
 			Util.writeToDisk(lines, path);
+			System.out.println("Daten erfolgreich geschrieben.");
 		} catch (IOException e) {
 			System.err.println("Fehler beim Schreiben auf die Festplatte.");
 		}
