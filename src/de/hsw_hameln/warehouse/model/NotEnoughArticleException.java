@@ -4,7 +4,7 @@ package de.hsw_hameln.warehouse.model;
  * Diese Exception wird geworfen, wenn nicht genuegend Artikel vorhanden sind.
  * 
  * @author Constantin Grote
- * @version 29.05.2014
+ * @version 30.05.2014
  */
 public class NotEnoughArticleException extends Exception
 {

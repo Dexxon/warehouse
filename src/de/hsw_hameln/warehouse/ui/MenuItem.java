@@ -7,7 +7,7 @@ package de.hsw_hameln.warehouse.ui;
  * ausgewaehlt wird.
  * 
  * @author Timo Rodenwaldt
- * @version 29.05.2014
+ * @version 30.05.2014
  * @see <a
  *      href="http://bytes.com/topic/java/insights/870013-text-based-menus">http://bytes.com/topic/java/insights/870013-text-based-menus</a>
  */

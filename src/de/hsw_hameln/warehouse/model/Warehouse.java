@@ -13,7 +13,7 @@ import de.hsw_hameln.warehouse.analysis.Transaction;
  * das ein- und auslagern von {@link de.hsw_hameln.warehouse.model.Article Artikeln} stall.
  * 
  * @author Constantin Grote
- * @version 29.05.2014
+ * @version 30.05.2014
  */
 public class Warehouse
 {

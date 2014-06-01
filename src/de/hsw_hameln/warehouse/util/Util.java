@@ -20,7 +20,7 @@ import de.hsw_hameln.warehouse.model.Assortment;
  * Methoden fuer das Lesen und Schreiben von Dateien auf der Festplatte.
  * 
  * @author Nico Tietje, Lorenz Surkemper, Constantin Grote
- * @version 29.05.2014
+ * @version 01.06.2014
  */
 public class Util
 {

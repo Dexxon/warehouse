@@ -11,7 +11,7 @@ import de.hsw_hameln.warehouse.model.Assortment;
  * {@link de.hsw_hameln.warehouse.model.Article Artikel} eines Typs enthaelt.
  * 
  * @author Constantin Grote
- * @version 29.05.2014
+ * @version 30.05.2014
  */
 public class Transaction
 {

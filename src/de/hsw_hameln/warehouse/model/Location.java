@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Ebene stattfinden.
  * 
  * @author Constantin Grote
- * @version 29.05.2014
+ * @version 30.05.2014
  */
 public class Location
 {

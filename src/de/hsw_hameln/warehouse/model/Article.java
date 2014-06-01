@@ -5,7 +5,7 @@ package de.hsw_hameln.warehouse.model;
  * Warengruppe und einem Volumen.
  * 
  * @author Constantin Grote
- * @version 29.05.2014
+ * @version 31.05.2014
  */
 public class Article
 {

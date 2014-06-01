@@ -4,7 +4,7 @@ package de.hsw_hameln.warehouse.model;
  * Diese Exception wird geworfen, wenn nicht genug Platz fuer einen Artikel vorhanden ist.
  * 
  * @author Constantin Grote
- * @version 29.05.2014
+ * @version 30.05.2014
  */
 public class NotEnoughSpaceException extends Exception
 {

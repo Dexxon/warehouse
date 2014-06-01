@@ -11,7 +11,7 @@ import de.hsw_hameln.warehouse.util.Util;
  * In dieser Klasse wird das Sortiment statisch definiert.
  * 
  * @author Constantin Grote
- * @version 29.05.2014
+ * @version 01.06.2014
  */
 public class Assortment
 {

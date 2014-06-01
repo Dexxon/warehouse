@@ -22,7 +22,7 @@ import de.hsw_hameln.warehouse.util.Util;
  * den Testdaten zugrunde liegt, sowie Start- und Endzeitpunkt der Testdaten.
  * 
  * @author Nico Tietje, Constantin Grote
- * @version 29.05.2014
+ * @version 01.06.2014
  */
 public class Testdata
 {
