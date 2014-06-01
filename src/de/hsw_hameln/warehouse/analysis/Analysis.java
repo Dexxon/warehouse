@@ -106,6 +106,10 @@ public class Analysis
 	public static void quantityOfPeriod(GregorianCalendar startDate, GregorianCalendar endDate,
 			Testdata data)
 	{
+		if (data == null) {
+			throw new NullPointerException();
+		}
+		
 		int quantityBegin[] = calculateQuantityPerDay(startDate, data);
 		int quantityEnd[] = calculateQuantityPerDay(endDate, data);
 		int averageQuantity[] = calculateAverageQuantity(startDate, endDate, data);
