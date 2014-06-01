@@ -17,9 +17,9 @@ import de.hsw_hameln.warehouse.util.Util;
 
 /**
  * Diese Klasse repräsentiert die Testdaten. Ein Testdatensatz entspricht dabei einer
- * {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegung}. Außerdem wird hier das Gesamtvolumen
- * des {@link de.hsw_hameln.warehouse.model.Warehouse Lagers} festgehalten, welches den Testdaten zugrunde
- * liegt, sowie Start- und Endzeitpunkt der Testdaten.
+ * {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegung}. Außerdem wird hier das
+ * Gesamtvolumen des {@link de.hsw_hameln.warehouse.model.Warehouse Lagers} festgehalten, welches
+ * den Testdaten zugrunde liegt, sowie Start- und Endzeitpunkt der Testdaten.
  * 
  * @author Nico Tietje, Constantin Grote
  * @version 29.05.2014
@@ -77,11 +77,11 @@ public class Testdata
 	}
 
 	/**
-	 * Gibt das Gesamtvolumen des zugrunde liegenden {@link de.hsw_hameln.warehouse.model.Warehouse Lagers}
-	 * zurück.
+	 * Gibt das Gesamtvolumen des zugrunde liegenden {@link de.hsw_hameln.warehouse.model.Warehouse
+	 * Lagers} zurück.
 	 * 
-	 * @return Das Gesamtvolumen des zugrunde liegenden {@link de.hsw_hameln.warehouse.model.Warehouse
-	 *         Lagers}.
+	 * @return Das Gesamtvolumen des zugrunde liegenden
+	 *         {@link de.hsw_hameln.warehouse.model.Warehouse Lagers}.
 	 */
 	public int getSizeOfWarehouse()
 	{
@@ -153,10 +153,10 @@ public class Testdata
 	 * &emsp;1. Ein Arbeitstag startet um 7:00 Uhr und dauert 8:00 Stunden.<br>
 	 * &emsp;2. An einem Tag finden maximal 20 {@link de.hsw_hameln.warehouse.analysis.Transaction
 	 * Lagerbewegungen} statt.<br>
-	 * &emsp;3. Eine {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegung} besteht aus der
-	 * {@link de.hsw_hameln.warehouse.model.Warehouse#store(int, int, GregorianCalendar) Ein}- bzw.
-	 * {@link de.hsw_hameln.warehouse.model.Warehouse#store(int, int, GregorianCalendar) Aus}lagerung von
-	 * max. 20 {@link de.hsw_hameln.warehouse.model.Article Artikeln} eines Typen.
+	 * &emsp;3. Eine {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegung} besteht aus
+	 * der {@link de.hsw_hameln.warehouse.model.Warehouse#store(int, int, GregorianCalendar) Ein}-
+	 * bzw. {@link de.hsw_hameln.warehouse.model.Warehouse#store(int, int, GregorianCalendar) Aus}
+	 * lagerung von max. 20 {@link de.hsw_hameln.warehouse.model.Article Artikeln} eines Typen.
 	 * 
 	 * @param warehouse Das zugrunde liegende {@link de.hsw_hameln.warehouse.model.Warehouse Lager}.
 	 * @param startDate Der Startzeitpunkt für die Erstellung von Testdatensätzen.
@@ -167,23 +167,32 @@ public class Testdata
 	{
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
 		int articleID, quantity, transactionsPerDay;
-
+		int minutesPerDay = 480; // hier kann die Länge eines Arbeitstages angepasst werden
 		while (currentDate.before(endDate)) {
-			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1;
+			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1; // hier kann der Wert für
+																			// die maximale Anzahl
+																			// Bewegungen pro Tag
+																			// angepasst werden.
 			int tempTransactionsPerDay = transactionsPerDay;
-			currentDate.set(GregorianCalendar.HOUR_OF_DAY, 7);
+			currentDate.set(GregorianCalendar.HOUR_OF_DAY, 7); // hier kann der Beginn eines
+																// Arbeitstages angepasst werden
 			currentDate.clear(GregorianCalendar.MINUTE);
-			
+
 			while (transactionsPerDay > 0) {
-						
-				quantity = (int) Math.round(Math.random() * 19) + 1;
+
+				quantity = (int) Math.round(Math.random() * 19) + 1; // hier kann der Wert für die
+																		// maximale Anzahl der
+																		// Anzahl Artikel pro
+																		// Bewegung angepasst
+																		// werden.
 				articleID = (int) Math.round(Math.random() * (Assortment.getSize() - 1));
-				
+
 				if ((int) Math.round(Math.random()) == 1) {
 					try {
 						this.transactions.add(warehouse.store(articleID, quantity,
 								(GregorianCalendar) currentDate.clone()));
-						currentDate.add(GregorianCalendar.MINUTE, 480 / tempTransactionsPerDay);
+						currentDate.add(GregorianCalendar.MINUTE, minutesPerDay
+								/ tempTransactionsPerDay);
 						transactionsPerDay--;
 					} catch (NotEnoughSpaceException e) {
 					}
@@ -191,7 +200,8 @@ public class Testdata
 					try {
 						this.transactions.add(warehouse.age(articleID, quantity,
 								(GregorianCalendar) currentDate.clone()));
-						currentDate.add(GregorianCalendar.MINUTE, 480 / tempTransactionsPerDay);
+						currentDate.add(GregorianCalendar.MINUTE, minutesPerDay
+								/ tempTransactionsPerDay);
 						transactionsPerDay--;
 					} catch (NotEnoughArticleException e) {
 					}
