@@ -1,9 +1,9 @@
 package de.hsw_hameln.warehouse.ui;
 
 /**
- * Diese Klasse repräsentiert einen Menüeintrag. Dieser wird durch einen {@link java.lang.String}
- * und einen {@link java.lang.Runnable ausführbaren Code} repräsentiert. Der String stellt dabei den
- * Titel des Menüeintrags dar. Der Code wird ausgeführt, wenn der Menüeintrag vom Nutzer ausgewählt
+ * Diese Klasse repraesentiert einen Menueeintrag. Dieser wird durch einen {@link java.lang.String}
+ * und einen {@link java.lang.Runnable ausfuehrbaren Code} repraesentiert. Der String stellt dabei den
+ * Titel des Menueeintrags dar. Der Code wird ausgefuehrt, wenn der Menueeintrag vom Nutzer ausgewaehlt
  * wird.
  * 
  * @author Timo Rodenwaldt
@@ -17,11 +17,11 @@ public class MenuItem implements Runnable
 	private Runnable action;
 
 	/**
-	 * Erstellt einen neuen Menüeintrag, welcher nur aus einem Titel besteht. Die Sichtbarkeit ist
-	 * dabei auf diese Klasse und ihre Unterklassen beschränkt, da der Konstruktor nur aus der
-	 * Klasse Menü aufgerufen werden darf.
+	 * Erstellt einen neuen Menueeintrag, welcher nur aus einem Titel besteht. Die Sichtbarkeit ist
+	 * dabei auf diese Klasse und ihre Unterklassen beschraenkt, da der Konstruktor nur aus der
+	 * Klasse Menue aufgerufen werden darf.
 	 * 
-	 * @param title Der Titel des Menüeintrags.
+	 * @param title Der Titel des Menueeintrags.
 	 */
 	protected MenuItem(String title)
 	{
@@ -29,10 +29,10 @@ public class MenuItem implements Runnable
 	}
 
 	/**
-	 * Erstellt einen neuen Menüeintrag mit einem Titel und ausführbarem Code.
+	 * Erstellt einen neuen Menueeintrag mit einem Titel und ausfuehrbarem Code.
 	 * 
-	 * @param title Der Titel des Menüeintrags.
-	 * @param action Der {@link java.lang.Runnable ausführbare Code}.
+	 * @param title Der Titel des Menueeintrags.
+	 * @param action Der {@link java.lang.Runnable ausfuehrbare Code}.
 	 */
 	public MenuItem(String title, Runnable action)
 	{
@@ -41,9 +41,9 @@ public class MenuItem implements Runnable
 	}
 
 	/**
-	 * Gibt den Titel des Menüeintrags zurück.
+	 * Gibt den Titel des Menueeintrags zurueck.
 	 * 
-	 * @return Der Titel des Menüeintrags.
+	 * @return Der Titel des Menueeintrags.
 	 */
 	public String getTitle()
 	{
@@ -51,9 +51,9 @@ public class MenuItem implements Runnable
 	}
 
 	/**
-	 * Gibt den {@link java.lang.Runnable ausführbaren Code} zurück.
+	 * Gibt den {@link java.lang.Runnable ausfuehrbaren Code} zurueck.
 	 * 
-	 * @return Der {@link java.lang.Runnable ausführbare Code}.
+	 * @return Der {@link java.lang.Runnable ausfuehrbare Code}.
 	 */
 	public Runnable getAction()
 	{
@@ -61,9 +61,9 @@ public class MenuItem implements Runnable
 	}
 
 	/**
-	 * Setzt den {@link java.lang.Runnable ausführbaren Code}.
+	 * Setzt den {@link java.lang.Runnable ausfuehrbaren Code}.
 	 * 
-	 * @param action Der {@link java.lang.Runnable ausführbare Code}.
+	 * @param action Der {@link java.lang.Runnable ausfuehrbare Code}.
 	 */
 	public void setAction(Runnable action)
 	{
@@ -71,9 +71,9 @@ public class MenuItem implements Runnable
 	}
 
 	/**
-	 * Stellt fest, ob der Menüeintrag {@link java.lang.Runnable ausführbaren Code} enthält.
+	 * Stellt fest, ob der Menueeintrag {@link java.lang.Runnable ausfuehrbaren Code} enthaelt.
 	 * 
-	 * @return true, wenn der Menüeintrags {@link java.lang.Runnable ausführbaren Code}, ansonsten
+	 * @return true, wenn der Menueeintrags {@link java.lang.Runnable ausfuehrbaren Code}, ansonsten
 	 *         false.
 	 */
 	public boolean hasAction()
@@ -82,7 +82,7 @@ public class MenuItem implements Runnable
 	}
 
 	/**
-	 * Führt den {@link java.lang.Runnable ausführbaren Code} aus und fängt dabei alle Exceptions
+	 * Fuehrt den {@link java.lang.Runnable ausfuehrbaren Code} aus und faengt dabei alle Exceptions
 	 * ab. Diese werden als StackTrace auf der Errorkonsole ausgegeben.
 	 */
 	@Override

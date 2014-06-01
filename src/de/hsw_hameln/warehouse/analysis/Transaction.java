@@ -8,7 +8,7 @@ import de.hsw_hameln.warehouse.model.Assortment;
  * Diese Klasse stellt eine einzelne Bewegung dar. Dabei werden der Zeitpunkt der Bewegung sowie die
  * {@link de.hsw_hameln.warehouse.model.Article Artikel}nummer, die Anzahl und das Gesamtvolumen
  * festgehalten. Daraus ergibt sich, dass eine Bewegung immer nur
- * {@link de.hsw_hameln.warehouse.model.Article Artikel} eines Typs enthält.
+ * {@link de.hsw_hameln.warehouse.model.Article Artikel} eines Typs enthaelt.
  * 
  * @author Constantin Grote
  * @version 29.05.2014
@@ -35,7 +35,7 @@ public class Transaction
 	}
 
 	/**
-	 * Gibt das Volumen der Bewegung zurück. Dieses wird errechnet, indem das Volumen eines
+	 * Gibt das Volumen der Bewegung zurueck. Dieses wird errechnet, indem das Volumen eines
 	 * {@link de.hsw_hameln.warehouse.model.Article Artikels} mit der Anzahl der
 	 * {@link de.hsw_hameln.warehouse.model.Article Artikel} multipliziert wird.
 	 * 
@@ -48,7 +48,7 @@ public class Transaction
 
 	/**
 	 * Gibt die {@link de.hsw_hameln.warehouse.model.Article Artikel}nummer der bewegten
-	 * {@link de.hsw_hameln.warehouse.model.Article Artikel} zurück.
+	 * {@link de.hsw_hameln.warehouse.model.Article Artikel} zurueck.
 	 * 
 	 * @return Die {@link de.hsw_hameln.warehouse.model.Article Artikel}nummer der bewegten
 	 *         {@link de.hsw_hameln.warehouse.model.Article Artikel}.
@@ -59,7 +59,7 @@ public class Transaction
 	}
 
 	/**
-	 * Gibt die Anzahl der bewegten {@link de.hsw_hameln.warehouse.model.Article Artikel} zurück.
+	 * Gibt die Anzahl der bewegten {@link de.hsw_hameln.warehouse.model.Article Artikel} zurueck.
 	 * 
 	 * @return Die Anzahl der bewegten {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
@@ -69,7 +69,7 @@ public class Transaction
 	}
 
 	/**
-	 * Gibt das Datum der Bewegung zurück.
+	 * Gibt das Datum der Bewegung zurueck.
 	 * 
 	 * @return Das Datum der Bewegung.
 	 */

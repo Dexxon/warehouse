@@ -7,8 +7,8 @@ import java.util.Map.Entry;
 import de.hsw_hameln.warehouse.analysis.Transaction;
 
 /**
- * Diese Klasse repräsentiert ein Lager. Ein Lager enthält {@link de.hsw_hameln.warehouse.model.Location
- * Lagerplätze}, in welchen wiederum {@link de.hsw_hameln.warehouse.model.Article Artikel} gelagert werden.
+ * Diese Klasse repraesentiert ein Lager. Ein Lager enthaelt {@link de.hsw_hameln.warehouse.model.Location
+ * Lagerplaetze}, in welchen wiederum {@link de.hsw_hameln.warehouse.model.Article Artikel} gelagert werden.
  * In dieser Klasse findet das ein- und auslagern von {@link de.hsw_hameln.warehouse.model.Article
  * Artikeln} stall.
  * 
@@ -21,7 +21,7 @@ public class Warehouse
 	private int size, volumePerLocation;
 
 	/**
-	 * @param size Die Anzahl der {@link de.hsw_hameln.warehouse.model.Location Lagerplätze}.
+	 * @param size Die Anzahl der {@link de.hsw_hameln.warehouse.model.Location Lagerplaetze}.
 	 * @param volumePerLocation Das Volumen pro {@link de.hsw_hameln.warehouse.model.Location Lagerplatz}.
 	 */
 	public Warehouse(int size, int volumePerLocation)
@@ -35,9 +35,9 @@ public class Warehouse
 	}
 
 	/**
-	 * Gibt die Anzahl der {@link de.hsw_hameln.warehouse.model.Location Lagerplätze} des Lagers zurück.
+	 * Gibt die Anzahl der {@link de.hsw_hameln.warehouse.model.Location Lagerplaetze} des Lagers zurueck.
 	 * 
-	 * @return Die Anzahl der {@link de.hsw_hameln.warehouse.model.Location Lagerplätze} des Lagers.
+	 * @return Die Anzahl der {@link de.hsw_hameln.warehouse.model.Location Lagerplaetze} des Lagers.
 	 */
 	public int getSize()
 	{
@@ -45,9 +45,9 @@ public class Warehouse
 	}
 
 	/**
-	 * Gibt das Volumen der {@link de.hsw_hameln.warehouse.model.Location Lagerplätze} des Lagers zurück.
+	 * Gibt das Volumen der {@link de.hsw_hameln.warehouse.model.Location Lagerplaetze} des Lagers zurueck.
 	 * 
-	 * @return Das Volumen der {@link de.hsw_hameln.warehouse.model.Location Lagerplätze} des Lagers.
+	 * @return Das Volumen der {@link de.hsw_hameln.warehouse.model.Location Lagerplaetze} des Lagers.
 	 */
 	public int getVolumePerLocation()
 	{
@@ -65,7 +65,7 @@ public class Warehouse
 	 * @param date Das Datum, an den die Einlagerung stattfindet/stattgefunden hat.
 	 * @return Eine {@link de.hsw_hameln.warehouse.analysis.Transaction Transaktion}, die die Einlagerung
 	 *         widerspiegelt.
-	 * @throws NotEnoughSpaceException Wenn nicht genug Platz für den
+	 * @throws NotEnoughSpaceException Wenn nicht genug Platz fuer den
 	 *             {@link de.hsw_hameln.warehouse.model.Article Artikel} im Lager vorhanden ist.
 	 */
 	public Transaction store(int articleID, int quantity, GregorianCalendar date)
@@ -92,7 +92,7 @@ public class Warehouse
 
 	/**
 	 * Diese Methode lagert {@link de.hsw_hameln.warehouse.model.Article Artikel} einer bestimmten
-	 * Artikelnummer in einer bestimmten Menge aus. Dabei wird konrolliert, ob die gewünschte Anzahl
+	 * Artikelnummer in einer bestimmten Menge aus. Dabei wird konrolliert, ob die gewuenschte Anzahl
 	 * {@link de.hsw_hameln.warehouse.model.Article Artikel} in dem Lager vorhanden ist.
 	 * 
 	 * @param articleID Die Artikelnummer der auszulagernden {@link de.hsw_hameln.warehouse.model.Article
@@ -128,7 +128,7 @@ public class Warehouse
 	 *            {@link de.hsw_hameln.warehouse.model.Article Artikel} gesucht werden soll.
 	 * @param quantity Die maximale Anzahl, nach der gesucht werden soll.
 	 * @return Hashmap, in der {@link de.hsw_hameln.warehouse.model.Article Artikel}
-	 *         {@link de.hsw_hameln.warehouse.model.Location Lagerplätzen} zugeordnet werden.
+	 *         {@link de.hsw_hameln.warehouse.model.Location Lagerplaetzen} zugeordnet werden.
 	 */
 	private HashMap<Article, Location> findArticle(int articleID, int quantity)
 	{
@@ -147,10 +147,10 @@ public class Warehouse
 	}
 
 	/**
-	 * Prüft, ob für den angegebenen {@link de.hsw_hameln.warehouse.model.Article Artikel} in der
-	 * angegebenen Anzahl genug Platz verfügbar ist.
+	 * Prueft, ob fuer den angegebenen {@link de.hsw_hameln.warehouse.model.Article Artikel} in der
+	 * angegebenen Anzahl genug Platz verfuegbar ist.
 	 * 
-	 * @param articleID Die Artikelnummer des gewünschten {@link de.hsw_hameln.warehouse.model.Article
+	 * @param articleID Die Artikelnummer des gewuenschten {@link de.hsw_hameln.warehouse.model.Article
 	 *            Artikels}.
 	 * @param quantity Die Anzahl des {@link de.hsw_hameln.warehouse.model.Article Artikels}.
 	 * @return &emsp;-true, wenn genug Platz vorhanden ist.<br>

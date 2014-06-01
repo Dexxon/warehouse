@@ -16,7 +16,7 @@ import de.hsw_hameln.warehouse.model.Warehouse;
 import de.hsw_hameln.warehouse.util.Util;
 
 /**
- * Diese Klasse repräsentiert die Testdaten. Ein Testdatensatz entspricht dabei einer
+ * Diese Klasse repraesentiert die Testdaten. Ein Testdatensatz entspricht dabei einer
  * {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegung}. Außerdem wird hier das
  * Gesamtvolumen des {@link de.hsw_hameln.warehouse.model.Warehouse Lagers} festgehalten, welches
  * den Testdaten zugrunde liegt, sowie Start- und Endzeitpunkt der Testdaten.
@@ -31,14 +31,14 @@ public class Testdata
 	private int sizeOfWarehouse;
 
 	/**
-	 * Erzeugt neue, zufällige Testdatensätze. Dabei wird geprüft, ob das Startdatum ein
-	 * arbeitsfreier Tag ist und in diesem Fall am nächsten Arbeitstag mit der
+	 * Erzeugt neue, zufaellige Testdatensaetze. Dabei wird geprueft, ob das Startdatum ein
+	 * arbeitsfreier Tag ist und in diesem Fall am naechsten Arbeitstag mit der
 	 * {@link de.hsw_hameln.warehouse.analysis.Testdata#generateTestData(Warehouse, GregorianCalendar, GregorianCalendar)
 	 * Testdatengenerierung} begonnen.
 	 * 
 	 * @param warehouse Das zugrunde liegende {@link de.hsw_hameln.warehouse.model.Warehouse Lager}.
-	 * @param startDate Der Startzeitpunkt für die Erstellung von Testdatensätzen.
-	 * @param endDate Der Endzeitpunkt für die Erstellung von Testdatensätzen.
+	 * @param startDate Der Startzeitpunkt fuer die Erstellung von Testdatensaetzen.
+	 * @param endDate Der Endzeitpunkt fuer die Erstellung von Testdatensaetzen.
 	 */
 	public Testdata(Warehouse warehouse, GregorianCalendar startDate, GregorianCalendar endDate)
 	{
@@ -67,7 +67,7 @@ public class Testdata
 	 * Testdaten aus dem angegebenen Pfad ein.
 	 * 
 	 * @param path Der Pfad zu der Datei, in welcher die Testdaten gespeichert sind.
-	 * @throws Exception Wenn die Datei nicht vorhanden ist oder keine Testdatensätze enthält.
+	 * @throws Exception Wenn die Datei nicht vorhanden ist oder keine Testdatensaetze enthaelt.
 	 */
 	public Testdata(Path path) throws Exception
 	{
@@ -78,7 +78,7 @@ public class Testdata
 
 	/**
 	 * Gibt das Gesamtvolumen des zugrunde liegenden {@link de.hsw_hameln.warehouse.model.Warehouse
-	 * Lagers} zurück.
+	 * Lagers} zurueck.
 	 * 
 	 * @return Das Gesamtvolumen des zugrunde liegenden
 	 *         {@link de.hsw_hameln.warehouse.model.Warehouse Lagers}.
@@ -90,9 +90,9 @@ public class Testdata
 
 	/**
 	 * Gibt eine Liste aller {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegungen}
-	 * /Testdatensätze zurück.
+	 * /Testdatensaetze zurueck.
 	 * 
-	 * @return Eine Liste aller Testdatensätze.
+	 * @return Eine Liste aller Testdatensaetze.
 	 */
 	public LinkedList<Transaction> getTransactions()
 	{
@@ -101,11 +101,11 @@ public class Testdata
 
 	/**
 	 * Gibt eine Liste aller {@link de.hsw_hameln.warehouse.analysis.Transaction Lagerbewegungen}
-	 * /Testdatensätze zurück.
+	 * /Testdatensaetze zurueck.
 	 * 
 	 * @param startOfPeriod Startpunkt des Zeitraums.
 	 * @param endOfPeriod Endpunkt des Zeitraums.
-	 * @return Eine Liste aller Testdatensätze in dem angegebenen Zeitraum.
+	 * @return Eine Liste aller Testdatensaetze in dem angegebenen Zeitraum.
 	 */
 	public List<Transaction> getTransactionsInPeriod(GregorianCalendar startOfPeriod,
 			GregorianCalendar endOfPeriod)
@@ -128,7 +128,7 @@ public class Testdata
 	}
 
 	/**
-	 * Gibt das Startdatum der Testdaten zurück.
+	 * Gibt das Startdatum der Testdaten zurueck.
 	 * 
 	 * @return Das Startdatum der Testdaten.
 	 */
@@ -138,7 +138,7 @@ public class Testdata
 	}
 
 	/**
-	 * Gibt das Enddatum der Testdaten zurück.
+	 * Gibt das Enddatum der Testdaten zurueck.
 	 * 
 	 * @return Das Enddatum der Testdaten.
 	 */
@@ -148,7 +148,7 @@ public class Testdata
 	}
 
 	/**
-	 * Diese Methode generiert die einzelnen Testdatensätze. Dabei wurden folgende Annahmen
+	 * Diese Methode generiert die einzelnen Testdatensaetze. Dabei wurden folgende Annahmen
 	 * getroffen:<br>
 	 * &emsp;1. Ein Arbeitstag startet um 7:00 Uhr und dauert 8:00 Stunden.<br>
 	 * &emsp;2. An einem Tag finden maximal 20 {@link de.hsw_hameln.warehouse.analysis.Transaction
@@ -159,17 +159,17 @@ public class Testdata
 	 * lagerung von max. 20 {@link de.hsw_hameln.warehouse.model.Article Artikeln} eines Typen.
 	 * 
 	 * @param warehouse Das zugrunde liegende {@link de.hsw_hameln.warehouse.model.Warehouse Lager}.
-	 * @param startDate Der Startzeitpunkt für die Erstellung von Testdatensätzen.
-	 * @param endDate Der Endzeitpunkt für die Erstellung von Testdatensätzen.
+	 * @param startDate Der Startzeitpunkt fuer die Erstellung von Testdatensaetzen.
+	 * @param endDate Der Endzeitpunkt fuer die Erstellung von Testdatensaetzen.
 	 */
 	private void generateTestData(Warehouse warehouse, GregorianCalendar startDate,
 			GregorianCalendar endDate)
 	{
 		GregorianCalendar currentDate = (GregorianCalendar) startDate.clone();
 		int articleID, quantity, transactionsPerDay;
-		int minutesPerDay = 480; // hier kann die Länge eines Arbeitstages angepasst werden
+		int minutesPerDay = 480; // hier kann die Laenge eines Arbeitstages angepasst werden
 		while (currentDate.before(endDate)) {
-			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1; // hier kann der Wert für
+			transactionsPerDay = (int) Math.round(Math.random() * 19) + 1; // hier kann der Wert fuer
 																			// die maximale Anzahl
 																			// Bewegungen pro Tag
 																			// angepasst werden.
@@ -180,7 +180,7 @@ public class Testdata
 
 			while (transactionsPerDay > 0) {
 
-				quantity = (int) Math.round(Math.random() * 19) + 1; // hier kann der Wert für die
+				quantity = (int) Math.round(Math.random() * 19) + 1; // hier kann der Wert fuer die
 																		// maximale Anzahl der
 																		// Anzahl Artikel pro
 																		// Bewegung angepasst

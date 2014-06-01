@@ -15,7 +15,7 @@ public class Article
 	protected int volume;
 
 	/**
-	 * Wird für die Vererbung zu der Klasse "{@link de.hsw_hameln.warehouse.Assortment.SingleArticle}" benötigt. Initialisiert alle Werte mit einem Standardwert.
+	 * Wird fuer die Vererbung zu der Klasse "{@link de.hsw_hameln.warehouse.Assortment.SingleArticle}" benoetigt. Initialisiert alle Werte mit einem Standardwert.
 	 */
 	protected Article()
 	{
@@ -40,7 +40,7 @@ public class Article
 	}
 
 	/**
-	 * Gibt die Artikelnummer des Artikels zurück.
+	 * Gibt die Artikelnummer des Artikels zurueck.
 	 * 
 	 * @return Die Artikelnummer des Artikels.
 	 */
@@ -50,7 +50,7 @@ public class Article
 	}
 
 	/**
-	 * Gibt den Namen des Artikels zurück.
+	 * Gibt den Namen des Artikels zurueck.
 	 * 
 	 * @return Der Name des Artikels.
 	 */
@@ -60,7 +60,7 @@ public class Article
 	}
 
 	/**
-	 * Gibt die Warengruppe des Artikels zurück.
+	 * Gibt die Warengruppe des Artikels zurueck.
 	 * 
 	 * @return Die Warengruppe des Artikels.
 	 */
@@ -70,7 +70,7 @@ public class Article
 	}
 
 	/**
-	 * Gibt das Volumen des Artikels zurück.
+	 * Gibt das Volumen des Artikels zurueck.
 	 * 
 	 * @return Das Volumen des Artikels.
 	 */

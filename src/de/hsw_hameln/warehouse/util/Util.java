@@ -16,8 +16,8 @@ import java.util.Scanner;
 import de.hsw_hameln.warehouse.model.Assortment;
 
 /**
- * Diese Klasse stellt statische Hilfsmethoden zur Verfügung. Dazu gehören Eingagemethoden sowie
- * Methoden für das Lesen und Schreiben von Dateien auf der Festplatte.
+ * Diese Klasse stellt statische Hilfsmethoden zur Verfuegung. Dazu gehoeren Eingagemethoden sowie
+ * Methoden fuer das Lesen und Schreiben von Dateien auf der Festplatte.
  * 
  * @author Nico Tietje, Lorenz Surkemper, Constantin Grote
  * @version 29.05.2014
@@ -26,12 +26,12 @@ public class Util
 {
 
 	/**
-	 * Diese Methode fragt eine Datums- oder Datumseingabe ab. Dabei können flexibel ein Tag, ein
-	 * Monat oder ein Zeitraum eingegeben werden. Es wird ein Array zurückgegeben, welches den
-	 * eingegebenen Zeitraum repräsentiert.
+	 * Diese Methode fragt eine Datums- oder Datumseingabe ab. Dabei koennen flexibel ein Tag, ein
+	 * Monat oder ein Zeitraum eingegeben werden. Es wird ein Array zurueckgegeben, welches den
+	 * eingegebenen Zeitraum repraesentiert.
 	 * 
 	 * @param message Die Eingabeaufforderung
-	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
+	 * @param defaultDate Wird zurueckgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
 	 * @return Ein Array, welches den eingegebenen Zeitraum darstellt. Das erste Element ist der
 	 *         Startzeitpunkt, das zweite der Endzeitpunkt.
 	 */
@@ -55,22 +55,22 @@ public class Util
 	}
 
 	/**
-	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um. Enthält "input"
-	 * nur ein Element (Datum), wird der Zeitraum zurückgegeben, welcher diesen Tag widerspiegelt.
+	 * Diese Methode wandelt eine Datums- bzw. Zeitraumeingabe in einen Zeitraum um. Enthaelt "input"
+	 * nur ein Element (Datum), wird der Zeitraum zurueckgegeben, welcher diesen Tag widerspiegelt.
 	 * 
 	 * Beispiel:<br>
 	 * <br>
 	 * &emsp;Eingabe: 16.07.2013<br>
-	 * &emsp;Rückgabe: 16.07.2013 00:00; 16.07.2013 23:59<br>
+	 * &emsp;Rueckgabe: 16.07.2013 00:00; 16.07.2013 23:59<br>
 	 * <br>
 	 * &emsp;Eingabe: 07.2013<br>
-	 * &emsp;Rückgabe: 01.07.2013 00:00;31.07.2013 23:59<br>
+	 * &emsp;Rueckgabe: 01.07.2013 00:00;31.07.2013 23:59<br>
 	 * <br>
 	 * &emsp;Eingabe: 16.07.2013-18.07.2013<br>
-	 * &emsp;Rückgabe: 16.07.2013 00:00;18.07.2013 23:59
+	 * &emsp;Rueckgabe: 16.07.2013 00:00;18.07.2013 23:59
 	 * 
 	 * @param input Die Eingabe. Ein Element entspricht dabei einem Datums-String.
-	 * @param defaultDate Wird zurückgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
+	 * @param defaultDate Wird zurueckgegeben, wenn keine oder eine falsche Eingabe gemacht wurde.
 	 * @return Eine {@link java.util.ArrayList ArrayList}, welche den angegebenen Zeitraum
 	 *         darstellt.
 	 */
@@ -113,7 +113,7 @@ public class Util
 	}
 
 	/**
-	 * Diese Methode schreibt die übergebenen Zeilen in eine Datei.
+	 * Diese Methode schreibt die uebergebenen Zeilen in eine Datei.
 	 * 
 	 * @param lines Die zu schreibenden Zeilen.
 	 * @param path Der Pfad zu der Datei, in die die Zeilen geschrieben werden.
@@ -133,8 +133,8 @@ public class Util
 	 * Diese Methode liest Zeilen aus einer Datei.
 	 * 
 	 * @param path Der Pfad zu der zu lesenden Datei.
-	 * @return Ein String-Array. Jedes Element enthält eine Zeile der Datei.
-	 * @throws FileNotFoundException Wenn die Datei nicht gefunden wird, weil z.B. ein ungültiger
+	 * @return Ein String-Array. Jedes Element enthaelt eine Zeile der Datei.
+	 * @throws FileNotFoundException Wenn die Datei nicht gefunden wird, weil z.B. ein ungueltiger
 	 *             Pfad angegeben wurde.
 	 */
 	public static String[] readFromDisk(Path path) throws FileNotFoundException
@@ -152,7 +152,7 @@ public class Util
 	 * Diese Methode parst ein Datum in einen lesbaren String.
 	 * 
 	 * @param gc Das zu parsende Datum.
-	 * @return Einen String, welcher das Datum in dem Format "dd.MM.YY" enthält.
+	 * @return Einen String, welcher das Datum in dem Format "dd.MM.YY" enthaelt.
 	 */
 	public static String parseDate(GregorianCalendar gc)
 	{
@@ -161,9 +161,9 @@ public class Util
 	}
 
 	/**
-	 * Eingabe einer Artikelnummer. Dabei wird geprüft, ob diese gülig ist.
+	 * Eingabe einer Artikelnummer. Dabei wird geprueft, ob diese guelig ist.
 	 * 
-	 * @param defaultArticleID Wird zurückgegeben, wenn nichts eingegeben wird.
+	 * @param defaultArticleID Wird zurueckgegeben, wenn nichts eingegeben wird.
 	 * @return Die eingegebene Artikelnummer.
 	 */
 	public static int inputArticleID(int defaultArticleID)
@@ -171,7 +171,7 @@ public class Util
 		int id = -1;
 		String input = "";
 		do {
-			System.out.print("Geben Sie die ID des gewünschten Artikels ein (0-"
+			System.out.print("Geben Sie die ID des gewuenschten Artikels ein (0-"
 					+ (Assortment.getSize() - 1) + ")[" + defaultArticleID + "]: ");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			try {

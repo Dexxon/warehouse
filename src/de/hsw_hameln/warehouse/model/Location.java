@@ -3,10 +3,10 @@ package de.hsw_hameln.warehouse.model;
 import java.util.ArrayList;
 
 /**
- * Diese Klasse stellt einen einzelnen Lagerplatz dar. In einem Lagerplatz können mehrere Artikel
- * gelagert werden. Ein Lagerplatz hat ein bestimmmtes Volumen. Ist dieses ausgeschöpft, können
- * keine weiteren {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzugefügt werden. Dabei wird
- * nicht geprüft, ob noch genügend Platz vorhanden ist. Diese Prüfung muss also auf höherer Ebene
+ * Diese Klasse stellt einen einzelnen Lagerplatz dar. In einem Lagerplatz koennen mehrere Artikel
+ * gelagert werden. Ein Lagerplatz hat ein bestimmmtes Volumen. Ist dieses ausgeschoepft, koennen
+ * keine weiteren {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzugefuegt werden. Dabei wird
+ * nicht geprueft, ob noch genuegend Platz vorhanden ist. Diese Pruefung muss also auf hoeherer Ebene
  * stattfinden.
  * 
  * @author Constantin Grote
@@ -19,7 +19,7 @@ public class Location
 	private ArrayList<Article> articles = new ArrayList<Article>();
 
 	/**
-	 * Erzeugt einen Lagerplatz mit der angegebenen Kapazität.
+	 * Erzeugt einen Lagerplatz mit der angegebenen Kapazitaet.
 	 * 
 	 * @param volume Das Volumen des Lagerplatzes.
 	 */
@@ -29,7 +29,7 @@ public class Location
 	}
 
 	/**
-	 * Gibt die aktuelle Auslastung des Lagerplatzes zurück.
+	 * Gibt die aktuelle Auslastung des Lagerplatzes zurueck.
 	 * 
 	 * @return Die aktuelle Auslastung des Lagerplatzes.
 	 */
@@ -39,9 +39,9 @@ public class Location
 	}
 
 	/**
-	 * Gibt die Gesamtkapazität des Lagerplatzes zurück.
+	 * Gibt die Gesamtkapazitaet des Lagerplatzes zurueck.
 	 * 
-	 * @return Die Gesamtkapazität des Lagerplatzes.
+	 * @return Die Gesamtkapazitaet des Lagerplatzes.
 	 */
 	public int getCapacity()
 	{
@@ -49,9 +49,9 @@ public class Location
 	}
 
 	/**
-	 * Gibt den noch zur Verfügung stehenden Platz in dem Lagerplatz zurück.
+	 * Gibt den noch zur Verfuegung stehenden Platz in dem Lagerplatz zurueck.
 	 * 
-	 * @return Den noch zur Verfügung stehenden Platz in dem Lagerplatz.
+	 * @return Den noch zur Verfuegung stehenden Platz in dem Lagerplatz.
 	 */
 	public int getFreeSpace()
 	{
@@ -59,7 +59,7 @@ public class Location
 	}
 
 	/**
-	 * Gibt die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article Artikel} zurück.
+	 * Gibt die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article Artikel} zurueck.
 	 * 
 	 * @return Die in dem Lagerplatz gelagerten {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
@@ -69,11 +69,11 @@ public class Location
 	}
 
 	/**
-	 * Fügt dem Lagerplatz einen {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzu. Dabei wird
-	 * nicht geprüft, ob noch genügend Platz vorhanden ist. Diese Prüfung muss also auf höherer
+	 * Fuegt dem Lagerplatz einen {@link de.hsw_hameln.warehouse.model.Article Artikel} hinzu. Dabei wird
+	 * nicht geprueft, ob noch genuegend Platz vorhanden ist. Diese Pruefung muss also auf hoeherer
 	 * Ebene stattfinden.
 	 * 
-	 * @param article Der hinzuzufügende {@link de.hsw_hameln.warehouse.model.Article Artikel}.
+	 * @param article Der hinzuzufuegende {@link de.hsw_hameln.warehouse.model.Article Artikel}.
 	 */
 	public void addArticle(Article article)
 	{

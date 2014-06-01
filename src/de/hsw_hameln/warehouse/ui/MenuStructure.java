@@ -15,16 +15,16 @@ import de.hsw_hameln.warehouse.model.Warehouse;
 import de.hsw_hameln.warehouse.util.Util;
 
 /**
- * In dieser Klasse werden die einzelnen {@link de.hsw_hameln.warehouse.ui.MenuItem Menüeinträge}
- * und {@link de.hsw_hameln.warehouse.ui.Menu Menüs} erstellt und zu einer Menüstruktur
- * zusammengefügt.<br>
- * Außerdem enthält diese Klasse den {@link de.hsw_hameln.warehouse.ui.MenuStructure#main(String[])
- * Einstiegspunkt} für das Programm.<br>
- * Die Felder dieser Klasse sind Parameter für die {@link de.hsw_hameln.warehouse.analysis.Analysis
+ * In dieser Klasse werden die einzelnen {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintraege}
+ * und {@link de.hsw_hameln.warehouse.ui.Menu Menues} erstellt und zu einer Menuestruktur
+ * zusammengefuegt.<br>
+ * Außerdem enthaelt diese Klasse den {@link de.hsw_hameln.warehouse.ui.MenuStructure#main(String[])
+ * Einstiegspunkt} fuer das Programm.<br>
+ * Die Felder dieser Klasse sind Parameter fuer die {@link de.hsw_hameln.warehouse.analysis.Analysis
  * Auswertungen}. Sie stellen Standardwerte dar, mit denen die
  * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertungen} stattfinden, wenn keine oder eine
- * falsche Benutzereingabe gemacht wurde. Dabei werden bei der Ausführung einer
- * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertung} die übergebenen Parameter in den
+ * falsche Benutzereingabe gemacht wurde. Dabei werden bei der Ausfuehrung einer
+ * {@link de.hsw_hameln.warehouse.analysis.Analysis Auswertung} die uebergebenen Parameter in den
  * Feldern gespeichert, so dass die Felder immer die zuletzt eingegebenen Werte enthalten.
  * 
  * @author Timo Rodenwaldt, Lorenz Surkemper, Nico Tietje, Constantin Grote
@@ -36,7 +36,7 @@ public class MenuStructure
 {
 	private static Menu testDataMenu = new Menu("Testdaten", true, false);
 	private static Menu analysisMenu = new Menu("Auswertungen", true, false);
-	private static Menu mainMenu = new Menu("Hauptmenü", false, true, testDataMenu, analysisMenu);
+	private static Menu mainMenu = new Menu("Hauptmenue", false, true, testDataMenu, analysisMenu);
 
 	private static ArrayList<GregorianCalendar> period = new ArrayList<GregorianCalendar>();
 	private static Warehouse warehouse;
@@ -45,10 +45,10 @@ public class MenuStructure
 	private static int articleID = 0;
 
 	/**
-	 * Stellt den Einstiegspunkt für die Applikation dar. Hier werden die
-	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menüeintrage} erstellt und zusammengefügt.
-	 * Anschließend wird für das Hauptmenü die Methode {@link de.hsw_hameln.warehouse.ui.Menu#run()}
-	 * aufgerufen, welche das Menü aufruft und die Benutzerinteraktion startet.
+	 * Stellt den Einstiegspunkt fuer die Applikation dar. Hier werden die
+	 * {@link de.hsw_hameln.warehouse.ui.MenuItem Menueeintrage} erstellt und zusammengefuegt.
+	 * Anschließend wird fuer das Hauptmenue die Methode {@link de.hsw_hameln.warehouse.ui.Menu#run()}
+	 * aufgerufen, welche das Menue aufruft und die Benutzerinteraktion startet.
 	 * 
 	 * @param args Die Kommandozeilenargumente. Werden hier nicht verwertet.
 	 */
@@ -71,8 +71,8 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				warehouse = new Warehouse(2000, 20); // hier können die Werte für das Volumen des
-														// Lagers und der Lagerplätze angepasst
+				warehouse = new Warehouse(2000, 20); // hier koennen die Werte fuer das Volumen des
+														// Lagers und der Lagerplaetze angepasst
 														// werden.
 
 				if (testdata == null) {
@@ -95,10 +95,10 @@ public class MenuStructure
 
 				System.out.println("Es wurden "
 						+ NumberFormat.getInstance().format(testdata.getTransactions().size())
-						+ " Testdatensätze in dem Zeitraum vom " + Util.parseDate(period.get(0))
+						+ " Testdatensaetze in dem Zeitraum vom " + Util.parseDate(period.get(0))
 						+ " bis zum " + Util.parseDate(period.get(1)) + " erstellt.");
 
-				path = Util.inputPath(path, "Bitte geben Sie den Pfad für die Testdatendatei ein");
+				path = Util.inputPath(path, "Bitte geben Sie den Pfad fuer die Testdatendatei ein");
 				testdata.writeToDisk(path);
 			}
 		}));
@@ -118,7 +118,7 @@ public class MenuStructure
 					period.set(1, testdata.getEndDate());
 					System.out.println("Es wurden "
 							+ NumberFormat.getInstance().format(testdata.getTransactions().size())
-							+ " Testdatensätze in dem Zeitraum vom "
+							+ " Testdatensaetze in dem Zeitraum vom "
 							+ Util.parseDate(period.get(0)) + " bis zum "
 							+ Util.parseDate(period.get(1)) + " eingelesen.");
 					path = tempPath;
@@ -128,7 +128,7 @@ public class MenuStructure
 			}
 		}));
 
-		testDataMenu.add(new MenuItem("Testdaten löschen", new Runnable()
+		testDataMenu.add(new MenuItem("Testdaten loeschen", new Runnable()
 		{
 
 			@Override
@@ -137,12 +137,12 @@ public class MenuStructure
 				File file = new File(path.toUri());
 
 				if (file.delete()) {
-					System.out.println("Testdaten erfolgreich gelöscht.");
+					System.out.println("Testdaten erfolgreich geloescht.");
 					testdata = null;
 					warehouse = null;
 				} else {
 					System.err
-							.println("Die Testdaten konnten nicht gelöscht werden. Stellen Sie sicher, dass die Datei nicht in einem anderen Programm geöffnet ist.");
+							.println("Die Testdaten konnten nicht geloescht werden. Stellen Sie sicher, dass die Datei nicht in einem anderen Programm geoeffnet ist.");
 				}
 			}
 		}));
@@ -184,7 +184,7 @@ public class MenuStructure
 			}
 		}));
 
-		analysisMenu.add(new MenuItem("Umschlagshäufigkeit", new Runnable()
+		analysisMenu.add(new MenuItem("Umschlagshaeufigkeit", new Runnable()
 		{
 
 			@Override

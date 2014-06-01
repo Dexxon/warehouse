@@ -16,7 +16,7 @@ import de.hsw_hameln.warehouse.util.Util;
 public class Assortment
 {
 	/**
-	 * Diese anonyme Klasse wird für den Aufbau des Sortiments benötigt. Da sie die gleichen
+	 * Diese anonyme Klasse wird fuer den Aufbau des Sortiments benoetigt. Da sie die gleichen
 	 * Eigenschaften hat wie die Klasse "{@link de.hsw_hameln.warehouse.model.Article}", erbt sie
 	 * von dieser.
 	 * 
@@ -50,7 +50,7 @@ public class Assortment
 	 * 
 	 * @param path Der Pfad zu dem Artikelpool.
 	 * @return Ein Array, welches alle {@link de.hsw_hameln.warehouse.model.Article Artikel} des
-	 *         Sortiments enthält.
+	 *         Sortiments enthaelt.
 	 */
 	private static AssortmentArticle[] initialiseArticlePool(Path path)
 	{
@@ -74,9 +74,9 @@ public class Assortment
 	}
 
 	/**
-	 * Gibt den der Artikelnummer entsprechenden Artikelnamen zurück.
+	 * Gibt den der Artikelnummer entsprechenden Artikelnamen zurueck.
 	 * 
-	 * @param articleID Artikelnummer des gewünschten {@link de.hsw_hameln.warehouse.model.Article
+	 * @param articleID Artikelnummer des gewuenschten {@link de.hsw_hameln.warehouse.model.Article
 	 *            Artikels}.
 	 * @return Name des der Artikelnummer entsprechenden
 	 *         {@link de.hsw_hameln.warehouse.model.Article Artikels}.
@@ -87,9 +87,9 @@ public class Assortment
 	}
 
 	/**
-	 * Gibt die der Artikelnummer entsprechende Warengruppe zurück.
+	 * Gibt die der Artikelnummer entsprechende Warengruppe zurueck.
 	 * 
-	 * @param ArticleID Artikelnummer des gewünschten {@link de.hsw_hameln.warehouse.model.Article
+	 * @param ArticleID Artikelnummer des gewuenschten {@link de.hsw_hameln.warehouse.model.Article
 	 *            Artikels}.
 	 * @return Warengruppe des der Artikelnummer entsprechenden
 	 *         {@link de.hsw_hameln.warehouse.model.Article Artikels}.
@@ -100,9 +100,9 @@ public class Assortment
 	}
 
 	/**
-	 * Gibt das der Artikelnummer entsprechende Volumen zurück.
+	 * Gibt das der Artikelnummer entsprechende Volumen zurueck.
 	 * 
-	 * @param articleID Artikelnummer des gewünschten {@link de.hsw_hameln.warehouse.model.Article
+	 * @param articleID Artikelnummer des gewuenschten {@link de.hsw_hameln.warehouse.model.Article
 	 *            Artikels}.
 	 * @return Volumen des der Artikelnummer entsprechenden
 	 *         {@link de.hsw_hameln.warehouse.model.Article Artikels}.
@@ -114,7 +114,7 @@ public class Assortment
 
 	/**
 	 * Gibt die Anzahl der im Sortiment vorhandenen {@link de.hsw_hameln.warehouse.model.Article
-	 * Artikel} zurück.
+	 * Artikel} zurueck.
 	 * 
 	 * @return Die Anzahl der im Sortiment vorhandenen {@link de.hsw_hameln.warehouse.model.Article
 	 *         Artikel}.

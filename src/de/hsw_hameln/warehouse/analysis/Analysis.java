@@ -9,11 +9,11 @@ import de.hsw_hameln.warehouse.util.Util;
  * Diese Klasse stellt statische Methoden zur Auswertung der Testdaten bereit. Dabei wird zwischen
  * zwei verschiedenen Methodenarten unterschieden:<br><br>
  * 1. calculate* Klassen<br>
- * &emsp;&emsp;Diese Methoden berechnen Werte, welche als Grundlagen für die Auswertungen dienen.
- * Sie sind daher nur für diese Klasse sichtbar ("private") und beinhalten keine Ausgaben, sondern
- * liefern das Ergebnis als Rückgabewert.<br>
+ * &emsp;&emsp;Diese Methoden berechnen Werte, welche als Grundlagen fuer die Auswertungen dienen.
+ * Sie sind daher nur fuer diese Klasse sichtbar ("private") und beinhalten keine Ausgaben, sondern
+ * liefern das Ergebnis als Rueckgabewert.<br>
  * 2. Alle anderen Klassen<br>
- * &emsp;&emsp;Diese Methoden übernehmen die eigentlichen Auswertungen, welche dabei direkt auf der
+ * &emsp;&emsp;Diese Methoden uebernehmen die eigentlichen Auswertungen, welche dabei direkt auf der
  * Konsole ausgegeben werden. Die Sichtbarkeit dieser Methoden ist "public".
  * 
  * @author Lorenz Surkemper, Timo Rodenwaldt, Constantin Grote
@@ -24,12 +24,12 @@ public class Analysis
 
 	/**
 	 * Berechnet die Anzahl der Artikel im Lager zu einem bestimmten Zeitpunkt, indem die
-	 * Quantitäten aller Transaktionen pro Artikel bis zu diesem Datum aufaddiert werden.
+	 * Quantitaeten aller Transaktionen pro Artikel bis zu diesem Datum aufaddiert werden.
 	 * 
 	 * @param date Der Zeitpunkt, zu dem die Anzahl berechnet werden soll.
 	 * @param data Die auszuwertenden Testdaten.
-	 * @return Ein Array, dessen Länge der Größe des Sortiments entspricht. Dabei entspricht der
-	 *         Index der Artikelnummer. Jedes Element des Arrays enthält die Anzahl der Artikel zu
+	 * @return Ein Array, dessen Laenge der Groeße des Sortiments entspricht. Dabei entspricht der
+	 *         Index der Artikelnummer. Jedes Element des Arrays enthaelt die Anzahl der Artikel zu
 	 *         dem angegebenen Zeitpunkt.
 	 */
 	private static int[] calculateQuantityPerDay(GregorianCalendar date, Testdata data)
@@ -64,8 +64,8 @@ public class Analysis
 	 * @param startDate Der Startpunkt des Zeitraums.
 	 * @param endDate Der Endpunkt des Zeitraums.
 	 * @param data Die auszuwertenden Testdaten.
-	 * @return Ein Array, dessen Länge der Größe des Sortiments entspricht. Dabei entspricht der
-	 *         Index der Artikelnummer. Jedes Element des Arrays enthält die durchschnittliche
+	 * @return Ein Array, dessen Laenge der Groeße des Sortiments entspricht. Dabei entspricht der
+	 *         Index der Artikelnummer. Jedes Element des Arrays enthaelt die durchschnittliche
 	 *         Anzahl der Artikel zu dem angegebenen Zeitraum.
 	 */
 	private static int[] calculateAverageQuantity(GregorianCalendar startDate,
@@ -96,7 +96,7 @@ public class Analysis
 	}
 
 	/**
-	 * Auswertung über die Anzahl der Artikel in einem bestimmten Zeitraum. Dieser Zeitraum kann
+	 * Auswertung ueber die Anzahl der Artikel in einem bestimmten Zeitraum. Dieser Zeitraum kann
 	 * auch ein Tag sein.
 	 * 
 	 * @param startDate Der Startpunkt des Zeitraums.
@@ -128,7 +128,7 @@ public class Analysis
 	}
 
 	/**
-	 * Auswertung über die Differenzmenge der Artikel in einem bestimmten Zeitraum.
+	 * Auswertung ueber die Differenzmenge der Artikel in einem bestimmten Zeitraum.
 	 * 
 	 * @param startDate Der Startpunkt des Zeitraums.
 	 * @param endDate Der Endpunkt des Zeitraums.
@@ -157,7 +157,7 @@ public class Analysis
 	}
 
 	/**
-	 * Auswertung über die Umschlagshäufigkeit der Artikel in einem bestimmten Zeitraum.
+	 * Auswertung ueber die Umschlagshaeufigkeit der Artikel in einem bestimmten Zeitraum.
 	 * 
 	 * @param startDate Der Startpunkt des Zeitraums.
 	 * @param endDate Der Endpunkt des Zeitraums.
@@ -181,10 +181,10 @@ public class Analysis
 		int[] averageQuantity = calculateAverageQuantity(startDate, endDate, data);
 		float[] turnFrequencyPerArticle = new float[Assortment.getSize()];
 
-		System.out.println("Umschlagshäufigkeit vom " + Util.parseDate(startDate) + " bis zum "
+		System.out.println("Umschlagshaeufigkeit vom " + Util.parseDate(startDate) + " bis zum "
 				+ Util.parseDate(endDate) + ":\n");
 		System.out.printf("%-13s %-60s %-15s\n", "Artikelnummer", "Artikelname",
-				"Umschlagshäufigkeit");
+				"Umschlagshaeufigkeit");
 
 		for (int i = 0; i < Assortment.getSize(); i++) {
 
@@ -199,7 +199,7 @@ public class Analysis
 	}
 
 	/**
-	 * Auswertung über den Artikelverlauf eines Artikels in einem bestimmten Zeitraum.
+	 * Auswertung ueber den Artikelverlauf eines Artikels in einem bestimmten Zeitraum.
 	 * 
 	 * @param articleID Die Artikelnummer des auszuwertenden Artikels.
 	 * @param startDate Der Startpunkt des Zeitraums.
@@ -216,7 +216,7 @@ public class Analysis
 		GregorianCalendar tempDate = (GregorianCalendar) startDate.clone();
 		System.out.println("\n");
 		System.out.println("Bestand vom " + Util.parseDate(startDate) + " bis zum "
-				+ Util.parseDate(endDate) + " für den Artikel '"
+				+ Util.parseDate(endDate) + " fuer den Artikel '"
 				+ Assortment.getArticleName(articleID) + "':\n");
 		System.out.printf("%-13s %-13s %-60s %-15s\n", "Datum", "Artikelnummer", "Artikelname",
 				"Bestand");
@@ -232,7 +232,7 @@ public class Analysis
 	}
 
 	/**
-	 * Auswertung über die Lagerauslastung in einem bestimmten Zeitraum.
+	 * Auswertung ueber die Lagerauslastung in einem bestimmten Zeitraum.
 	 * 
 	 * @param startDate Der Startpunkt des Zeitraums.
 	 * @param endDate Der Endpunkt des Zeitraums.
