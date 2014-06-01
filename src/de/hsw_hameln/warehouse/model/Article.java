@@ -15,9 +15,7 @@ public class Article
 	protected int volume;
 
 	/**
-	 * Wird fuer die Vererbung zu der Klasse "
-	 * {@link de.hsw_hameln.warehouse.Assortment.SingleArticle}" benoetigt. Initialisiert alle Werte
-	 * mit einem Standardwert.
+	 * Standardkonstruktor. Initialisiert alle Werte mit einem Standardwert.
 	 */
 	protected Article()
 	{

@@ -41,7 +41,7 @@ public class MenuStructure
 	private static ArrayList<GregorianCalendar> period = new ArrayList<GregorianCalendar>();
 	private static Warehouse warehouse;
 	private static Testdata testdata;
-	private static Path path = Paths.get("C:\\Testdata\\testdata.csv");
+	private static Path path = Paths.get("C:\\Lagerbewegungen\\testdata.csv");
 	private static int articleID = 0;
 
 	/**
