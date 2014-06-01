@@ -193,11 +193,12 @@ public class Util
 	 * Eingabe eines Pfades.
 	 * 
 	 * @param defaultPath Wird verwendet, wenn kein oder ein falscher Pfad eingegeben wird.
+	 * @param message Die Eingabeaufforderung.
 	 * @return Den eingebene Pfad.
 	 */
-	public static Path inputPath(Path defaultPath)
+	public static Path inputPath(Path defaultPath, String message)
 	{
-		System.out.print("Bitte geben Sie einen Pfad ein[" + defaultPath + "]: ");
+		System.out.print(message + " [" + defaultPath + "]: ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input = "";
 		try {

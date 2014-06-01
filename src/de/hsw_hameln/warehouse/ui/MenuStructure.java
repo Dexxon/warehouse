@@ -88,6 +88,7 @@ public class MenuStructure
 						+ " Testdatensätze in dem Zeitraum vom " + Util.parseDate(period.get(0))
 						+ " bis zum " + Util.parseDate(period.get(1)) + " erstellt.");
 
+				path = Util.inputPath(path, "Bitte geben Sie den Pfad für die Testdatendatei ein");
 				testdata.writeToDisk(path);
 			}
 		}));
@@ -97,7 +98,7 @@ public class MenuStructure
 			@Override
 			public void run()
 			{
-				Path tempPath = Util.inputPath(path);
+				Path tempPath = Util.inputPath(path, "Bitte geben Sie den Pfad zu der Testdatendatei ein");
 				warehouse = new Warehouse(2000, 20);
 
 				try {
