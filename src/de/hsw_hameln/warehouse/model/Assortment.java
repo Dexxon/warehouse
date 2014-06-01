@@ -41,8 +41,9 @@ public class Assortment
 		}
 	}
 
-	private static AssortmentArticle[] articlePool = initialiseArticlePool(Paths
-			.get("C:\\Lagerbewegungen\\Artikelpool.csv"));
+	private static AssortmentArticle[] articlePool = initialiseArticlePool(Util.inputPath(
+			Paths.get("C:\\Lagerbewegungen\\Artikelpool.csv"),
+			"Bitte geben Sie den Pfad zu der Artikelliste ein"));
 
 	/**
 	 * Liest den Artikelpool aus einer .csv-Datei von der Festplatte ein.
@@ -56,7 +57,7 @@ public class Assortment
 		LinkedList<AssortmentArticle> articlePool = new LinkedList<AssortmentArticle>();
 		String[] line;
 		String[] lines = null;
-		
+
 		try {
 			lines = Util.readFromDisk(path);
 		} catch (FileNotFoundException e) {
