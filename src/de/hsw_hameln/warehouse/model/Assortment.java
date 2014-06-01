@@ -37,7 +37,7 @@ public class Assortment
 		}
 	}
 
-	private static AssortmentArticle[] articlePool = initialiseArticlePool("C:\\Artikelpool.csv");
+	private static AssortmentArticle[] articlePool = initialiseArticlePool("C:\\Lagerbewegungen\\Artikelpool.csv");
 
 	/**
 	 * Liest den Artikelpool aus einer .csv-Datei von der Festplatte ein.
@@ -55,6 +55,7 @@ public class Assortment
 			input = new Scanner(new File(path));
 		} catch (FileNotFoundException e) {
 			System.out.println("Fehler beim Einlesen der Artikelliste.");
+			Runtime.getRuntime().exit(1);
 		}
 
 		String[] line;
