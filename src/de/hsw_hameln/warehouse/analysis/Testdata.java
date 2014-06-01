@@ -196,7 +196,6 @@ public class Testdata
 					} catch (NotEnoughArticleException e) {
 					}
 				}
-				System.out.println(currentDate.getTime());
 			}
 
 			currentDate.add(GregorianCalendar.DAY_OF_YEAR, 1);
